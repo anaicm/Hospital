@@ -1,0 +1,219 @@
+/*cabecera*/
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+    height: 80px;
+    background-color: #b0d6e2;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 0 20px;
+	z-index: 999;
+  }
+  
+  header {
+
+	height: 60px;
+	background-color: #fff;
+	
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
+  }
+
+  .logo-container img {
+    height: 100px;
+	padding-top:25px;
+    
+  }
+  
+  .title-container h1 {
+    font-size: 50px;
+    margin: 0;
+    color: #ffffff;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  .button-container {
+    display: flex;
+    align-items: center;
+	padding-right: 40px;
+  }
+  .c_button{
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 10px;
+
+  }
+  .user-button{
+    background-color: #e6dbdb;
+    color: #281da2;
+
+  }.signup-button {
+   
+    background-color: #007bff;
+    color: #ffffff;
+   
+  }
+  .user-button:hover{
+    background-color: #c2a6a6;
+    color: #ffffff;
+  }
+  .signup-button:hover {
+    background-color: #0062cc;
+  }
+  /*En este ejemplo de CSS, se utilizan las propiedades display: flex;, justify-content: space-between;
+   y align-items: center; para alinear los elementos horizontalmente y centrarlos verticalmente en la cabecera.
+   Se utiliza la propiedad height: 80px; para establecer la altura de la cabecera. Se utiliza 
+   la propiedad background-color: #ffffff; para establecer el color de fondo de la cabecera y
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); para añadir una sombra ligera.
+
+   Se estilizan los botones utilizando la propiedad background-color para establecer el color de fondo, 
+   color: #ffffff; para establecer el color del texto, text-decoration: none; para eliminar el subrayado 
+   del texto y border-radius: 5px; para añadir esquinas redondeadas. 
+   También se utiliza margin-left: 10px; para separar los botones ligeramente. Los botones cambian de color*/
+
+   /*Barra de navegación*/
+   /* Estilos CSS para el menú */
+		nav {
+		
+			color: #281da2;
+			display: flex;
+			padding-bottom: 12px;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		nav ul {
+			list-style: none;
+			display: flex;
+			margin: 0;
+			padding: 0;
+		}
+
+		nav ul li {
+			margin-right: 20px;
+		}
+
+		nav ul li a {
+			color: #482b97;
+			text-decoration: none;
+		}
+
+		/* Estilos CSS para el icono de búsqueda */
+		.search-icon {
+			display: flex;
+			align-items: center;
+      
+		}
+    .icon{
+      height: 50px;
+    }
+
+		.search-icon input[type="text"] {
+			padding: 5px;
+			border: 1px solid black;
+			border-radius: 3px;
+			margin-left: 5px;
+			width: 150px;
+		}
+
+		.search-icon button {
+			padding: 5px;
+			background-color: #fff;
+			border: none;
+			border-radius: 3px;
+			margin-left: 5px;
+			cursor: pointer;
+		}
+    /*cuerpo*/
+    #container {
+			display: flex;
+			flex-direction: row;
+			height: 100vh;
+		}
+
+		#fondo {
+			background-image: url('imagenes/pintura_fondo.png');
+			background-size: cover;
+			background-position: center;
+			width: 100%;
+			height: 100%;
+			padding-top: 70px;
+		}
+		
+
+	.columnas{
+		display:flex;
+		flex-direction: column;
+		/* Para centrar un div display: flex y esto: */
+		align-items: center;  
+  		justify-content: center;
+		  padding: 3px;
+		  position: relative;
+		  bottom: 25px;
+	}
+	
+	.filas {
+		display:flex;
+		flex-direction: row;
+	}
+
+	.columnas img{
+			width: 700px;
+			height:360px;
+			margin:6px;
+			border-radius: 10px
+	}
+
+	.columnas .img-fondo {
+		width: 1400px;
+		height:600px;
+	}
+
+    /*pie*/
+    footer {
+			background-color: #b0d6e2;
+			color: #482b97;
+			padding: 20px;
+			text-align: center;
+      		font-size: 25px;
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+		}
+
+		footer a {
+			color: #482b97;
+			text-decoration: none;
+		}
+
+	footer a:hover {
+		text-decoration: underline;
+      	color: #c2a6a6;
+	}
+/*
+		#right {
+			background-color: black;
+			width: 50%;
+			height: 100%;
+			position: relative;
+		}
+
+		#video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+			z-index: -1;
+		}*/
+    
