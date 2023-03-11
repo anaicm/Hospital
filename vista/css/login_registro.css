@@ -1,0 +1,97 @@
+body {
+	background: -webkit-linear-gradient(left,#EDEDE9, #90C3C8);
+	font-family: 'Montserrat', sans-serif;
+}
+
+.container_login {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+.container_registro {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 36px;
+
+}
+
+.login_box {
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	padding: 40px;
+	width: 400px;
+}
+
+.login_box h2 {
+	color: #555;
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+
+.form_login {
+	margin-bottom: 20px;
+	
+}
+
+.form_login label {
+	color: #555;
+	display: block;
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+
+.form_login input[type="text"],
+.form_login input[type="password"],
+.form_login input[type="tel"],
+.form_login input[type="email"]
+ {
+	background-color: #f2f2f2;
+	border: none;
+	border-radius: 4px;
+	color: #555;
+	display: block;
+	font-size: 24px;
+	padding-right:2px;
+	padding-bottom:16px;
+	width: 397px;
+	/*margin-bottom: 10px;*/
+}
+
+
+.form_login input[type="text"]:focus,
+.form_login input[type="password"]:focus {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	/*box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);*/
+	outline: none;
+}
+
+.form_login input[type="submit"] {
+	background-color: #b0d6e2;
+	border: none;
+	border-radius: 4px;
+	color: #fff;
+	cursor: pointer;
+	font-size: 16px;
+	padding: 10px; 
+	width:100%;
+	
+	margin-top:6px;
+	
+}
+
+.form_login input[type="submit"]:hover {
+	background-color: #c2a6a6;
+
+}
+.contra_olvidar{
+	text-align: center;
+	
+}
+/*--------------------------------------------------formulario---------------------------------------------------*/
+
+
+ 
