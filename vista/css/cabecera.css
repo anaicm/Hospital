@@ -59,11 +59,13 @@
   .user-button{
     background-color: #e6dbdb;
     color: #281da2;
+    border: 1px solid #281da2;
 
   }.signup-button {
    
     background-color: #007bff;
     color: #ffffff;
+    border: 1px solid #e6dbdb;
    
   }
   .user-button:hover{
@@ -72,4 +74,9 @@
   }
   .signup-button:hover {
     background-color: #0062cc;
+}
+.logo-cerrar-sesion:hover,.logo-perfil:hover {/*botones del área personal*/
+  background-color: #e6dbdb;
+  border: 1px solid #281da2;
+  border-radius: 10px;
 }

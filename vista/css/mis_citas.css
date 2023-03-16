@@ -23,7 +23,27 @@
     font-size: 24px;
   }
   
-  .cuerpo-citas{
+  .cuerpo-citas{/*CSS para centrar los div*/
     display: flex;
-    justify-content: center;
+    justify-content: center;/*centra el div en columnas */
+    /*align-content: center;*//*centra el div en filas*/
+    flex-wrap: wrap;/*obligatorio para centrar*/
+  }
+  .tarjeta-citas {
+    border: 1px solid rgb(153, 160, 174);
+    width: 50%;
+    height: 150px;
+    padding: 12px;
+    margin: 12px;
+    background-color:white;
+    color: #482b97;
+    font-size: 28px;
+    cursor: pointer;   
+    font-size: 24px;
+    display: flex;/*para hacer filas o columnas*/
+    flex-direction: column;/*si lo quieres row filas (por defecto) colum por columnas*/
+  }
+  .tarjeta-citas:hover{
+    background-color: rgb(153, 160, 174);
+    color: white;
   }
