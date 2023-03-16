@@ -1,0 +1,29 @@
+.logo-volver{
+	height: 25px;
+	width: 30px;
+}
+
+.cabecera-cuerpo-citas{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 10px;
+    color: #281da2;
+    font-family: lexend, Arial, Helvetica, sans-serif;
+    height: 200px;
+    width: 75%;
+    border-radius: 10px;
+    background-image: url("../imagenes/imagenes_portal_de_usuario/Cabecera_Portal_usuario.png");
+  
+  
+  }
+  
+  .cabecera-cuerpo-citas p {
+    padding-top: 120px;
+    padding-right: 55px;
+    font-size: 24px;
+  }
+  
+  .cuerpo-citas{
+    display: flex;
+    justify-content: center;
+  }

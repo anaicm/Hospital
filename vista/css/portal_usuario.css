@@ -1,0 +1,74 @@
+
+/*.logo-perfil{
+  
+  width: 15px;
+  height: 30px;  
+  background-position: center; 
+ 
+}
+.logo-cerrar-sesion{
+  width: 15px;
+  height: 30px;  
+  background-position: center; 
+
+}*/
+.logo-perfil:hover{
+  background-color: #e6dbdb;
+  
+}
+.logo-cerrar-sesion:hover {
+  background-color: #281da2;
+}
+
+/*----------------------------cabecera del cuerpo------------------------------*/
+.cabecera-cuerpo{
+  text-align: center;
+  font-size: 30px;
+  margin-top: 10px;
+  color: #281da2;
+  font-family: lexend, Arial, Helvetica, sans-serif;
+  height: 300px;
+  width: 75%;
+  border-radius: 10px;
+  background-image: url("../imagenes/imagenes_portal_de_usuario/Cabecera_Portal_usuario.png");
+
+
+}
+
+.cabecera-cuerpo p {
+  padding-top: 114px;
+  padding-right: 105px;
+  font-size: 38px;
+}
+
+.cuerpo{
+  display: flex;
+  justify-content: center;
+}
+
+.menu-tarjetas {
+  display: flex;
+  padding: 12px;
+}
+.tarjeta {
+  border: 1px solid rgb(153, 160, 174);
+  border-radius: 10%;
+  width: 250px;
+  height: 200px;
+  text-align: center;
+  padding: 12px;
+  margin: 12px;
+  background-color:white;
+  color: #482b97;
+  font-size: 28px;
+  cursor: pointer;
+}
+.tarjeta:hover{
+  background-color: rgb(153, 160, 174);
+  color: white;
+}
+.imagenes-etiquetas{
+  width: 200px;
+  height: 150px;
+
+}

@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Formularo registro administrador</title>
+	<title>Formularo registro</title>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/login_registro.css">
+	<link rel="stylesheet" type="text/css" href="css/cabecera.css">
+  	<link rel="stylesheet" type="text/css" href="css/barra_navegacion.css">
 </head>
 <!--En este código, cada campo tiene el atributo "required" para que el formulario no se pueda enviar a menos 
 	que se completen todos los campos. También se ha agregado una etiqueta "label" para cada campo, lo que 
 	mejora la accesibilidad del formulario. Además, el campo "Rol" es un menú desplegable que solo permite 
 	seleccionar opciones válidas.-->
-<body>
+<body class="body-fondo">
+	<header class="main-header">
+		<div class="logo-container">
+		 <a href="index.html"><img src="logos/logo_hospital3.png"></a>
+		</div>
+		<div class="title-container">
+		  <h1>CenSalud</h1>
+		</div>
+		<div class="button-container">
+		  <a href="login.html" class="c-button user-button"><img src="logos/logo_volver-1.png" class="logo-volver"></a>
+		</div>
+	</header>
 	<div class="container_registro">
 		<div class="login_box">
 		<h2>Registro de usuario</h2>
@@ -22,6 +35,10 @@
 
 				<label for="DNI">Documento (DNI):</label><br>
 		  		<input type="text" id="dni" name="dni" required><br>
+
+				
+				<label for="Fecha_nacimiento">Fecha de Nacimiento:</label><br>
+		  		<input type="text" id="Fecha_nacimiento" name="Fecha_nacimiento" required><br>
 	
 		  		<label for="telefono">Teléfono:</label><br>
 		  		<input type="tel" id="telefono" name="telefono" required><br>

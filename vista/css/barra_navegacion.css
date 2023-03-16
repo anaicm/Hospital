@@ -1,0 +1,32 @@
+/*-------------------------barra de navegación--------------------------------*/
+/* Estilos CSS para el menú */
+nav {
+	background-color: white;	
+    color: #281da2;
+    display: flex;
+    padding-bottom: 12px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+ 
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #482b97;
+    text-decoration: none;
+}
+  
+.main {
+    margin-top: 80px;
+}
