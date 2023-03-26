@@ -1,0 +1,45 @@
+.texto{
+    font-size: 25px;
+    color: #281da2;
+    font-family: lexend, Arial, Helvetica, sans-serif;
+    padding-top: 5px;
+   
+  }
+  .colocacion-formulario{/*CSS para centrar los div*/
+    display: flex;
+    justify-content: center;/*centra el div en columnas */
+    /*align-content: center;*//*centra el div en filas*/
+    flex-wrap: wrap;/*obligatorio para centrar*/
+    background-color: azure;
+    border: 1px solid #281da2;
+    border-radius: 10px;
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  input{
+    width: 500px;
+    height: 25px;
+    border-radius: 10px;
+    font-family: lexend, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+  }
+  .boton-actualizar{
+    width: 150px;
+    height: 50px;
+    background-color: #c2a6a6;
+    color: #281da2;
+
+    
+  }
+  .boton-actualizar:hover{
+    background-color:#281da2 ;
+    color: #ffffff;
+  }
+  .boton{
+    padding-top: 10px;
+    margin-left: 35%;
+    margin-right: 40%;
+  }

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Familiares</title>
+  <meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/familiares.css">
+  <link rel="stylesheet" type="text/css" href="css/cabecera.css">
+  <link rel="stylesheet" type="text/css" href="css/barra_navegacion.css">
+  
+</head>
+<body class="body-fondo">
+  <header class="main-header">
+    <div class="logo-container">
+     <a href="index.html"><img src="logos/logo_hospital3.png"></a>
+    </div>
+    <div class="title-container">
+      <h1>CenSalud</h1>
+    </div>
+    <div class="button-container">
+        <a href="portal_usuario.html" class="c-button user-button"><img src="logos/logo_volver-1.png" class="logo-volver"></a>
+    </div>
+  </header>
+  <div class="main">
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="centros_hospitalarios.html">Hospitales</a></li>
+      <li><a href="especialistas.html">Especialistas</a></li>
+      <li><a href="portal_usuario.html">Portal del usuario</a></li>
+      <li><a href="familiares.html">Familiares</a></li>
+    </ul>
+  </nav>  
+  <!--Cabecera cuerpo-->
+    <div class="colocacion-cabecera-cuerpo-familiares">
+      <div class="cabecera-cuerpo-familiares">
+        <p>Cuidando de lo que más queremos</p>
+      </div>
+    </div>
+      <!--contenedor de debajo de la cabecera del cuerpo-->
+      <div class="contenedor-familiar">
+        <!--tarjeta familiares parte izquierda-->
+        <div class="contenedor-etiqueta-familiares">
+          <div class="fondo-nombre-familiar">
+            <p>Nombre del familiar</p>
+            <hr>
+            <a href="formulario_actualizar_familiar.html">
+              <input type="button" name="actualizar" value="Actualizar datos" class="boton-aniadir">
+            </a>
+            <input type="button" name="ver_contenido" value="Ver Historial" class="boton-aniadir">
+            <input type="button" name="eliminar" value="Eliminar familiar" class="boton-aniadir">
+          
+          </div>
+          <div class="fondo-nombre-familiar">
+            <p>Nombre del familiar</p>
+            <hr>
+            <a href="formulario_crear_familiar.html"><input type="button" name="aniadir" value="Añadir nuevo familiar" class="boton-aniadir"></a>
+            
+          </div>
+        </div>
+
+
+        <!--tarjeta contenido parte derecha-->
+        <div class="fondo-contenido-familiar">
+          <p>historial familiar</p><hr>
+          <div class="contenedor-etiqueta-familiares">
+            <div class="etiquetas-contenido-familiares contenedor-familiar" >
+              <div class="contenido-texto">
+                <a href="pedir_cita.html">
+                  <p>Pedir cita</p> 
+              </div>
+              <div class="contenido-icono">
+                  <img src="imagenes/imagenes_portal_de_usuario/icono_pedir_cita_familiares.png" class="iconos">
+                </a>
+              </div>
+            </div>
+            <div class="etiquetas-contenido-familiares contenedor-familiar">
+              <div class="contenido-texto">
+                <a href="mis_citas.html">
+                  <p>Citas próximas</p>
+              </div>
+              <div class="contenido-icono">
+                  <img src="imagenes/imagenes_portal_de_usuario/icono_consultar_citas_familiares.png" class="iconos">
+                </a>
+              </div>
+            </div>
+            <div class="etiquetas-contenido-familiares contenedor-familiar">
+              <div class="contenido-texto">
+                <a href="informes_clinicos.html">
+                  <p>Informes</p>
+              </div>
+              <div class="contenido-icono">
+                <img src="imagenes/imagenes_portal_de_usuario/icono_informes_familiares.png" class="iconos">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</body>
+</html>

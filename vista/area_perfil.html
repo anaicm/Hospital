@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mi perfil</title>
+  <meta charset="UTF-8">
+  <!--Estilos--------------------------------------------------------------------------------------------------------------->
+	<link rel="stylesheet" type="text/css" href="css/area_perfil.css">
+  <link rel="stylesheet" type="text/css" href="css/cabecera.css">
+  <link rel="stylesheet" type="text/css" href="css/formulario_actualizar_anadir_farmiliares.css">
+  <link rel="stylesheet" type="text/css" href="css/barra_navegacion.css">
+  <!--JavaScript------------------------------------------------------------------------------------------------------------>
+  <script src="js/jquery-3.6.3.min.js"></script>
+  <script src="js/area_perfil.js" ></script>
+</head>
+<body class="body-fondo">
+  <!--Cabecera cuerpo-------------------------------------------------------------------------------------------------------->
+  <header class="main-header">
+    <div class="logo-container">
+     <a href="index.html"><img src="logos/logo_hospital3.png"></a>
+    </div>
+    <div class="title-container">
+      <h1>CenSalud</h1>
+    </div>
+    <div class="button-container">
+      <a href="portal_usuario.html" class="c-button user-button"><img src="logos/logo_volver-1.png" class="logo-volver"></a>
+    </div>
+  </header>
+  <!--Barra de navegación---------------------------------------------------------------------------------------------------->
+  <div class="main">
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="centros_hospitalarios.html">Hospitales</a></li>
+      <li><a href="especialistas.html">Especialistas</a></li>
+      <li><a href="portal_usuario.html">Portal del usuario</a></li>
+      <li><a href="area_perfil.html">Mi perfil</a></li>
+    </ul>
+  </nav>
+  <!--Cuerpo página-->
+  <!--contenedor izquierdo----------------------------------------------------------------------------------------------------->
+    <div class="contenedor-perfil">
+      <!--caja para mostrar los datos registrados-->
+      <div class="contenedor-datos">
+        <form action="#" method="post" name="mostrar-datos-usuario">
+          <table>
+            <tr>
+              <td>
+                <div class="contenedor-perfil">
+                  <div class="etiqueta-datos"><b>FOTO: </b></div>
+                  <!--traer con php los datos del usuario-->
+                  <div class="contenedor-imagen">
+                    <img src="imagenes/imagenes_portal_de_usuario/aniadir_foto_perfil_editada.png" class="etiqueta-datos-foto">
+                  </div>
+                  <div class="contenedor-cambiar-imagen">
+                    <div class="logo-modificar"><img src="imagenes/imagenes_portal_de_usuario/logo_cambiar_imagen.png" class="etiqueta-datos-foto"></div>
+                    <div class="etiqueta-datos"><b>Cambiar foto </b></div>
+                </div>
+              </div>
+                <hr>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="etiqueta-datos"><b>NOMBRE: </b><span class="datos"><i>Ana Isabel</i></span></div><!--traer con php los datos del usuario-->
+                <hr>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="etiqueta-datos"><b>APELLIDOS: </b><span class="datos"><i>Cuéllar Maestro</i></span></div><!--traer con php los datos del usuario-->
+                <hr>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="etiqueta-datos"><b>FECHA DE NACIMIENTO: </b><span class="datos"><i>26/10/1987</i></span></div><!--traer con php los datos del usuario-->
+                <hr>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="etiqueta-datos"><b>TELÉFONO: </b><span class="datos"><i>670766963</i></span></div><!--traer con php los datos del usuario-->
+                <hr>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="etiqueta-datos"><b>EMAIL: </b><span class="datos"><i>Anaicm1@gmail.com</i></span></div><!--traer con php los datos del usuario-->
+                <hr>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="etiqueta-datos"><b>DRECCIÓN: </b><span class="datos"><i>Alegria de la huerta</i></span></div><!--traer con php los datos del usuario-->
+                <hr>
+              </td>
+            </tr>
+          </table>
+        </form> 
+      </div>
+       <!--contenedor derecho----------------------------------------------------------------------------------------------->
+      <div class="contenedor-datos-modificar">
+        <div class="contenedor-cambiar-imagen">
+           <!--menú modificar datos--------------------------------->
+        <div class="contenedor-perfil">
+         
+          <div id="datos" class="menu etiqueta-datos" onclick="mostrar_formulario_datos('form_datos')">
+            Restablecer datos
+            <hr>
+          </div>
+          <!--formulario modificar datos-->
+          <div id="form_datos" class="submenu">
+          <form action="#" method="post" name="form-actualizar-datos">
+            <table>
+                <tr>
+                    <td>
+                        <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="" required><hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="apellido" id="apellido" placeholder="Apellidos" value="" required><hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="telefono" id="telefono" placeholder="Teléfono de contacto" value="" required><hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="direccion" id="direccion" placeholder="Dirección" value="" required><hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="fech_nacimiento" id="fech_nacimiento" placeholder="Fecha de nacimiento" value="" required><hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <input type="text" name="dni" id="dni" placeholder="Documento nacional (DNI)" value="" required><hr>
+                    </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="text" name="email" id="email" placeholder="Email" value="" required><hr>
+                  </td>
+              </tr>
+                <tr>
+                    <td>
+                       <div class="boton">
+                         <input type="submit" name="registro_familiar" id="registro_familiar" value="Enviar" class="boton-actualizar">
+                       </div> 
+                    </td>
+                </tr>
+            </table>
+        </form>
+          </div>
+        </div>
+          <!--menú modificar contraseña------------------------------>
+        <div class="contenedor-perfil">
+          <div id="contra" class="menu etiqueta-datos" onclick="mostrar_formulario_datos('form_contra')">
+          Restablecer contraseña
+          <hr>
+          </div>
+          <!--formulario modificar contraseña-->
+          <div id="form_contra" class="submenu">
+            <form action="#" method="post" name="form-cambiar-contra">
+              <table>
+                  <tr>
+                      <td>
+                          <input type="text" name="contra" id="contra" placeholder="Contraseña actual" required><hr>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <input type="text" name="contra1" id="contra1" placeholder="Nueva contraseña" required><hr>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <input type="text" name="contra2" id="contra2" placeholder="Verificar nueva contraseña"required><hr>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                         <div class="boton">
+                           <input type="submit" name="actualizar_contra" id="actualizar_contra" value="Enviar" class="boton-actualizar">
+                         </div> 
+                      </td>
+                  </tr>
+              </table>
+          </form>
+          </div>
+        </div>
+          <!--menú modificar email---------------------------------->
+        <div class="contenedor-perfil">
+          <div id="email" class="menu etiqueta-datos" onclick="mostrar_formulario_datos('form_email')">
+            Restablecer email
+            <hr>
+          </div>
+          <!--formulario modificar email-->
+          <div id="form_email"  class="submenu">
+            <form action="#" method="post" name="form-cambiar-correo">
+              <table>
+                  <tr>
+                      <td>
+                          <input type="text" name="correo" id="correo" placeholder="email actual" required><hr>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <input type="text" name="correo1" id="correo1" placeholder="email correo" required><hr>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <input type="text" name="correo2" id="correo2" placeholder="Verificar nueva email"required><hr>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                         <div class="boton">
+                           <input type="submit" name="actualizar_correo" id="actualizar_correo" value="Enviar" class="boton-actualizar">
+                         </div> 
+                      </td>
+                  </tr>
+              </table>
+          </form>
+          </div>
+        </div>
+        </div>
+        </div>
+      </div>
+        
+    </div>
+  </div>
+</body>
+</html>
