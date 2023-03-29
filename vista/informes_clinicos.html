@@ -6,6 +6,13 @@
 	<link rel="stylesheet" type="text/css" href="css/informes_clinicos.css">
   <link rel="stylesheet" type="text/css" href="css/cabecera.css">
   <link rel="stylesheet" type="text/css" href="css/barra_navegacion.css">
+  <!--JavaScript-->
+  <script>
+    function mostrar_formulario_datos (div){
+    var contenedor_formulario_datos=document.getElementById(div);
+    contenedor_formulario_datos.classList.toggle("visible");
+  }
+  </script>
   
 </head>
 <body class="body-fondo">
@@ -31,3 +38,31 @@
     </ul>
   </nav>  
   <!--cuerpo-->
+  <div class="etiqueta_informes_columnas">
+    <!--Etiqueta nombre de la especialidad---------------------------------------------------------------------------------------------------------->
+   <div class="etiqueta etiqueta1" onclick="mostrar_formulario_datos ('contenido_informe')">
+     <!--parte de arriba-->
+       <div id="cabecera_informe" class="etiqueta_informes_horizontal ">
+         <div class="cabecera_etiqueta_informes">Especialidad</div>
+         <div class="cabecera_etiqueta_informes">Especialista</div>
+         <div class="cabecera_etiqueta_informes">Fecha</div>
+       </div>
+       <hr>
+       <!--parte de abajo-->
+       <div class="etiqueta_informes_horizontal ">
+         <div class="cabecera_etiqueta_informes">Especialidad</div><!--búsqueda de la especialidad-->
+         <div class="cabecera_etiqueta_informes">Especialista</div><!--búsqueda de la especialista-->
+         <div class="cabecera_etiqueta_informes">Fecha</div><!--búsqueda de la fecha-->
+       </div>
+   </div>
+    <!--Etiqueta del informe---------------------------------------------------------------------------------------------------------->
+   <div id="contenido_informe" class="etiqueta etiqueta2 invisible">
+     Informe
+   </div>
+ </div>
+
+
+
+ </div>
+</body>
+</html>

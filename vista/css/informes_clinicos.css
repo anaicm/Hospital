@@ -1,0 +1,35 @@
+.etiqueta_informes_columnas{
+    display: flex;
+    flex-direction: column;
+
+}
+.etiqueta{
+    background-color: beige;
+    border:1px solid #281da2;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #281da2;
+    font-family: lexend, Arial, Helvetica, sans-serif;
+    margin: 10px 300px 10px 300px;
+   
+}
+.etiqueta1{
+    height: 100px;
+}
+.etiqueta2{
+    height: 150px;
+}
+.etiqueta_informes_horizontal{
+    display: flex;
+    flex-direction: row;
+}
+.cabecera_etiqueta_informes{
+    margin: 10px 20px 10px   10px;
+    width: 40%;
+}
+.visible{
+    display: block;
+}
+.invisible{
+    display: none;
+}
