@@ -1,17 +1,17 @@
 <?php
-function crud_select($tabla, $field_name, $condicion) {
+function crud_select($tabla, $campo, $condicion) {
     try {
-        // Conectar a la base de datos utilizando PDO
-        $dsn = 'mysql:host=localhost;dbname=hospital';
+        // Conexión base de datos
+       /* $dsn = 'mysql:host=localhost;dbname=hospital';
         $username = 'root';
         $password = '';
-        $pdo = new PDO($dsn, $username, $password);
-
+        $pdo = new PDO($dsn, $username, $password);*/
+        require_once("Conexion_BD.php");
         // Crear una consulta dinámica utilizando los parámetros proporcionados
-        $sql = "SELECT * FROM $tabla WHERE $field_name = :condicion";
-        $stmt = $pdo->prepare($sql);
+        $sql = "SELECT * FROM $tabla WHERE $campo = :condicion";//realiza la consulta
+        $stmt = $pdo->prepare($sql);//prepara la sql
         $stmt->bindParam(':condicion', $condicion);
-        $stmt->execute();
+        $stmt->execute();//ejecuta
 
         // Retornar los resultados
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
