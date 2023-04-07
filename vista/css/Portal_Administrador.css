@@ -1,13 +1,27 @@
-table,td{
-    border: 1px solid #281da2 ;
+table{
     padding-right: 10px;
-    cursor: pointer;
-    background-color:#E6E6EF;
-    color: black;
-    font-size: 30px;
+    background-color:#1F736A;
     margin: 10px 10px 10px 10px;
     width: 75%;
-    padding-top: 20px;
+    
+    
+}
+.texto{
+    color: beige;
+    font-size: 30px;
+    text-align: center;
+
+}
+.celdas{
+    background-color:#6ED8A5;
+    width: 75%;
+    padding-top: 10px;
+    cursor: pointer;
+    margin: 10px 10px 10px 10px;
+}
+.celdas:hover{
+    background-color: #B9B8D3;
+    color: black;
 }
 
 .contenedor-der{

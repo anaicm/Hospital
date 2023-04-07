@@ -15,10 +15,13 @@
 </head>
 
 <?php
-//session_start();
-//if (!isset($_SESSION['usuario'])) {
-    //header('location: login.php');
-//}
+session_start();
+if (!isset($_SESSION['usuario'])) {
+    header('location: login.php');
+    exit();
+}
+
+echo "<br><br><br><br><br><br><br>Hola" . $_SESSION['usuario'];
 ?>
 
 
@@ -54,15 +57,38 @@
         <div class="row">
             <div class="col-md-6 float-left">
                 <!--div para mostrar las tablas de BD-->
-                <table>
+                <table class="texto">
                     <tr>
                         <th>Tablas Base</th>
                     </tr>
-                    <tr>
-                        <!--bucle-->
-                        <td>tabla1</td>
-                    </tr>
                 </table>
+                <div class="celdas texto">
+                    Centro
+                </div>
+                <div class="celdas texto">
+                    Ciudad
+                </div>
+                <div class="celdas texto">
+                    Provincia
+                </div>
+                <div class="celdas texto">
+                    Departamento
+                </div>
+                <div class="celdas texto">
+                    Personal
+                </div>
+                <div class="celdas texto">
+                    Citas
+                </div>
+                <div class="celdas texto">
+                    Tipo de citas
+                </div>
+                <div class="celdas texto">
+                    Paciente
+                </div>
+                <div class="celdas texto">
+                    Familiares
+                </div>
             </div>
             <div class="col-md-6 float-right ">
                 <!--div para mostrar la barra de búsqueda y GIG-->

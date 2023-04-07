@@ -6,13 +6,16 @@ if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['passw
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	
+    //hay que mirar si el usuario está en la tabla usuario y si el password hasheado es igual al password del usuario en la base de datos
 	if($username == "prueba" && $password == "prueba"){
 		session_start();
 		$_SESSION['usuario'] = 'prueba';
+
+        //Si es administrador hay que mandarlo al portal del admin si no al portal de usuario
 		header('Location: portal_administrador.php');
 		exit; // Es importante salir del script después de la redirección
 	}else{
-		$msg = 'Wrong username or password';
+		$msg = 'Usuario o contraseña no válidos';
 	}
 }
 ?>
@@ -63,7 +66,7 @@ if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['passw
                     <input type="password" id="password" name="password" required>
                 </div>
                 <div class="form_login button">
-                    <input type="submit" id="login" value="Login">
+                    <input type="submit" id="login" name="login" value="Login">
                 </div>
                 <div class="contra_olvidar">
                     <p><a href="#">¿Has olvidado tú contraseña?</a></p>
