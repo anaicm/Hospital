@@ -8,10 +8,9 @@
     <title>Portal Administración BD</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/Portal_Administrador.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" type="text/css" href="css/cabecera.css">
-    <link rel="stylesheet" type="text/css" href="css/barra_navegacion.css">
+    <link rel="stylesheet" type="text/css" href="../css/Portal_Administrador.css">
+    <link rel="stylesheet" type="text/css" href="../css/cabecera.css">
+    <link rel="stylesheet" type="text/css" href="../css/barra_navegacion.css">
 </head>
 
 <?php
@@ -29,13 +28,13 @@ echo "<br><br><br><br><br><br><br>Hola" . $_SESSION['usuario'];
     <!--Cabecera------------------------------------------------------------------------------------------>
     <header class="main-header">
         <div class="logo-container">
-            <a href="index.html"><img src="logos/logo_hospital4.png"></a>
+            <a href="../index.html"><img src="../logos/logo_hospital4.png"></a>
         </div>
         <div class="title-container">
             <h1>CenSalud</h1>
         </div>
         <div class="button-container">
-            <a href="portal_administrador.php" class="c-button user-button"><img src="logos/logo_volver-1.png"
+            <a href="../portal_administrador.php" class="c-button user-button"><img src="../logos/logo_volver-1.png"
                     class="logo-volver"></a>
         </div>
     </header>
@@ -43,10 +42,10 @@ echo "<br><br><br><br><br><br><br>Hola" . $_SESSION['usuario'];
     <div class="main">
         <nav>
             <ul>
-                <li><a href="portal_administrador.php">Inicio</a></li>
-                <li><a href="centros_hospitalarios.html">Hospitales</a></li>
-                <li><a href="especialistas.html">Especialistas</a></li>
-                <li><a href="portal_usuario.html">Portal del usuario</a></li>
+                <li><a href="../portal_administrador.php">Inicio</a></li>
+                <li><a href="../centros_hospitalarios.html">Hospitales</a></li>
+                <li><a href="../especialistas.html">Especialistas</a></li>
+                <li><a href="../portal_usuario.html">Portal del usuario</a></li>
             </ul>
         </nav>
         <!--Cuerpo------------------------------------------------------------------------------------------------------>
@@ -65,10 +64,10 @@ echo "<br><br><br><br><br><br><br>Hola" . $_SESSION['usuario'];
                 <div class="celdas texto">
                     Centro
                 </div>
-                <div class="celdas texto">
+                <div onclick="document.getElementById('iframe').src ='ciudad.php'" class="celdas texto">
                     Ciudad
                 </div>
-                <div class="celdas texto">
+                <div onclick="document.getElementById('iframe').src ='provincia.php'" class="celdas texto">
                     Provincia
                 </div>
                 <div class="celdas texto">
@@ -91,17 +90,7 @@ echo "<br><br><br><br><br><br><br>Hola" . $_SESSION['usuario'];
                 </div>
             </div>
             <div class="col-md-6 float-right ">
-                <!--div para mostrar la barra de búsqueda y GIG-->
-                <div class="contenedor-der">
-
-                    <input type="text" placeholder="Busqueda rápida">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-search" viewBox="0 0 16 16">
-                        <path
-                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                    </svg>
-                    <!--gif-->
-                </div>
+                <iframe id='iframe' src="ciudad.php">
             </div>
             <div class="clearfix"></div>
         </div>

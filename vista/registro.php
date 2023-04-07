@@ -1,5 +1,5 @@
 <?php
-require_once('../controlador/crud.php');
+require_once('../modelo/crud.php');
 $msg = '';
 if (isset($_POST['registrar'])) {
 	
