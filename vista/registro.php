@@ -12,8 +12,8 @@ if (isset($_POST['registrar'])) {
 	$contrasenia = $_POST['password'];
 
     try {
-    crud_insert('Usuario', array('nombre' => $nombre, 'apellido' => $apellido, 'telefono' => $telefono,  'contrasenia' => $contrasenia, 'email' => $email));
-    header("location: login.php");
+    crud_insert('Usuario', array('nombre' => $nombre, 'apellido' => $apellido, 'telefono' => $telefono,  'contrasenia' => $contrasenia, 'email' => $email, 'rol' => 'Usuario'));
+    //header("location: login.php");
     } catch (PDOException $e) {
         echo 'Error al insertar usuario: ' . $e->getMessage();
     }

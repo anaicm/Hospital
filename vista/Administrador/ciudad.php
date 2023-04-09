@@ -1,16 +1,16 @@
 <?php
 require_once('../../modelo/crud.php');
 
-$ciudades=crud_getall('ciudad');
+$ciudades=crud_get_all('ciudad');//trae la tabla ciudad
 
 echo "<table>";
     echo "<tr>
-        <th>Centro</th>
-        <th>Centro</th>
+        <th>idCiudad</th>
+        <th>Nombre</th>
     </tr>";
     foreach ($ciudades as $ciudad) {
     echo "<tr>
-        <td>" . $ciudad['idProvincia'] . "</td>
+        <td>" . $ciudad['idCiudad'] . "</td>
         <td>" . $ciudad['Nombre'] . "</td>
     </tr>";
     }

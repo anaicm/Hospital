@@ -12,7 +12,7 @@ if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['passw
 		$_SESSION['usuario'] = 'prueba';
 
         //Si es administrador hay que mandarlo al portal del admin si no al portal de usuario
-		header('Location: portal_administrador.php');
+		header('Location: administrador/portal_administrador.php');
 		exit; // Es importante salir del script después de la redirección
 	}else{
 		$msg = 'Usuario o contraseña no válidos';
@@ -52,7 +52,7 @@ if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['passw
     </header>
     <div class="container_login">
         <div class="login_box">
-            <h2>Login</h2>
+            <h2>Login (usuario:prueba contraseña:prueba)</h2>
             <?php if (!empty($msg)): ?>
             <p><?php echo $msg; ?></p>
             <?php endif; ?>

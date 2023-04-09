@@ -1,7 +1,7 @@
 <?php
 require_once('../../modelo/crud.php');
 
-$provincias=crud_getall('provincia');
+$provincias=crud_get_all('provincia');//trae la tabla provincia
 
 echo "<table>";
     echo "<tr>
