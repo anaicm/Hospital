@@ -6,20 +6,23 @@
     <title>Portal Administración BD</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-
     <script>
+    /*
+    @function para eliminar por id
+    *
+    */
     function borrar(id) {
-        var dialog = confirm("Estas seguro?");
+        var dialog = confirm("Estas seguro?"); //muestra una caja para confirmar o cancelar
         if (dialog) {
             var http = new XMLHttpRequest();
             var url = '/Hospital/controlador/controlador_usuario.php';
             var params = 'action=borrar&id=' + id;
             http.open('POST', url, true);
 
-            //Send the proper header information along with the request
+            //envía la información de encabezado junto con la solicitud
             http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-            http.onreadystatechange = function() { //Call a function when the state changes.
+            http.onreadystatechange = function() { //llama a la función cuando cambia de estado
                 if (http.readyState == 4 && http.status == 200) {
                     location.reload();
                 }
@@ -28,6 +31,10 @@
 
         }
     }
+    /*
+    @function para buscar por id
+    *
+    */
 
     function seleccionar(id) {
         var http = new XMLHttpRequest();
@@ -90,6 +97,7 @@ echo "<table class=\"table table-hover\">";
         <th scope=\"col\"></th>
         <th scope=\"col\"></th>
     </tr>";
+    //falta el campo del DNI
     foreach ($usuarios as $usuario) {
     echo "<tr onclick=\"seleccionar('" . $usuario['idUsuario'] . "');\" >
         <td scope='row'>" . $usuario['idUsuario'] . "</td>
