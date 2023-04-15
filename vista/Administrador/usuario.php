@@ -6,28 +6,29 @@
     <title>Portal Administración BD</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/Administrador_Usuario.css">
     <script>
     /*
-    @function para eliminar por id
-    *
+    @function para eliminar por id, usando una solicitud HTTP asíncrona que realiza la llamada al servidor 
+    *sin recargar la página.
     */
     function borrar(id) {
         var dialog = confirm("Estas seguro?"); //muestra una caja para confirmar o cancelar
-        if (dialog) {
-            var http = new XMLHttpRequest();
+        if (dialog) { //si acepta
+            var http = new XMLHttpRequest(); //se crea un objeto para realizar la solicitud asíncrona al servidor
             var url = '/Hospital/controlador/controlador_usuario.php';
-            var params = 'action=borrar&id=' + id;
+            var params = 'action=borrar&id=' + id; // indicador para eliminar cuando accione onclick en eliminar
             http.open('POST', url, true);
 
             //envía la información de encabezado junto con la solicitud
             http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-            http.onreadystatechange = function() { //llama a la función cuando cambia de estado
-                if (http.readyState == 4 && http.status == 200) {
-                    location.reload();
+            //llama a la función para definir la respuesta al servidor cuando cambia de estado
+            http.onreadystatechange = function() {
+                if (http.readyState == 4 && http.status == 200) { //
+                    location.reload(); //Refresca la página
                 }
             }
-            http.send(params);
+            http.send(params); // envio del Ajax al servidor.
 
         }
     }
@@ -55,9 +56,25 @@
                 document.getElementById('FechaNacimiento').value = usuario[0].FechaNacimiento;
                 document.getElementById('email').value = usuario[0].Email;
                 document.getElementById('rol').value = usuario[0].Rol;
+                document.getElementById('registrar').style.display = 'none';
+                document.getElementById('modificar').style.display = 'block';
+                document.getElementById('idUsuario').value = id;
             }
         }
         http.send(params);
+    }
+
+    function limpiarFormulario() {
+        document.getElementById('nombre').value = "";
+        document.getElementById('apellidos').value = "";
+        document.getElementById('dni').value = "";
+        document.getElementById('Telefono').value = "";
+        document.getElementById('FechaNacimiento').value = "";
+        document.getElementById('email').value = "";
+        document.getElementById('rol').value = "";
+
+        document.getElementById('registrar').style.display = "block";
+        document.getElementById('modificar').style.display = "none";
     }
     </script>
 </head>
@@ -66,7 +83,25 @@
     <?php
 require_once('../../modelo/crud.php');
 
-if (isset($_POST['registrar'])) {
+if (isset($_POST['registrar'])) {//
+    $nombre = $_POST['nombre'];
+	$apellido = $_POST['apellidos'];
+    $dni = $_POST['dni'];
+	$telefono = $_POST['Telefono'];
+	$fnacimiento = date('Y-m-d', strtotime(str_replace('-', '/', $_POST['FechaNacimiento'])));
+	$email = $_POST['email'];
+	$contrasenia = $_POST['password'];
+
+    try {
+    crud_insert('Usuario', array('nombre' => $nombre, 'apellido' => $apellido, 'telefono' => $telefono, 'FechaNacimiento' => $fnacimiento,'contrasenia' => $contrasenia, 'email' => $email, 'rol' => 'Administrador'));
+    header("Refresh:0");
+    } catch (PDOException $e) {
+        echo 'Error al insertar usuario: ' . $e->getMessage();
+    }
+}
+
+if (isset($_POST['modificar'])) {
+    $id = $_POST['idUsuario'];
     $nombre = $_POST['nombre'];
 	$apellido = $_POST['apellidos'];
     $dni = $_POST['dni'];
@@ -74,10 +109,10 @@ if (isset($_POST['registrar'])) {
 	$fnacimiento = date('d-m-Y', strtotime(str_replace('-', '/', $_POST['FechaNacimiento'])));
 	$email = $_POST['email'];
 	$contrasenia = $_POST['password'];
+    $rol = $_POST['rol'];
 
     try {
-    crud_insert('Usuario', array('nombre' => $nombre, 'apellido' => $apellido, 'telefono' => $telefono, 'FechaNacimiento' => $fnacimiento,'contrasenia' => $contrasenia, 'email' => $email, 'rol' => 'Administrador'));
-    header("Refresh:0");
+        crud_update('Usuario', array('nombre' => $nombre, 'apellido' => $apellido, 'telefono' => $telefono, 'FechaNacimiento' => $fnacimiento,'contrasenia' => $contrasenia, 'email' => $email, 'rol' => $rol), "idUsuario = $id");
     } catch (PDOException $e) {
         echo 'Error al insertar usuario: ' . $e->getMessage();
     }
@@ -111,11 +146,10 @@ echo "<table class=\"table table-hover\">";
     </tr>";
     }
     echo "</table>";
-    //mostrar la tabla usuarios   
-
-    
+    //mostrar la tabla usuarios     
 ?>
-
+    <button class="btn btn-primary" onclick="limpiarFormulario()" type="submit" id="Anadir" name="Anadir"
+        value="Anadir">Añadir Nuevo</button>
     <!--formulario de usuarios-->
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
@@ -131,8 +165,11 @@ echo "<table class=\"table table-hover\">";
         </ul>
     </nav>
 
-    <div class='d-flex'>
+    <div id='panel-modificar' class='d-flex'>
         <form method="post" class="">
+            <?php 
+            echo '<input type="hidden" name="idUsuario" id="idUsuario" value="">'
+            ?>
             <div class="input-group mb-1 d-inline-flex p-1 bd-highlight">
                 <!--clase de bootstrap-->
                 <div class="input-group-prepend">
@@ -172,7 +209,8 @@ echo "<table class=\"table table-hover\">";
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon3">Email: </span>
                 </div>
-                <input type="text" class="form-control" id="email" name="email" aria-describedby="basic-addon3">
+
+                <input type="email" class="form-control" id="email" name="email" aria-describedby="basic-addon3">
             </div>
             <div class="input-group mb-1 d-inline-flex p-1 bd-highlight">
                 <div class="input-group-prepend">
@@ -188,6 +226,8 @@ echo "<table class=\"table table-hover\">";
                 <input type="text" class="form-control" id="rol" name="rol" aria-describedby="basic-addon3">
                 <button class="btn btn-primary" type="submit" id="registrar" name="registrar"
                     value="Enviar">Enviar</button>
+                <button class="btn btn-primary" type="submit" id="modificar" name="modificar" value="Modificar"
+                    style="display: none;">Modificar</button>
             </div>
         </form>
     </div>
