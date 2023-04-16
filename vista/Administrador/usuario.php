@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Administración BD</title>
+    <title>Portal Administración BD usuario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
@@ -11,6 +11,7 @@
     /*
     @function para eliminar por id, usando una solicitud HTTP asíncrona que realiza la llamada al servidor 
     *sin recargar la página.
+    *
     */
     function borrar(id) {
         var dialog = confirm("Estas seguro?"); //muestra una caja para confirmar o cancelar
@@ -33,7 +34,7 @@
         }
     }
     /*
-    @function para buscar por id
+    @function para buscar por id, mediante una llamada asíncrona con Ajax al servidor
     *
     */
 
@@ -43,11 +44,11 @@
         var params = 'action=seleccionar&id=' + id;
         http.open('POST', url, true);
 
-        //Send the proper header information along with the request
+        //
         http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
+        // maneja la respues del servidor 
         http.onreadystatechange = function() {
-            //respesta ajax correcta
+            //respuesta ajax correcta
             if (http.readyState == 4 && http.status == 200) {
                 var usuario = JSON.parse(http.response);
                 document.getElementById('nombre').value = usuario[0].Nombre; //datos mapeados
@@ -69,6 +70,7 @@
     }
     /**
      * @Function limpiarFormulario() limpia los campos del formulario
+     * 
      */
     function limpiarFormulario() {
         document.getElementById('nombre').value = "";

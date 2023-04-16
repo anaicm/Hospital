@@ -13,7 +13,7 @@
 </head>
 
 <?php
-session_start();
+session_start();//para poder leer y escribir en las variables de sesión 
 if (!isset($_SESSION['usuario'])) {
     header('location: ../login.php');
     exit();
@@ -98,9 +98,6 @@ if (!isset($_SESSION['usuario'])) {
                         <iframe title='administrador' id='iframe' src="usuario.php">
                     </div>
                 </div>
-
-
-
             </div>
             <div class="clearfix"></div>
         </div>
