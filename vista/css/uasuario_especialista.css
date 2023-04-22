@@ -1,0 +1,24 @@
+textarea{
+    width: 700px;
+    height: 300px;
+    margin:10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px ; 
+    text-align: left;
+    font-size: 23px;
+    font-family: lexend, Arial, Helvetica, sans-serif;  
+}
+.cont_iframe{
+    display: flex;
+    flex-direction: row;
+}
+.cont_darCita{
+    margin:10px 10px 10px 50px;
+    padding: 10px 10px 10px 10px ;  
+    border:  2px solid #1F736A;
+    border-radius: 10px;
+    width: 300px;
+    height: 200px;
+}
+button{
+    margin:10px;
+}

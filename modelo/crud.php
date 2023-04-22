@@ -29,6 +29,8 @@ function crud_select($tabla, $campo, $condicion) {//busca por condición
         $pdo = new PDO($dsn, $username, $password);
         // Crear una consulta dinámica utilizando los parámetros proporcionados
         $sql = "SELECT * FROM $tabla WHERE $campo = :condicion";//realiza la consulta
+        echo ($sql);
+        echo ($condicion);
         $stmt = $pdo->prepare($sql);//prepara la consulta
         $stmt->bindParam(':condicion', $condicion);//asigna el valor de la condición
         $stmt->execute();//ejecuta
@@ -81,6 +83,7 @@ function crud_update($table_name, $fields, $condition) {//actuliza
             $set .= "$key = :$key, ";
         }
         $set = rtrim($set, ', ');
+         
         $sql = "UPDATE $table_name SET $set WHERE $condition";
         $stmt = $pdo->prepare($sql);
 

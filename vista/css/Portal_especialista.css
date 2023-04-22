@@ -1,0 +1,13 @@
+
+
+.cuerpo{
+    display: flex;
+    flex-direction:row;
+
+}
+iframe{
+    width: 350%;
+    height: 1000px;
+    background-color: beige;
+    border: 1px solid black;
+}

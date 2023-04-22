@@ -2,6 +2,7 @@
     background: -webkit-linear-gradient(left,#EDEDE9, #90C3C8);
     font-family: 'Montserrat', sans-serif;
     margin: 0px;
+    width: auto;
 }
 .main-header {
     display: flex;
@@ -10,11 +11,10 @@
 	  position: fixed;
 	  top: 0;
 	  left: 0;
-	  width: 100%;
+	  width: 99vw;
     height: 70px;
     background-color: #b0d6e2;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 0 20px;
 	  z-index: 999;
   }
   

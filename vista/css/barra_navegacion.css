@@ -7,7 +7,7 @@ nav {
     padding-bottom: 12px;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: auto;
     padding-top: 25px;
  
 }
@@ -30,4 +30,5 @@ nav ul li a {
   
 .main {
     margin-top: 80px;
+    width: 99vw;
 }
