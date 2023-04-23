@@ -13,7 +13,10 @@
 </head>
 
 <?php
-session_start();//para poder leer y escribir en las variables de sesión 
+/**
+ * inicia sesión para poder leer y escribir en las variables de sesión
+ */
+session_start();
 if (!isset($_SESSION['usuario'])) {
     header('location: ../login.php');
     exit();
@@ -50,10 +53,8 @@ if (!isset($_SESSION['usuario'])) {
             </ul>
         </nav>
         <!--Cuerpo------------------------------------------------------------------------------------------------------>
-        <!--*En este ejemplo, he utilizado las clases "col-md-6" para asegurarme de que cada div ocupe el 50% del ancho 
-        disponible en pantallas medianas o grandes. Puedes ajustar estas clases según tus necesidades. Recuerda que debes 
-        tener en cuenta el diseño responsive de Bootstrap para asegurarte de que tu página se vea bien en distintos dispositivos.
-        la clase "clearfix" en un div contenedor para asegurarte de que el contenido flotante se ajuste correctamente.*-->
+        <!--Mediante bootstrap con las clases "col-md-4" y "col-md-8" para que ocupe el 100% del ancho disponible
+        la clase "clearfix" asegura que el contenido flotante se ajuste correctamente.-->
         <div class="row">
             <div class="col-md-4 float-left">
                 <!--div para mostrar las tablas de BD-->

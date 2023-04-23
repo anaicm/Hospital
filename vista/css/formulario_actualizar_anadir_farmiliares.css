@@ -1,4 +1,7 @@
-.texto{
+/*
+*Da estilo a la página formulario_actualizar_familiar y formulario_crear_familiar
+*/
+.texto{/*Estilos para el texto*/
     font-size: 25px;
     color: #281da2;
     font-family: lexend, Arial, Helvetica, sans-serif;
@@ -19,14 +22,14 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
-  input{
+  input{/*Estilo para dar tamaño a los input, tipo de letra y tamaño de letra*/
     width: 500px;
     height: 25px;
     border-radius: 10px;
     font-family: lexend, Arial, Helvetica, sans-serif;
     font-size: 20px;
   }
-  .boton-actualizar{
+  .boton-actualizar{/*Estilos para el tamaño del botón, fondo y color de letra*/
     width: 150px;
     height: 50px;
     background-color: #c2a6a6;
@@ -34,11 +37,11 @@
 
     
   }
-  .boton-actualizar:hover{
+  .boton-actualizar:hover{/*Estilos para cuando pase el ratón cambien el fondo y el color de la letra*/
     background-color:#281da2 ;
     color: #ffffff;
   }
-  .boton{
+  .boton{/*Estilos para el margen de los botones*/
     padding-top: 10px;
     margin-left: 35%;
     margin-right: 40%;

@@ -1,4 +1,4 @@
-textarea{
+textarea{/*Tamaño de la etiqueta textarea para que el especialista escriba el informe*/
     width: 700px;
     height: 300px;
     margin:10px 10px 10px 10px;
@@ -7,11 +7,11 @@ textarea{
     font-size: 23px;
     font-family: lexend, Arial, Helvetica, sans-serif;  
 }
-.cont_iframe{
+.cont_iframe{/*Contenedor para colocar el iframe en dos columnas*/
     display: flex;
     flex-direction: row;
 }
-.cont_darCita{
+.cont_darCita{/*Contenedor donde el especialista da cita*/
     margin:10px 10px 10px 50px;
     padding: 10px 10px 10px 10px ;  
     border:  2px solid #1F736A;
@@ -19,6 +19,6 @@ textarea{
     width: 300px;
     height: 200px;
 }
-button{
+button{/*Margen izquierdo para separar los botones*/
     margin:10px;
 }

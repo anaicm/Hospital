@@ -11,6 +11,7 @@
 <body>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/Portal_especialista.css">
     <link rel="stylesheet" type="text/css" href="../css/Portal_administrador.css">
     <link rel="stylesheet" type="text/css" href="../css/cabecera.css">
     <link rel="stylesheet" type="text/css" href="../css/barra_navegacion.css">
@@ -27,7 +28,7 @@ if (!isset($_SESSION['usuario'])) {
 ?>
 
     <body class="body-fondo">
-        <!--Cabecera------------------------------------------------------------------------------------------>
+        <!--Cabecera-------------------------------------------------------------------------------------------------->
         <header class="main-header">
             <div class="logo-container">
                 <a href="../index.html"><img src="../logos/logo_hospital4.png"></a>
@@ -67,6 +68,7 @@ if (!isset($_SESSION['usuario'])) {
                         aria-describedby="basic-addon3">
                 </div>
                 <div class="con_tabala_agenda">
+                    <!--Bucle para mostrar todos los usuarios que tengan cita el día seleccionado------------------------>
                     <table class="tab_especialista texto">
                         <tr>
                             <th></th>
@@ -104,7 +106,7 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
             </div>
             <div class="col-md-8 float-right ">
-                <!--es el que primero se abre por defecto-->
+                <!--Iframe que muestra la página usuario_especialista.php para el paciente-->
                 <div class="tam_derecho">
 
                     <div>

@@ -1,4 +1,4 @@
-.body-fondo{
+.body-fondo{/*Fondo para toda la aplicación*/
     background: -webkit-linear-gradient(left,#EDEDE9, #90C3C8);
     font-family: 'Montserrat', sans-serif;
     margin: 0px;
@@ -47,7 +47,7 @@
   .button-container {
     display: flex;
     align-items: center;
-	padding-right: 40px;
+	  padding-right: 40px;
   }
   .c-button{
     display: inline-block;
@@ -81,7 +81,7 @@
   border: 1px solid #281da2;
   border-radius: 10px;
 }
-.logo-volver{
+.logo-volver{/*Tamaño del logo para volver hacia atras*/
 	height: 25px;
 	width: 30px;
 }

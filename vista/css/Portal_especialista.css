@@ -1,13 +1,30 @@
-
-
-.cuerpo{
-    display: flex;
-    flex-direction:row;
-
+.tab_especialista{/*CSS para la tabla que muestra los pacientes */
+    background-color:#1F736A;
+    border-radius: 10px;
+    width: 100%;
+    margin: 10px 20px 10px 10px;
+    padding: 10px 10px 10px 10px ;
 }
-iframe{
-    width: 350%;
-    height: 1000px;
-    background-color: beige;
-    border: 1px solid black;
+.cont_especialista{/*Borde para la tabla que muestra los usuarios*/
+    margin: 10px 30px 10px 10px;
+    padding: 10px 35px 10px 10px;
+    border: 3px solid #1F736A ;
+    width: 30%;
 }
+.contedor_izquierdo{/*Contenedor para la parte del informe de paciente*/
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px ;
+    height: 100%;
+    display:flex;
+}
+.con_tabala_agenda{/*paddind derecho para la tabla que muestra las citas del día seleccionado*/
+   
+    padding-right: 22px;
+}
+.texto_titulo{/*Estilo para el texto del título de la agenda*/
+    color: black;
+    font-size: 26px;
+    text-align: center;
+}
+
+

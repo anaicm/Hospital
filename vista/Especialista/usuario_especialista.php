@@ -17,9 +17,9 @@
     <hr />
     <div class="cont_iframe">
         <div id='panel-modificar' class='d-flex'>
+            <!--Formulario para el informe del paciente-->
             <form method="post" class="">
                 <div class="input-group mb-1 d-inline-flex p-1 bd-highlight">
-                    <!--clase de bootstrap-->
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon3">Nombre: </span>
                     </div>
@@ -32,26 +32,18 @@
                     </div>
                     <input required type="text" class="form-control" id="apellidos" name="apellidos"
                         aria-describedby="basic-addon3">
-
-
-                    <!--Modal de bootstrap-->
-
                 </div>
                 <hr />
-
-
-                <!-- separacion   -->
                 <div>
-
-                    <textarea class="input-group-text" id="basic-addon3"
-                        name="informe">Informe del paciente: </textarea>
-
+                    <textarea class="input-group-text" id="basic-addon3" name="informe">Informe del paciente: 
+                    </textarea>
                     <button class="btn btn-primary" type="submit" id="registrar" name="registrar"
                         value="Enviar">Registrar
                         informe</button>
                 </div>
             </form>
         </div>
+        <!--parte derecha del iframe, el especialista da cita a partir del dni del paciente-->
         <div class="cont_darCita">
             <form action="#" method="post">
                 <div class="input-group-prepend">
@@ -62,7 +54,7 @@
                     aria-describedby="basic-addon3">
             </form>
             <button type="button" name="btn_darCita" id="btn_darCita" class="btn btn-primary" data-toggle="modal"
-                data-target="#exampleModal">
+                onclick="location.href = '../pedir_cita.php'" data-target="#exampleModal">
                 Dar cita
             </button>
         </div>

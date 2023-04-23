@@ -1,15 +1,14 @@
-.particion_contenido{
+.particion_contenido{/*Elementos para ordenar los contenidos*/
  display: flex;
  align-content: center;
  flex-wrap: wrap;   
 }
-.componentes-salud{
+.componentes-salud{/*Estilos para cada contenido del cuerpo, parte izquierda de la página*/
     border: 1px solid rgb(153, 160, 174);
     width: 80%;
     height: 87px;
     padding: 12px;
     margin: 12px;
-    
     color: #482b97;
     font-size: 28px;
     cursor: pointer;   
@@ -17,11 +16,11 @@
     display: flex;/*para hacer filas o columnas*/
     flex-direction: column;/*si lo quieres "row" filas (por defecto) "column" por columnas*/
   }
-  .componentes-salud:hover{
+  .componentes-salud:hover{/*Estilos para cuando pasa el ratón por encima de la etiqueta cambiando el foto y el color de la letra*/
     background-color: rgb(153, 160, 174);
     color: white;
   }
-  .contenido-tarjetas{
+  .contenido-tarjetas{/*Estilos para el texto del contenido de las tarjetas de la parte izquierda de la página con cursor pointer*/
     border: 1px solid rgb(153, 160, 174);
     width: 75%;
     height: 548px;
@@ -36,11 +35,11 @@
     flex-direction: column;/*si lo quieres row filas (por defecto) colum por columnas*/
 
   }
-  .salud_bienestar{
+  .salud_bienestar{/*Fondo para la etiqueta de salud*/
     background-image: url("../imagenes/imagenes_salud/salud_y_bienestar.png");
   
   }
-  .fondo-bienestar{
+  .fondo-bienestar{/*Fondo para el contenido de la etiqueta de salud*/
     background-image: url("../imagenes/imagenes_salud/fondo_salud_bienestar.png");
   
 

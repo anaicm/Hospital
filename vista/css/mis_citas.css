@@ -1,6 +1,4 @@
-
-
-.cabecera-cuerpo-citas{
+.cabecera-cuerpo-citas{/*Estilos para la cabecera de la página, texto, color, fondo, tamaño, anchura y altura*/
     text-align: center;
     font-size: 30px;
     margin-top: 10px;
@@ -9,24 +7,20 @@
     height: 200px;
     width: 75%;
     border-radius: 10px;
-    background-image: url("../imagenes/imagenes_portal_de_usuario/Cabecera_Portal_usuario.png");
-  
-  
-  }
-  
-  .cabecera-cuerpo-citas p {
+    background-image: url("../imagenes/imagenes_portal_de_usuario/Cabecera_Portal_usuario.png");  
+  }  
+  .cabecera-cuerpo-citas p {/*Estilos para el texto que contiene la cabecera*/
     padding-top: 120px;
     padding-right: 55px;
     font-size: 24px;
   }
-  
   .cuerpo-citas{/*CSS para centrar los div*/
     display: flex;
     justify-content: center;/*centra el div en columnas */
     /*align-content: center;*//*centra el div en filas*/
     flex-wrap: wrap;/*obligatorio para centrar*/
   }
-  .tarjeta-citas {
+  .tarjeta-citas {/*Estilos para las tarjetas que muestra las citas, borde, fondo, color, tamaño de la etiqueta y de letra, cursor pointer*/
     border: 1px solid rgb(153, 160, 174);
     width: 50%;
     height: 150px;
@@ -40,7 +34,7 @@
     display: flex;/*para hacer filas o columnas*/
     flex-direction: column;/*si lo quieres row filas (por defecto) colum por columnas*/
   }
-  .tarjeta-citas:hover{
+  .tarjeta-citas:hover{/*Estilos para cuando pasa el ratón por encima, cambia el fondo y el color de la letra*/
     background-color: rgb(153, 160, 174);
     color: white;
   }

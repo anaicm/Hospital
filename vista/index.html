@@ -9,14 +9,7 @@
   <!-- <script src="index.js"></script> -->
 </head>
 <body>
-<!--Cabecera-->
-<!--En este ejemplo, la cabecera está contenida en un elemento header con la clase main-header. 
-    Dentro de la cabecera, se utilizan tres contenedores: uno para el logo, otro para el título y otro para los botones.
-    En el contenedor del logo, se utiliza un elemento img para mostrar el logo de la empresa. 
-    En el contenedor del título, se utiliza un elemento h1 para mostrar el título del sitio web. 
-    Ambos contenedores se centran automáticamente gracias a la propiedad text-align: center; aplicada al elemento header.
-    En el contenedor de los botones, se utilizan dos elementos a con las clases user-button y 
-    signup-button, respectivamente. Estos botones pueden ser estilizados con CSS para darles el aspecto deseado.-->
+<!--Cabecera------------------------------------------------------------------------------------------------------------->
 <header class="main-header">
     <div class="logo-container">
      <a href="index.html"><img src="logos/logo_hospital4.png"></a>
@@ -29,7 +22,7 @@
       <a href="registro.php" class="c-button signup-button">Registrarse</a>
     </div>
   </header>
-  <!--Barra de navegación-->
+  <!--Barra de navegación------------------------------------------------------------------------------------------------>
  
       <!--cuerpo de la página-->
       <!--Este código crea dos contenedores con display: flex y flex-direction: row, lo que significa que
@@ -48,19 +41,19 @@
       estilos a tu gusto.-->
       <nav>
         <ul>
-          <li><a href="#">Inicio</a></li>
+          <li><a href="index.html">Inicio</a></li>
           <li><a href="#">Acerca de</a></li>
           <li><a href="#">Contacto</a></li>
           <li><a href="administrador/Portal_administrador.php">Portal admin</a></li>
         </ul>
-      
+      <!--Icono y input para la búsqueda rápida--> 
         <div class="search-icon">
-          <img src="imagenes/icono_busqueda.png" class="icon" alt="Icono de búsqueda">
-          <input type="text" placeholder="Buscar">
-          <!--<button>Buscar</button>-->
+          <form method="post" action="#"><!---->
+            <img src="imagenes/icono_busqueda.png" class="icon" alt="Icono de búsqueda">
+            <input type="text" name="busqueda_rapida" id="busqueda_rapida" placeholder="Buscar">
+          </form>
         </nav>
-          <!--marquesina de imagenes------------------------------------------------------------>
-          <!---->                 
+          <!--marquesina de imagenes------------------------------------------------------------>                
             <div class="columnas">
               <div class="filas">
               <img src="imagenes/imagenes video inicial/introduccion1.png">
@@ -79,21 +72,7 @@
             </div>
             </div>                   
         </div>
-    <!--Pie de página-->
-    <!--Este código crea un pie de página con position: fixed y bottom: 0, lo que significa que estará 
-      fijo en la parte inferior de la página. El pie de página tiene un fondo de color oscuro 
-      (background-color: #333) y un color de texto blanco (color: #fff). El contenido del pie de página 
-      está centrado (text-align: center) y tiene un relleno (padding: 20px) para separarlo del contenido 
-      principal de la página.
-      El pie de página incluye un número de teléfono y un correo electrónico, que se pueden personalizar 
-      según tus necesidades. El número de teléfono se ha enlazado con la etiqueta <a> y el atributo 
-      href="tel:+1234567890", que permite a los usuarios hacer clic en el número para llamarlo directamente 
-      desde su dispositivo móvil. El correo electrónico también se ha enlazado con la etiqueta <a> y el atributo 
-      href="mailto:info@example.com", lo que permite a los usuarios enviar un correo electrónico al 
-      destinatario haciendo clic en el enlace. Los enlaces tienen un color de texto blanco (color: #fff) 
-      y se han eliminado las subrayados (text-decoration: none). Al pasar el ratón sobre los enlaces, 
-      se subrayan (text-decoration: underline) para indicar que son enlaces.
--->
+    <!--Pie de página----------------------------------------------------------------------------------------------------->
     <footer>
       <p>Contacto: <a href="tel:900-100-200">+900-100-200</a> |
          <a href="mailto:CenSalud@gmail.com">CenSalud@gmail.com</a>

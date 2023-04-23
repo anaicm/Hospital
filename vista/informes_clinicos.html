@@ -32,15 +32,12 @@
       <li><a href="informes_clinicos.html">Informes Clínicos</a></li>
     </ul>
   </nav>  
-  <!--cuerpo------------------------------------------------------------------------------------------------------------------------------>
-  <!--Cabecera cuerpo------------------------------------------------------------------------------------------------------------------------------>
-  
-  
-  
+  <!--cuerpo---------------------------------------------------------------------------------------------------------------------------->
+  <!--Cabecera cuerpo------------------------------------------------------------------------------------------------------------------->
   <div class="etiqueta_informes_columnas">
-    <!--Etiqueta nombre de la especialidad---------------------------------------------------------------------------------------------------------->
+    <!--Etiqueta nombre de la especialidad---------------------------------------------------------------------------------------------->
    <div class="etiqueta etiqueta1" onclick="mostrar_formulario_datos ('contenido_informe')">
-     <!--parte de arriba-->
+     <!--Parte de arriba, mediante un bucle muestra todos los informes relacionados con el usuario en cuestión-->
        <div id="cabecera_informe" class="etiqueta_informes_horizontal ">
          <div class="cabecera_etiqueta_informes">Especialidad</div>
          <div class="cabecera_etiqueta_informes">Especialista</div>
@@ -54,14 +51,11 @@
          <div class="cabecera_etiqueta_informes">Fecha</div><!--búsqueda de la fecha-->
        </div>
    </div>
-    <!--Etiqueta del informe---------------------------------------------------------------------------------------------------------->
+    <!--Etiqueta del informe, cuando el usuario accione el informe aparece en el contenedor--------------------------------------------->
    <div id="contenido_informe" class="etiqueta etiqueta2 invisible">
      Informe
    </div>
  </div>
-
-
-
  </div>
 </body>
 </html>

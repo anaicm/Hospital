@@ -1,22 +1,5 @@
-
-/*.logo-perfil{
-  
-  width: 15px;
-  height: 30px;  
-  background-position: center; 
- 
-}
-.logo-cerrar-sesion{
-  width: 15px;
-  height: 30px;  
-  background-position: center; 
-
-}*/
-
-
-
 /*----------------------------cabecera del cuerpo------------------------------*/
-.cabecera-cuerpo{
+.cabecera-cuerpo{/*Estilos de texto, fondo y tamaño de la cabecera del cuerpo de la página*/
   text-align: center;
   font-size: 30px;
   margin-top: 10px;
@@ -26,28 +9,23 @@
   width: 75%;
   border-radius: 10px;
   background-image: url("../imagenes/imagenes_portal_de_usuario/Cabecera_Portal_usuario.png");
-
-
 }
-
-.cabecera-cuerpo p {
+.cabecera-cuerpo p {/*Estilos de tamño de texto y padding superior y derecho, del parrafo que contiene en la cabecera*/
   padding-top: 114px;
   padding-right: 105px;
   font-size: 38px;
 }
-
-.cuerpo{
+.cuerpo{/*Estilos para centrar el contenido del cuerpo de la página*/
   display: flex;
   justify-content: center;
 }
-
-.menu-tarjetas {
+.menu-tarjetas {/*Estilos para centrar y dar padding a las tarjetas*/
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding: 12px;
 }
-.tarjeta {
+.tarjeta {/*Estilos de texto, fondo, anchura y altura, borde y cursor pointer para las tarjetas con las que interactua el usuario*/
   border: 1px solid rgb(153, 160, 174);
   border-radius: 10%;
   width: 250px;
@@ -60,12 +38,11 @@
   font-size: 28px;
   cursor: pointer;
 }
-.tarjeta:hover{
+.tarjeta:hover{/*Estilos para cuando pasa el raton por encima de cada tarjeta cambie el fondo y el color del texto*/
   background-color: rgb(153, 160, 174);
   color: white;
 }
-.imagenes-etiquetas{
+.imagenes-etiquetas{/*Estilo para dar tamaño a las imagenes de cada tarjeta*/
   width: 200px;
   height: 150px;
-
 }

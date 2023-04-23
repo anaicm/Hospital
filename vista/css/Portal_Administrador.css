@@ -1,41 +1,39 @@
-.tab_administrador{
+/*
+*Estilos para el portal del administrador, portal del especialista y del personal autorizado
+*/
+
+.tab_administrador{/*Estilo para el contenedor que muestra las tablas que contiene la BD*/
     padding-right: 10px;
     background-color:#1F736A;
     margin: 10px 10px 10px 10px;
     width: 75%;  
     
 }
-.texto_titulo{
-    color: black;
-    font-size: 26px;
-    text-align: center;
-}
-
-.texto{
+.texto{/*Estilo para el texto*/
     color: beige;
     font-size: 30px;
     text-align: center;
     font-family: lexend, Arial, Helvetica, sans-serif;  
 }
-.celdas{
+.celdas{/*Estilo para las filas que muestra cada tabla de la BD*/
     background-color:#6ED8A5;
     width: 75%;
     cursor: pointer;
     border: 2px solid #1F736A ;
     margin: 10px 8px 0px 10px;
 }
-.celdas:hover{
+.celdas:hover{/*Al pasar el ratón por encima cambia el color del fondo y de la letra*/
     background-color: #B9B8D3;
     color: black;
 }
-input{
+input{/*Margen superior para lo input*/
     margin-top: 10px;
 }
-iframe{
+iframe{/*Tamaño para iframe*/
     width: 100%;
     height: 750px;
 }
-.tam_derecho{
+.tam_derecho{/*Contenedor derecho de la página*/
     display: flex;
     flex-direction: column;
     width: auto;
@@ -43,31 +41,8 @@ iframe{
     padding-top: 10px;
     margin: 10px 10px 10px 10px;
 }
-.filas {
+.filas{/*Estilo para centrar las filas*/
     display: flex;
     flex-wrap: wrap;
-}
-.tab_especialista{
-    background-color:#1F736A;
-    border-radius: 10px;
-    width: 100%;
-    margin: 10px 20px 10px 10px;
-    padding: 10px 10px 10px 10px ;
-}
-.cont_especialista{
-    margin: 10px 30px 10px 10px;
-    padding: 10px 35px 10px 10px;
-    border: 3px solid #1F736A ;
-    width: 30%;
-}
-.contedor_izquierdo{
-    margin: 10px 10px 10px 10px;
-    padding: 10px 10px 10px 10px ;
-    height: 100%;
-    display:flex;
-}
-.con_tabala_agenda{
-   
-    padding-right: 22px;
 }
 

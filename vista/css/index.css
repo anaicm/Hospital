@@ -1,112 +1,84 @@
-/*-----------------------------------------------cabecera------------------------------------------------*/
-
-  
-  /*En este ejemplo de CSS, se utilizan las propiedades display: flex;, justify-content: space-between;
-   y align-items: center; para alinear los elementos horizontalmente y centrarlos verticalmente en la cabecera.
-   Se utiliza la propiedad height: 80px; para establecer la altura de la cabecera. Se utiliza 
-   la propiedad background-color: #ffffff; para establecer el color de fondo de la cabecera y
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); para añadir una sombra ligera.
-
-   Se estilizan los botones utilizando la propiedad background-color para establecer el color de fondo, 
-   color: #ffffff; para establecer el color del texto, text-decoration: none; para eliminar el subrayado 
-   del texto y border-radius: 5px; para añadir esquinas redondeadas. 
-   También se utiliza margin-left: 10px; para separar los botones ligeramente. Los botones cambian de color*/
-
-   
-
-		/*----------------------------- Estilos CSS para el icono de búsqueda ---------------------------------*/
-		.search-icon {
-			display: flex;
-			align-items: center;
-      
-		}
-    	.icon{
-      		height: 50px;
-    	}
-
-		.search-icon input[type="text"] {
-			padding: 5px;
-			border: 1px solid black;
-			border-radius: 3px;
-			margin-left: 5px;
-			width: 150px;
-		}
-
-		.search-icon button {
-			padding: 5px;
-			background-color: #fff;
-			border: none;
-			border-radius: 3px;
-			margin-left: 5px;
-			cursor: pointer;
-		}
-    /*---------------------------------------------cuerpo-------------------------------------------------*/
-    	#container {
-			display: flex;
-			flex-direction: row;
-			height: 100vh;
-		}
-
-		#fondo {
-			background-image: url('../imagenes/pintura_fondo.png');
-			background-size: cover;
-			background-position: center;
-			width: 100%;
-			height: 100%;
-			padding-top: 70px;
-			padding-left: 0%;
-			padding-right: 0%;
-		}
-		
-
-		.columnas{
-			display:flex;
-			flex-direction: column;
-			/* Para centrar un div display: flex y esto: */
-			align-items: center;  
-  			justify-content: center;
-		 	padding: 3px;
-		  	position: relative;
-		  	bottom: 25px;
-		}
-	
-		.filas {
-			display:flex;
-			flex-direction: row;
-		}
-
-		.columnas img{
-			width: 700px;
-			height:360px;
-			margin:6px;
-			border-radius: 10px
-		}
-
-		.columnas .img-fondo {
-			width: 1400px;
-			height:600px;
-		}
-
-    /*-------------------------------------------pie--------------------------------------------------------*/
-    	footer {
-			background-color: #b0d6e2;
-			color: #482b97;
-			padding: 20px;
-			text-align: center;
-      		font-size: 25px;
-			position: fixed;
-			bottom: 0;
-			width: 100%;
-		}
-
-		footer a {
-			color: #482b97;
-			text-decoration: none;
-		}
-
-		footer a:hover {
-			text-decoration: underline;
-      		color: #c2a6a6;
-		}
+/*----------------------------- Estilos CSS para el icono de búsqueda ---------------------------------*/
+.search-icon {/*Estilo para la alineación del contenedor de busqueda*/
+	display: flex;
+	align-items: center;      
+}
+.icon{/*Estilo para el tamaño del icono*/
+height: 50px;
+}
+.search-icon input[type="text"] {/*Estilos de anchura, margen izquierdo, padding y borde del input de busqueda*/
+	padding: 5px;
+	border: 1px solid black;
+	border-radius: 3px;
+	margin-left: 5px;
+	width: 150px;
+}
+.search-icon button {/*Estilos de margen, borde, fondo y cursor pointer para la imagen de búsqueda*/
+	padding: 5px;
+	background-color: #fff;
+	border: none;
+	border-radius: 3px;
+	margin-left: 5px;
+	cursor: pointer;
+}
+/*---------------------------------------------cuerpo-------------------------------------------------*/
+#container {/*Estilos para */
+	display: flex;
+	flex-direction: row;
+	height: 100vh;
+}
+#fondo {/*Estilos para la imagen de fondo del index*/
+	background-image: url('../imagenes/pintura_fondo.png');
+	background-size: cover;
+	background-position: center;
+	width: 100%;
+	height: 100%;
+	padding-top: 70px;
+	padding-left: 0%;
+	padding-right: 0%;
+}
+.columnas{/*Estilos para centrar las columnas que contienen las imagenes de la página principal*/
+	display:flex;
+	flex-direction: column;
+	/* Para centrar un div display: flex y esto: */
+	align-items: center;  
+	justify-content: center;
+ 	padding: 3px;
+  	position: relative;
+  	bottom: 25px;
+}	
+.filas {/*Estilo para alinear horizontalmente las imagenes del inder*/
+	display:flex;
+	flex-direction: row;
+}
+.columnas img{/*Estilos para el tamaño, margen y borde de las imagenes que contienen la columnas*/
+	width: 700px;
+	height:360px;
+	margin:6px;
+	border-radius: 10px
+}
+.columnas .img-fondo {/*Estilo para el tamaño de la imagen de fondo del index*/
+	width: 1400px;
+	height:600px;
+}
+/*-------------------------------------------pie--------------------------------------------------------*/
+footer {/*Estilos de fondo, texto, padding, anchura y posición del pie de página*/
+	background-color: #b0d6e2;
+	color: #482b97;
+	padding: 20px;
+	text-align: center;
+	font-size: 25px;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+footer a {/*Estilos para quitar la decoración de la etiqueta <a> y color del letra*/
+	color: #482b97;
+	text-decoration: none;
+}
+footer a:hover {/*Estilos para poner la decoración y cambiar el color de letra de la etiqueta <a>*/
+	text-decoration: underline;
+	color: #c2a6a6;
+}
 
     

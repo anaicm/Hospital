@@ -1,9 +1,9 @@
-.etiqueta_informes_columnas{
+.etiqueta_informes_columnas{/*Estilos para poner los infomes uno debajo del otro*/
     display: flex;
     flex-direction: column;
 
 }
-.etiqueta{
+.etiqueta{/*Estilos para las etiquetas color de letra, fondo, borde, tipo de letra y margen*/
     background-color: beige;
     border:1px solid #281da2;
     border-radius: 10px;
@@ -13,23 +13,23 @@
     margin: 10px 300px 10px 300px;
    
 }
-.etiqueta1{
+.etiqueta1{/*Tamaño para las etiquetas que contiene los informes*/
     height: 100px;
 }
-.etiqueta2{
+.etiqueta2{/*Tamaño para el div oculto*/
     height: 150px;
 }
-.etiqueta_informes_horizontal{
+.etiqueta_informes_horizontal{/*Estilos que pone cada contenedor en columnas*/
     display: flex;
     flex-direction: row;
 }
-.cabecera_etiqueta_informes{
+.cabecera_etiqueta_informes{/*Estilos para dar tamaño a las etiqueta que contiene los informes*/
     margin: 10px 20px 10px   10px;
     width: 40%;
 }
-.visible{
+.visible{/*Estilos para hacer visible el div que muestra el informe*/
     display: block;
 }
-.invisible{
+.invisible{/*Estilos para hacer invisible el div que muestra el informe*/
     display: none;
 }

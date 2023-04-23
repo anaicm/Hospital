@@ -117,32 +117,9 @@
         alert('Buscando huecos para su cita...');
     }
     </script>
-    <style>
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 50%;
-        width: 60%;
-        margin: auto;
-        margin-top: 5%;
-        padding: 30px;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-    }
 
-    .step {
-        display: none;
-    }
-
-    .step.active {
-        display: block;
-    }
-    </style>
 </head>
 <!-- Script para la navegación de pasos -->
-
 
 <body class="body-fondo">
     <header class="main-header">
@@ -186,6 +163,7 @@
             <div class="step" id="step-2">
                 <label for="especialidad" class="form-label">Paso 2: Selecciona una especialidad hospitalaria</label>
                 <select class="form-select mb-3" id="especialidad" required>
+                    <!--bucle para mostrar las especialidades-->
                     <option value="">Selecciona una especialidad...</option>
                     <option value="1">Cardiología</option>
                     <option value="2">Dermatología</option>
@@ -242,4 +220,3 @@
             </div>
         </div>
 </body>
-<!--cuerpo-->

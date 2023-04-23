@@ -1,10 +1,13 @@
-.container_login {
+/*
+*Da estilo a la página registro.php y login.php
+*/
+.container_login {/*Estilo para centrar el formulario login de usuario*/
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 90vh;
 }
-.container_registro {
+.container_registro {/*Estilo para centrar el formulario nuevo registro de usuario*/
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -13,7 +16,7 @@
 
 }
 
-.login_box {
+.login_box {/*Estilos para el fondo, borde, paddin y ancho de los formularios*/
 	background-color: #fff;
 	border-radius: 8px;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -21,18 +24,18 @@
 	width: 400px;
 }
 
-.login_box h2 {
+.login_box h2 {/*Estilo para el texto, color de fuente y margen inferior de las etiquetas h2 de los formularios*/
 	color: #555;
 	font-size: 24px;
 	margin-bottom: 20px;
 }
 
-.form_login {
+.form_login {/*Estilo para el margen del inferior del formulario login*/
 	margin-bottom: 20px;
 	
 }
 
-.form_login label {
+.form_login label {/*Estilos para el texto y tamaño los label del formulario login */
 	color: #555;
 	display: block;
 	font-size: 16px;
@@ -43,11 +46,11 @@
 .form_login input[type="password"],
 .form_login input[type="tel"],
 .form_login input[type="email"]
- {
-	background-color: #f2f2f2;
+ {/*Estilos de fondo, color, margen, anchura y texto para los input de los tipos "text", "password", "tel" y email*/
+	background-color: #ADD3D7;
 	border: none;
 	border-radius: 4px;
-	color: #555;
+	color: black;
 	display: block;
 	font-size: 24px;
 	padding-right:2px;
@@ -58,14 +61,12 @@
 
 
 .form_login input[type="text"]:focus,
-.form_login input[type="password"]:focus {
+.form_login input[type="password"]:focus {/*Estilos para el foco de los input de tipo "text" y "password"*/
 	background-color: #fff;
 	border: 1px solid #ccc;
-	/*box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);*/
 	outline: none;
 }
-
-.form_login input[type="submit"] {
+.form_login input[type="submit"] {/*Estilos para los input del formulario de tipo submit, borde, fondo, cursor pointer, margen y texto*/
 	background-color: #b0d6e2;
 	border: none;
 	border-radius: 4px;
@@ -74,23 +75,21 @@
 	font-size: 16px;
 	padding: 10px; 
 	width:100%;
-	
-	margin-top:6px;
-	
+	margin-top:6px;	
 }
-
-.form_login input[type="submit"]:hover {
+.form_login input[type="submit"]:hover {/*Estilo para cambiar el fondo de los tipo submit del formulario al pasar el raton*/
 	background-color: #c2a6a6;
 
 }
-.contra_olvidar{
+.contra_olvidar{/*Estilos de texto centrado para el contenido de haber olvidado la contraseña */
 	text-align: center;
 	
 }
 /*--------------------------------------------------formulario---------------------------------------------------*/
-.logo-volver{
+.logo-volver{/*Estilos para el tamaño del icono volver*/
 	height: 25px;
 	width: 30px;
 }
+
 
  

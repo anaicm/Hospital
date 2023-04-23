@@ -1,8 +1,8 @@
-.contenedor-perfil{
+.contenedor-perfil{/*Estilo para dividir en columnas el cuerpo de la página*/
     display: flex;
     flex-direction: row;
 }
-.contenedor-datos{
+.contenedor-datos{/*Estilos para los contenedores que contienen los datos del usuario*/
     background-color: beige;
     border: 1px solid #281da2;
     border-radius: 10px;
@@ -10,23 +10,23 @@
     margin: 10px 20px 10px 20px; /*arriba, derecha,abajo,izquierda*/
 
 }
-.contenedor-imagen{
+.contenedor-imagen{/*Estilos de margen izquierdo y derecho del contenedor que contien la imagen*/
     margin-right: 20px;
     margin-left: 30px;
 }
-.contenedor-datos-modificar{
+.contenedor-datos-modificar{/*Estilos para el contenedor del formulario donde el usuario puede modificar sus datos*/
     background-color: beige;
     border: 1px solid #281da2;
     border-radius: 10px;
-    margin: 10px 20px 10px 20px; /*arriba, derecha,abajo,izquierda*/
+    margin: 10px 20px 10px 20px; 
     width: 60%;
 }
-.contenedor-cambiar-imagen{
+.contenedor-cambiar-imagen{/*Estilo para poner el botón de cambiar imagen en la misma fila que la imagen del usuario*/
     display: flex;
     flex-direction: column;
 
 }
-.etiqueta-datos{
+.etiqueta-datos{/*Estilos para el texto que muestra el campo de los datos del usuario como el nombre, apellidos, etc.*/
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 25px;
@@ -34,37 +34,33 @@
     font-family: lexend, Arial, Helvetica, sans-serif;
     padding: 10px;
 }
-.etiqueta-datos-fotos{
+.etiqueta-datos-fotos{/*Estilos para la foto del usuario*/
     width: 10px;
     height: 10px;
     border-radius: 45px;
     border: 1px solid #281da2;
 }
-.datos{
+.datos{/*Estilos para el texto de los datos del usuario*/
     color: black;
     font-size: 23px;
 }
-.logo-modificar{
+.logo-modificar{/*Margen y paddin para el logo de modificar foto*/
     margin: 10px 10px 0px 10px ;
     padding-left: 50px;
 }
-.menu{
+.menu{/*Estilos para el menú de los datos al pasar el ratón por encima se cambia*/
     width: 35%;
-  
     border-radius: 10px;
     margin: 20px 15px 30px 10px;
-   
     cursor: pointer;
-
 }
-.submenu{
+.submenu{/*Estilos para el submenu del formulario para modificar los datos y lo oculta */
     width: 57%;
     border:1px solid #281da2;
     border-radius: 10px;
     margin: 20px 0 0 20px;
     display: none;
-
 }
-.visible{
+.visible{/*Hace visible el submenu*/
     display: block;
 }

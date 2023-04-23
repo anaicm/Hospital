@@ -1,12 +1,12 @@
 <?php
-ob_start(); // Iniciamos el buffer de salida
+ob_start(); // Inicio del buffer de salida
 
 $msg = '';
 if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['password'])) {
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	
-    //hay que mirar si el usuario está en la tabla usuario y si el password hasheado es igual al password del usuario en la base de datos
+    //mira si el usuario está en la tabla usuario y si el password hasheado es igual al password del usuario en la base de datos
 	if($username == "prueba" && $password == "prueba"){
 		session_start();
 		$_SESSION['usuario'] = 'prueba';
@@ -31,13 +31,8 @@ if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['passw
     <link rel="stylesheet" type="text/css" href="css/barra_navegacion.css">
 </head>
 
-<!--Este código creará un contenedor centrado en la pantalla con un formulario de inicio de sesión estilizado,
-    un campo de contraseña y un botón de enviar. El contenedor está diseñado con una sombra y un borde redondeado 
-    para una apariencia más atractiva. También se ha utilizado una fuente de Google llamada "Montserrat" para darle
-    un aspecto más elegante y moderno.-->
-
-
 <body class="body-fondo">
+    <!--Cabecera---------------------------------------------------------------------------------------------------------->
     <header class="main-header">
         <div class="logo-container">
             <a href="index.html"><img src="logos/logo_hospital4.png"></a>
@@ -50,12 +45,14 @@ if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['passw
                     class="logo-volver"></a>
         </div>
     </header>
+    <!--Cuerpo de la página----------------------------------------------------------------------------------------------------->
     <div class="container_login">
         <div class="login_box">
             <h2>Login (usuario:prueba contraseña:prueba)</h2>
             <?php if (!empty($msg)): ?>
             <p><?php echo $msg; ?></p>
             <?php endif; ?>
+            <!--Formulario para el login-->
             <form action="" method="post">
                 <div class="form_login">
                     <label for="username">Username</label>
