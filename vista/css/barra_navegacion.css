@@ -1,6 +1,6 @@
 /*-------------------------barra de navegación--------------------------------*/
 /* Estilos CSS para el menú */
-nav {
+nav {/*Estilos de fondo, color de texto, anchura y altura, alineación y padding para la barra de navegación*/
 	background-color: white;	
     color: #281da2;
     display: flex;
@@ -9,26 +9,21 @@ nav {
     align-items: center;
     width: auto;
     padding-top: 25px;
- 
 }
-
-nav ul {
+nav ul {/*Estilos para el margen y el padding, quitar el estilo de lista y alineacion de la etiqueta <ul> de la barra de navegación*/
     list-style: none;
     display: flex;
     margin: 0;
     padding: 0;
 }
-
-nav ul li {
+nav ul li {/*Estilos para el margen derecho de las etiquetas <li> de la barra de navegación*/
     margin-right: 20px;
 }
-
-nav ul li a {
+nav ul li a {/*Estilo para el color de texto y quitar la decoración de las etiquetas <a> de la barra de navegación*/
     color: #482b97;
     text-decoration: none;
-}
-  
-.main {
+} 
+.main {/*Estilos de margen y ancho de la barra de navegación en todas las páginas de la aplicación*/
     margin-top: 80px;
     width: 99vw;
 }
