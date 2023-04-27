@@ -61,7 +61,7 @@ if (!isset($_SESSION['usuario'])) {
             <div class="float-left cont_especialista">
                 <!--Personal maneja paciente-->
                 <h1>Paciente</h1>
-
+                <!--Redirige a la página pedir cita-->
                 <div class="texto_titulo" onclick="location.href = '../pedir_cita.php'">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon3">Dar cita para el paciente </span>
@@ -79,10 +79,11 @@ if (!isset($_SESSION['usuario'])) {
                             <option value="1">Consultar informes del paciente</option>
                             <option value="2">Consultar familiares del paciente</option>
                         </select>
+                        <!--Redirige a la página crear nuevo registro-->
                         <button type="button" name="btn_darCita" id="btn_darCita" class="btn btn-primary"
                             data-toggle="modal" onclick="location.href = '../pedir_cita.php'"
-                            data-target="#exampleModal">
-                            Dar cita
+                            data-target="#exampleModal" onclick="location.href = '../registro.php'">
+                            Nuevo Usuario
                         </button>
                     </div>
 
@@ -95,10 +96,12 @@ if (!isset($_SESSION['usuario'])) {
                 <h1>Especialista</h1>
 
                 <div class="texto_titulo">
+                    <!--Redirige a la página especialistas-->
                     <div class="input-group-prepend" onclick="location.href = '../especialistas.html'">
                         <span class="input-group-text" id="basic-addon3">Consultar Especialistas </span>
                     </div>
                     <hr>
+                    <!--Redirige a la página Centros hospitalarios-->
                     <div class="input-group-prepend" onclick="location.href = '../centros_hospitalarios.html'">
                         <span class="input-group-text" id="basic-addon3">Consultar centros </span>
                     </div>
