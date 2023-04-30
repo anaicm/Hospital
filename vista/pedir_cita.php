@@ -139,6 +139,8 @@
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="centros_hospitalarios.html">Hospitales</a></li>
+                <li><a href="acerca_de.html">Acerca de</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
                 <li><a href="especialistas.html">Especialistas</a></li>
                 <li><a href="portal_usuario.html">Portal del usuario</a></li>
                 <li><a href="pedir_cita.html">Pedir Cita</a></li>

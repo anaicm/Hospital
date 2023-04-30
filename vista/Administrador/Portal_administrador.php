@@ -42,7 +42,7 @@ if (!isset($_SESSION['usuario'])) {
     <div class="main">
         <nav>
             <ul>
-                <li><a href="../portal_administrador.php">Inicio</a></li>
+                <li><a href="../index.html">Inicio</a></li>
                 <li><a href="../centros_hospitalarios.html">Hospitales</a></li>
                 <li><a href="../especialistas.html">Especialistas</a></li>
                 <li><a href="../portal_usuario.html">Portal del usuario</a></li>

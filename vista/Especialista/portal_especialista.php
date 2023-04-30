@@ -47,6 +47,8 @@ if (!isset($_SESSION['usuario'])) {
                 <ul>
                     <li><a href="../portal_administrador.php">Inicio</a></li>
                     <li><a href="../centros_hospitalarios.html">Hospitales</a></li>
+                    <li><a href="../acerca_de.html">Acerca de</a></li>
+                    <li><a href="../contacto.html">Contacto</a></li>
                     <li><a href="../especialistas.html">Especialistas</a></li>
                     <li><a href="../portal_usuario.html">Portal del usuario</a></li>
                     <li><a><?php echo "Hola" . " " . $_SESSION['usuario']; ?></a></li>
