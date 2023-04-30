@@ -21,13 +21,11 @@ if (!isset($_SESSION['usuario'])) {
     header('location: ../login.php');
     exit();
 }
-
-
 ?>
 
 
 <body class="body-fondo">
-    <!--Cabecera------------------------------------------------------------------------------------------>
+    <!--Cabecera-------------------------------------------------------------------------------------------------->
     <header class="main-header">
         <div class="logo-container">
             <a href="../index.html"><img src="../logos/logo_hospital4.png"></a>

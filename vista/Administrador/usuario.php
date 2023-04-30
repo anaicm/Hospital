@@ -1,4 +1,4 @@
-<!--CRUD tabla usuario-->
+<?php require_once '../paginacion.php'; ?>
 
 <head>
     <meta charset="UTF-8">
@@ -6,6 +6,7 @@
     <title>Portal Administración BD usuario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/usu_admin.css">
 
     <script>
     /*
@@ -91,7 +92,7 @@
 
 <body><?php
 require_once('../../modelo/crud.php');
-
+//Este código va en el modelo
 if (isset($_POST['registrar'])) {//
     $nombre = $_POST['nombre'];
 	$apellido = $_POST['apellidos'];
@@ -125,6 +126,11 @@ if (isset($_POST['modificar'])) {
 }
 //mostrar la tabla usuarios
 $usuarios=crud_get_all('usuario');//trae la tabla usuario
+$total = count($usuarios);/// empieza la paginación contando todos los usuarios
+$pagina = isset($_GET['page']) ? $_GET['page'] : 1;//si me entra algo por página muestra esa página si no se va a la página 1
+$porPagina = 2;//cantidad a mostrar por página
+$paginasTotales = ceil($total / $porPagina);//ceil() redondea fracciones hacia arriba, realiza el cálculo de las páginas totales 
+$inicio = ($pagina - 1) * $porPagina;//
 
 echo "<table class='table table-hover'>";
     echo "<tr>
@@ -139,7 +145,8 @@ echo "<table class='table table-hover'>";
         <th scope=\"col\"></th>
     </tr>";
 /////
-    foreach ($usuarios as $usuario) {
+$usar_pagina = array_slice($usuarios, $inicio, $porPagina);//recorre desde el inicio hasta cuantos tiene que mostrar"porPagina"
+foreach ($usar_pagina as $usuario) {
     echo '<tr onclick="seleccionar(' . $usuario['idUsuario'] . ');">
         <td scope="row">' . $usuario['Dni'] . "</td>
         <td>" . $usuario['Nombre'] . "</td>
@@ -157,18 +164,8 @@ echo "<table class='table table-hover'>";
     <button class="btn btn-primary" onclick="limpiarFormulario()" type="submit" id="Anadir" name="Anadir" value="Anadir"
         style="display: none;">Cancelar</button>
     <!--formulario de usuarios-->
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Página</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
+    <nav class="paginacion" aria-label="Paginacion">
+        <?php echo paginacion($paginasTotales, $pagina, '?'); //llama a la función de la paginación?>
     </nav>
 
     <div id='panel-modificar' class='d-flex'>
@@ -231,8 +228,8 @@ echo "<table class='table table-hover'>";
                 <select id='rol' name='rol' class="form-select" aria-label="Default select example">
                     <option selected value="Usuario">Usuario</option>
                     <option value="Administrador">Administrador</option>
-                    <option value="Administrador">Especialista</option>
-                    <option value="Administrador">Usuario Autorizado</option>
+                    <option value="Especialista">Especialista</option>
+                    <option value="Usuario_autorizado">Usuario Autorizado</option>
                 </select>
                 <button class="btn btn-primary" type="submit" id="registrar" name="registrar"
                     value="Enviar">Registrar</button>
