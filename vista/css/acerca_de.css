@@ -1,10 +1,10 @@
-/*Da estilos a la página "acerca_de", "contenido_acerca_de", "Contenidos salud"*/
+/*Da estilos a la página "acerca_de", "contenido_acerca_de", "Contenidos salud", "contaco"*/
 .tam_izquierdo{/*Contenedor izquierdo de la página "acerca_de" anchura, margen y padding*/
     width: 20rem; 
     margin:20px 20px 20px 20px; 
     padding: 10px 10px 10px 10px;
 }
-.tam_tarjeta_salud{
+.tam_tarjeta_salud{/*Estilos para el tamaño de las tarjetas de la página salud*/
     width: 15rem; 
     height: 12em;
     margin:10px 20px 10px 50px; 
@@ -39,3 +39,20 @@ iframe{/*Tamaño para iframe*/
     padding-top: 10px;
     margin: 10px 10px 10px 10px;
 }
+.contenedor_contacto{/*CSS para centrar los div*//*Contenedor para la página de contacto*/
+    display: flex;
+    justify-content: center;/*centra el div en columnas */
+    /*align-content: center;*//*centra el div en filas*/
+    flex-wrap: wrap;/*obligatorio para centrar*/
+  }
+  .tam_contenedor_contacto{/*Elementos para el tamaño del contenedor en página contacto*/
+    width: 50%;
+    height: 50%;
+    margin: 10% 25% 10% 25%;
+    padding: 10px 10ps 10px 10px;
+
+  }
+  .imagen{
+    margin: 80px 0 20px 0;
+    padding: 10px 10px 10px 10px;
+  }
