@@ -20,8 +20,8 @@
     background-color: rgb(153, 160, 174);
     color: white;
   }
-  .contenido-tarjetas{/*Estilos para el texto del contenido de las tarjetas de la parte izquierda de la página con cursor pointer*/
-    border: 1px solid rgb(153, 160, 174);
+  /*.contenido-tarjetas{/*Estilos para el texto del contenido de las tarjetas de la parte izquierda de la página con cursor pointer*/
+   /* border: 1px solid rgb(153, 160, 174);
     width: 75%;
     height: 548px;
     padding: 12px;
@@ -32,16 +32,16 @@
     cursor: pointer;   
     font-size: 24px;
     display: flex;/*para hacer filas o columnas*/
-    flex-direction: column;/*si lo quieres row filas (por defecto) colum por columnas*/
+   /* flex-direction: column;/*si lo quieres row filas (por defecto) colum por columnas*/
 
-  }
+ /* }*/
   .salud_bienestar{/*Fondo para la etiqueta de salud*/
     background-image: url("../imagenes/imagenes_salud/salud_y_bienestar.png");
   
   }
-  .fondo-bienestar{/*Fondo para el contenido de la etiqueta de salud*/
-    background-image: url("../imagenes/imagenes_salud/fondo_salud_bienestar.png");
+  /*.fondo-bienestar{/*Fondo para el contenido de la etiqueta de salud*/
+    /*background-image: url("../imagenes/imagenes_salud/fondo_salud_bienestar.png");
   
 
-  }
+  }*/
   
