@@ -28,11 +28,8 @@ function crud_select($tabla, $campo, $condicion) {//busca por condición
         $password = '';
         $pdo = new PDO($dsn, $username, $password);
         // Crear una consulta dinámica utilizando los parámetros proporcionados
-        $sql = "SELECT * FROM $tabla WHERE $campo = :condicion";//realiza la consulta
-        echo ($sql);
-        echo ($condicion);
+        $sql = "SELECT * FROM $tabla WHERE $campo = $condicion";//realiza la consulta
         $stmt = $pdo->prepare($sql);//prepara la consulta
-        $stmt->bindParam(':condicion', $condicion);//asigna el valor de la condición
         $stmt->execute();//ejecuta
 
         // Retornar los resultados
@@ -55,7 +52,6 @@ function crud_insert($tabla, $campos) {//inserta
         $placeholders = ':' . implode(', :', array_keys($campos));
         $sql = "INSERT INTO $tabla ($clave) VALUES ($placeholders)";
         $stmt = $pdo->prepare($sql);
-
         // Vincular los valores a los marcadores de posición
         foreach ($campos as $clave => $valor) {
             $stmt->bindValue(':' . $clave, $valor);
@@ -83,7 +79,7 @@ function crud_update($table_name, $fields, $condition) {//actuliza
             $set .= "$key = :$key, ";
         }
         $set = rtrim($set, ', ');
-         
+
         $sql = "UPDATE $table_name SET $set WHERE $condition";
         $stmt = $pdo->prepare($sql);
 
@@ -109,8 +105,27 @@ function crud_delete($table_name, $id) {//elimina
         $pdo = new PDO($dsn, $username, $password);
 
         // Crear una consulta dinámica utilizando los parámetros proporcionados
-        $sql = "DELETE FROM $table_name WHERE ID"  .$table_name . " = " . $id;
-        echo $sql;
+        $sql = "DELETE FROM $table_name WHERE id"  .$table_name . " = " . $id;
+        $stmt = $pdo->prepare($sql);
+
+        // Ejecutar la consulta y retornar el número de filas afectadas
+        $stmt->execute();
+        return $stmt->rowCount();
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+function crud_borrar_relacion($table_name,$id1, $valor1, $id2, $valor2) {//elimina
+    try {
+        // Conectar a la base de datos utilizando PDO
+        $dsn = 'mysql:host=localhost;dbname=hospital';
+        $username = 'root';
+        $password = '';
+        $pdo = new PDO($dsn, $username, $password);
+
+        // Crear una consulta dinámica utilizando los parámetros proporcionados
+        $sql = "DELETE FROM " . $table_name . " WHERE id"  .$id1 . " = " . $valor1 . " AND id" . $id2 . " = " . $valor2;
         $stmt = $pdo->prepare($sql);
 
         // Ejecutar la consulta y retornar el número de filas afectadas

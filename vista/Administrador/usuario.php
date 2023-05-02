@@ -167,7 +167,6 @@ foreach ($usar_pagina as $usuario) {
     <nav class="paginacion" aria-label="Paginacion">
         <?php echo paginacion($paginasTotales, $pagina, '?'); //llama a la función de la paginación?>
     </nav>
-
     <div id='panel-modificar' class='d-flex'>
         <form method="post" class="">
             <input type="hidden" name="idUsuario" id="idUsuario" value="">
