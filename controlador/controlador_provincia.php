@@ -2,13 +2,6 @@
 require_once('../modelo/crud.php');
     
 if (isset($_POST['action'])){
-    if ($_POST['action'] == 'borrar'){    
-        try {       
-            crud_delete('Provincia',$_POST['id']);
-            } catch (PDOException $e) {
-                echo 'Error al insertar la provincia: ' . $e->getMessage();
-            }
-    }
 
     if ($_POST['action'] == 'seleccionar'){    
         try {       

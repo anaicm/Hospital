@@ -1,3 +1,4 @@
+<!--CRUD tabla usuario-->
 <?php require_once '../paginacion.php'; ?>
 
 <head>
@@ -18,7 +19,7 @@
         var dialog = confirm("Estas seguro?"); //muestra una caja para confirmar o cancelar
         if (dialog) { //si acepta
             var http = new XMLHttpRequest(); //se crea un objeto para realizar la solicitud asíncrona al servidor
-            var url = '/Hospital/controlador/controlador_usuario.php';
+            var url = '/Hospital2/controlador/controlador_usuario.php';
             var params = 'action=borrar&id=' + id; // indicador para eliminar cuando accione onclick en eliminar
             http.open('POST', url, true);
 
@@ -40,8 +41,9 @@
     */
 
     function seleccionar(id) {
+        debugger;
         var http = new XMLHttpRequest();
-        var url = '/Hospital/controlador/controlador_usuario.php';
+        var url = '/Hospital2/controlador/controlador_usuario.php';
         var params = 'action=seleccionar&id=' + id;
         http.open('POST', url, true);
 
@@ -51,6 +53,7 @@
         http.onreadystatechange = function() {
             //respuesta ajax correcta
             if (http.readyState == 4 && http.status == 200) {
+                debugger;
                 var usuario = JSON.parse(http.response);
                 document.getElementById('nombre').value = usuario[0].Nombre; //datos mapeados
                 document.getElementById('apellidos').value = usuario[0].Apellido;
@@ -92,7 +95,7 @@
 
 <body><?php
 require_once('../../modelo/crud.php');
-//Este código va en el modelo
+
 if (isset($_POST['registrar'])) {//
     $nombre = $_POST['nombre'];
 	$apellido = $_POST['apellidos'];
@@ -102,7 +105,7 @@ if (isset($_POST['registrar'])) {//
 	$email = $_POST['email'];
 	$contrasenia = $_POST['password'];
     try {
-    crud_insert('Usuario', array('dni' => $dni, 'nombre' => $nombre, 'apellido' => $apellido, 'telefono' => $telefono, 'FechaNacimiento' => $fnacimiento,'contrasenia' => $contrasenia, 'email' => $email, 'rol' => 'Administrador'));
+    crud_insertar('Usuario', array('dni' => $dni, 'nombre' => $nombre, 'apellido' => $apellido, 'telefono' => $telefono, 'FechaNacimiento' => $fnacimiento,'contrasenia' => password_hash($contrasenia, PASSWORD_DEFAULT), 'email' => $email, 'rol' => 'Administrador'));
     } catch (PDOException $e) {
         echo 'Error al insertar usuario: ' . $e->getMessage();
     }
@@ -111,15 +114,14 @@ if (isset($_POST['registrar'])) {//
 if (isset($_POST['modificar'])) {
     $id = $_POST['idUsuario'];
     $nombre = $_POST['nombre'];
-	$apellido = $_POST['apellidos'];
-    $dni = $_POST['dni'];
+	$apellido = $_POST['apellidos'];    
 	$telefono = $_POST['Telefono'];
-	$fnacimiento = date('d-m-Y', strtotime(str_replace('-', '/', $_POST['FechaNacimiento'])));
+	$fnacimiento = date('Y-m-d', strtotime(str_replace('-', '/', $_POST['FechaNacimiento'])));
 	$email = $_POST['email'];
 	$contrasenia = $_POST['password'];
     $rol = $_POST['rol'];
     try {//actualiza los datos por el id de usuario que se ha guardado en el hidden
-        crud_update('Usuario', array('dni' => $dni, 'nombre' => $nombre, 'apellido' => $apellido, 'telefono' => $telefono, 'FechaNacimiento' => $fnacimiento,'contrasenia' => $contrasenia, 'email' => $email, 'rol' => $rol), "idUsuario = $id");
+        crud_actualizar('Usuario', array('nombre' => $nombre, 'apellido' => $apellido, 'telefono' => $telefono, 'FechaNacimiento' => $fnacimiento,'contrasenia' => password_hash($contrasenia, PASSWORD_DEFAULT), 'email' => $email, 'rol' => $rol), "idUsuario = $id");
     } catch (PDOException $e) {
         echo 'Error al insertar usuario: ' . $e->getMessage();
     }
@@ -167,6 +169,7 @@ foreach ($usar_pagina as $usuario) {
     <nav class="paginacion" aria-label="Paginacion">
         <?php echo paginacion($paginasTotales, $pagina, '?'); //llama a la función de la paginación?>
     </nav>
+
     <div id='panel-modificar' class='d-flex'>
         <form method="post" class="">
             <input type="hidden" name="idUsuario" id="idUsuario" value="">

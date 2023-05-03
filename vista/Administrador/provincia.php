@@ -1,3 +1,4 @@
+<?php require_once '../paginacion.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,41 +9,17 @@
     <title>Portal Administración BD Provincia</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/usu_admin.css">
 
     <script>
-    /*
-    @function para eliminar por id, usando una solicitud HTTP asíncrona que realiza la llamada al servidor 
-    *sin recargar la página.
-    */
-    function borrar(id) {
-        var dialog = confirm("Estas seguro?"); //muestra una caja para confirmar o cancelar
-        if (dialog) { //si acepta
-            var http = new XMLHttpRequest(); //se crea un objeto para realizar la solicitud asíncrona al servidor
-            var url = '/Hospital/controlador/controlador_provincia.php';
-            var params = 'action=borrar&id=' + id; // indicador para eliminar cuando accione onclick en eliminar
-            http.open('POST', url, true);
-
-            //envía la información de encabezado junto con la solicitud
-            http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            //llama a la función para definir la respuesta al servidor cuando cambia de estado
-            http.onreadystatechange = function() {
-                if (http.readyState == 4 && http.status == 200) { //
-                    location.reload(); //Refresca la página
-                }
-            }
-            http.send(params); // envio del Ajax al servidor.
-
-        }
-    }
     /*
     @function para buscar por id, mediante una llamada asíncrona con Ajax al servidor
     *
     */
 
     function seleccionar(id) {
-        debugger;
         var http = new XMLHttpRequest();
-        var url = '/Hospital/controlador/controlador_provincia.php';
+        var url = '/Hospital2/controlador/controlador_provincia.php';
         var params = 'action=seleccionar&id=' + id;
         http.open('POST', url, true);
 
@@ -80,41 +57,55 @@
 <body><?php
 require_once('../../modelo/crud.php');
 
-if (isset($_POST['registrar'])) {//
-    $id = $_POST['idProvincia'];
+if (isset($_POST['registrar'])) {//acción añadir
     $nombre = $_POST['nombre'];
     try {
-    crud_insert('Provincia', array('nombre' => $nombre), "idProvincia = $id");
+    crud_insertar('Provincia', array('nombre' => $nombre));//pasa la tabla y los campos como array
     } catch (PDOException $e) {
         echo 'Error al insertar la provincia: ' . $e->getMessage();
     }
 }
-if (isset($_POST['modificar'])) {
-    $id = $_POST['idProvincia'];
-    $nombre = $_POST['nombre'];
-	
+if (isset($_POST['modificar'])) {//acción modificar
+    $id = $_POST['idProvincia'];//id que le pasa cuando hace onclick y llama a la función seleccionar
+    $nombre = $_POST['nombre'];//campo que muestra
+
     try {//actualiza los datos por el id de provincia que se ha guardado en el hidden
-        crud_update('Provincia', array('nombre' => $nombre), "idProvincia = $id");
+        crud_actualizar('Provincia', array('nombre' => $nombre), "idProvincia = $id");//tabla, campos,condicion(id)
     } catch (PDOException $e) {
         echo 'Error al insertar la provincia: ' . $e->getMessage();
     }
 }
 
+if (isset($_POST['borrar'])) {//acción eliminar
+    $id = $_POST['idProvincia'];
 
-
+    try {//borra la provincia por id
+        crud_borrar('Provincia', $id);
+    } catch (PDOException $e) {
+        echo "No se ha podido eliminar ya que la provincia está asiganda en otro elemento.";
+    }
+}
 
 // mostrar tabla provincias
 $provincias=crud_get_all('provincia');//trae la tabla provincia
+$total = count($provincias);/// empieza la paginación contando todos los usuarios
+$pagina = isset($_GET['page']) ? $_GET['page'] : 1;//si me entra algo por página muestra esa página si no se va a la página 1
+$porPagina = 2;//cantidad a mostrar por página
+$paginasTotales = ceil($total / $porPagina);//ceil() redondea fracciones hacia arriba, realiza el cálculo de las páginas totales 
+$inicio = ($pagina - 1) * $porPagina;//
 
 echo "<table class='table table-hover'>";
     echo "<tr>
         <th scope='col'>Provincia</th>
         <th scope=\"col\"></th>
     </tr>";
-    foreach ($provincias as $provincia) {
+    $usar_pagina = array_slice($provincias, $inicio, $porPagina);//recorre desde el inicio hasta cuantos tiene que mostrar"porPagina"
+    foreach ($usar_pagina as $provincia) {
         echo '<tr onclick="seleccionar(' . $provincia['idProvincia'] . ');">
-            <td scope="row">' . $provincia['Nombre'] . "</td>            
-            <td>" . '<button class="btn btn-primary" onclick="borrar(' . $provincia['idProvincia'] . ', \'provincia\');" id="borrar" name="borrar" value="Borrar">Borrar</button>' . "</td>
+            <td scope="row">' . $provincia['Nombre'] . '</td>
+            <td>' . ' <form action="" method="POST"><input type="hidden" name="idProvincia" value="' . $provincia['idProvincia'] . '">
+            <button onclick="confirm(\'¿Estas seguro de borrar el registro?\');" class="btn btn-primary" type="submit" name="borrar" value="Borrar">Borrar</button>
+          </form>' . "</td>
             </tr>";
         }
         echo "</table>";
@@ -122,18 +113,8 @@ echo "<table class='table table-hover'>";
     <button class="btn btn-primary" onclick="limpiarFormulario()" type="submit" id="Anadir" name="Anadir" value="Anadir"
         style="display: none;">Cancelar</button>
     <!--formulario de usuarios-->
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Página</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
+    <nav class="paginacion" aria-label="Paginacion">
+        <?php echo paginacion($paginasTotales, $pagina, '?'); //llama a la función de la paginación?>
     </nav>
     <div id='panel-modificar' class='d-flex'>
         <form method="post" class="">
@@ -152,7 +133,6 @@ echo "<table class='table table-hover'>";
             </div>
         </form>
     </div>
-
 </body>
 
 </html>
