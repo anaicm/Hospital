@@ -5,11 +5,11 @@ if (isset($_POST['action'])){
 
     if ($_POST['action'] == 'seleccionar'){    
         try {       
-            $ciudad = crud_select('Ciudad', 'idCiudad',$_POST['id'] );
+            $centro = crud_select('Centro', 'idCentro',$_POST['id'] );
             header("Content-Type: application/json");
-            echo json_encode($ciudad);
+            echo json_encode($centro);
             } catch (PDOException $e) {
-                echo 'Error al insertar la ciudad: ' . $e->getMessage();
+                echo 'Error al insertar el centro: ' . $e->getMessage();
             }
     }
 }

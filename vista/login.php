@@ -1,22 +1,42 @@
 <?php
-ob_start(); // Inicio del buffer de salida
+require_once('../modelo/crud.php');
+ob_start(); // Iniciamos el buffer de salida
 
 $msg = '';
 if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['password'])) {
-	$username = $_POST['username'];
-	$password = $_POST['password'];
-	
-    //mira si el usuario está en la tabla usuario y si el password hasheado es igual al password del usuario en la base de datos
-	if($username == "prueba" && $password == "prueba"){
-		session_start();
-		$_SESSION['usuario'] = 'prueba';
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-        //Si es administrador hay que mandarlo al portal del admin si no al portal de usuario
-		header('Location: administrador/portal_administrador.php');
-		exit; // Es importante salir del script después de la redirección
-	}else{
-		$msg = 'Usuario o contraseña no válidos';
-	}
+    // Buscar el usuario por DNI en la tabla usuario
+    $usuario = crud_select('usuario', 'dni', $username);
+    if ($usuario && password_verify($password, $usuario['password'])) {
+        // Si se encontró el usuario y la contraseña es correcta, iniciar sesión y redirigir
+        session_start();
+        $_SESSION['usuario'] = $username;
+        $_SESSION['rol'] = $usuario['rol'];
+
+        // Redirigir según el rol del usuario
+        if ($_SESSION['rol'] == "Administrador") {
+            header('Location: administrador/portal_administrador.php');
+        }
+        if($_SESSION['rol'] == "Especialista"){
+            header('Location: Especialista/portal_especialista.php');
+
+        }
+        if($_SESSION['rol'] == "Usuario"){
+            header('Location: usuario/portal_usuario.php');
+            
+        }
+        if($_SESSION['rol'] == "Usuario_autorizado"){
+            header('Location: Personal_autorizado/portal_usuario_autorizado.php');
+            
+        }
+        
+
+        exit; // Es importante salir del script después de la redirección
+    } else {
+        $msg = 'Usuario o contraseña no válidos';
+    }
 }
 ?>
 
@@ -31,8 +51,13 @@ if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['passw
     <link rel="stylesheet" type="text/css" href="css/barra_navegacion.css">
 </head>
 
+<!--Este código creará un contenedor centrado en la pantalla con un formulario de inicio de sesión estilizado,
+    un campo de contraseña y un botón de enviar. El contenedor está diseñado con una sombra y un borde redondeado 
+    para una apariencia más atractiva. También se ha utilizado una fuente de Google llamada "Montserrat" para darle
+    un aspecto más elegante y moderno.-->
+
+
 <body class="body-fondo">
-    <!--Cabecera---------------------------------------------------------------------------------------------------------->
     <header class="main-header">
         <div class="logo-container">
             <a href="index.html"><img src="logos/logo_hospital4.png"></a>
@@ -45,14 +70,12 @@ if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['passw
                     class="logo-volver"></a>
         </div>
     </header>
-    <!--Cuerpo de la página----------------------------------------------------------------------------------------------------->
     <div class="container_login">
         <div class="login_box">
-            <h2>Login (usuario:prueba contraseña:prueba)</h2>
+            <h2>Login</h2>
             <?php if (!empty($msg)): ?>
             <p><?php echo $msg; ?></p>
             <?php endif; ?>
-            <!--Formulario para el login-->
             <form action="" method="post">
                 <div class="form_login">
                     <label for="username">Username</label>
