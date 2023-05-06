@@ -106,7 +106,7 @@ if (isset($_POST['registrarCentroDepartamento'])) {
         echo "No se ha insertar.";
     }
 }
-
+//borra un elementos de la tabla M:M Centro_Departamento
 if (isset($_POST['borrarDepartamento'])) {
     $idDepartamento = $_POST['idDepartamento'];
     $idCentro = $_POST['idCentroDepartamento'];
@@ -198,7 +198,7 @@ echo '<table class="table table-hover">';
 
 // tabla M:M
 $centroDepartamentos=crud_get_all('Centro_Departamento');//trae la tabla centro_departamento
-
+//pinta la tabla "Centro_Departamento"
 echo '<table class="table table-hover">';
     echo '<tr>
         <th scope="col">Centro</th> 
@@ -206,9 +206,11 @@ echo '<table class="table table-hover">';
         <th scope="col"></th>
     </tr>';
     foreach ($centroDepartamentos as $centroDepartamento) {
-        
+        //recorre la tabla para tener el nombre correspondiente a cada id
         $departamento = crud_select('departamento', 'idDepartamento', $centroDepartamento['idDepartamento'] )[0];
         $centro = crud_select('centro', 'idCentro', $centroDepartamento['idCentro'] )[0];
+        //cojo los nombres de ambas tablas, oculta los id para cuando le de a la acción borrar, esos id pasaran a la acción isset
+        // borrarDepartamento.
         echo '<tr>
             <td scope="row">' . $centro['Nombre'] . '</td>
             <td scope="row">' . $departamento['Nombre'] . '</td>
@@ -228,7 +230,7 @@ echo '<table class="table table-hover">';
                     <span class="input-group-text" id="basic-addon3">Centro: </span>
                 </div>
                 <?php
-                    
+                //igual que en la tabla ciudad    
                 $centros=crud_get_all('centro');//trae la tabla ciudad
                 echo '<select id="idCentroDepartamento_Centro" name="idCentroDepartamento_Centro" class="form-select">'; //imprime el select con el idCiudad
 
@@ -253,8 +255,6 @@ echo '<table class="table table-hover">';
                 ?>
                 </select>
                 <!--Fin del select-->
-
-
                 <button class="btn btn-primary" type="submit" id="registrarCentroDepartamento"
                     name="registrarCentroDepartamento" value="EnviarCentroDepartamento">Registrar departamento en
                     centro</button>
