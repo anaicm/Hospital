@@ -54,7 +54,7 @@ height: 50px;
 .columnas img{/*Estilos para el tamaño, margen y borde de las imagenes que contienen la columnas*/
 	width: 700px;
 	height:360px;
-	margin:6px;
+	margin:10px 6px 6px 6px;
 	border-radius: 10px
 }
 .columnas .img-fondo {/*Estilo para el tamaño de la imagen de fondo del index*/
