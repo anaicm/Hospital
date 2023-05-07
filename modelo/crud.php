@@ -28,7 +28,7 @@ function crud_select($tabla, $campo, $condicion) {//busca por condición
         $password = '';
         $pdo = new PDO($dsn, $username, $password);
         // Crear una consulta dinámica utilizando los parámetros proporcionados
-        $sql = "SELECT * FROM $tabla WHERE $campo = $condicion";//realiza la consulta
+        $sql = "SELECT * FROM $tabla WHERE $campo = '$condicion'";//realiza la consulta
         $stmt = $pdo->prepare($sql);//prepara la consulta
         $stmt->execute();//ejecuta
 
