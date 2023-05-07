@@ -8,6 +8,6 @@
 
 session_start();
 $_SESSION['usuario'] = null;
-header('Location: index.html');
+header('Location: index.php');
 exit; 
 ?>

@@ -28,7 +28,7 @@ else
         </div>
         <div class="contra_olvidar">
             <p><a href="#">¿Has olvidado tú contraseña?</a></p>
-            <p><a href="index.html">Volver</a></p>
+            <p><a href="index.php">Volver</a></p>
         </div>
     </form>
 </div>

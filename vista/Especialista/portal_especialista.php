@@ -31,7 +31,7 @@ if (!isset($_SESSION['usuario'])) {
         <!--Cabecera-------------------------------------------------------------------------------------------------->
         <header class="main-header">
             <div class="logo-container">
-                <a href="../index.html"><img src="../logos/logo_hospital4.png"></a>
+                <a href="../index.php"><img src="../logos/logo_hospital4.png"></a>
             </div>
             <div class="title-container">
                 <h1>CenSalud</h1>

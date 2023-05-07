@@ -17,7 +17,7 @@
     <!--cabecera---------------------------------------------------------------------------------------------------------------------->
     <header class="main-header">
         <div class="logo-container">
-            <a href="../index.html"><img src="../logos/logo_hospital4.png"></a>
+            <a href="../index.php"><img src="../logos/logo_hospital4.png"></a>
         </div>
         <div class="title-container">
             <h1>CenSalud</h1>
@@ -31,7 +31,7 @@
         <!--barra de navegación--------------------------------------------------------------------------------------------------------->
         <nav>
             <ul>
-                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../index.php">Inicio</a></li>
                 <li><a href="../centros_hospitalarios.html">Hospitales</a></li>
                 <li><a href="../acerca_de.html">Acerca de</a></li>
                 <li><a href="../contacto.html">Contacto</a></li>

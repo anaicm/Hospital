@@ -28,7 +28,7 @@ if (!isset($_SESSION['usuario'])) {
     <!--Cabecera-------------------------------------------------------------------------------------------------->
     <header class="main-header">
         <div class="logo-container">
-            <a href="../index.html"><img src="../logos/logo_hospital4.png"></a>
+            <a href="../index.php"><img src="../logos/logo_hospital4.png"></a>
         </div>
         <div class="title-container">
             <h1>CenSalud</h1>
@@ -42,7 +42,7 @@ if (!isset($_SESSION['usuario'])) {
     <div class="main">
         <nav>
             <ul>
-                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../index.php">Inicio</a></li>
                 <li><a href="../centros_hospitalarios.html">Hospitales</a></li>
                 <li><a href="../especialistas.html">Especialistas</a></li>
                 <li><a href="../portal_usuario.html">Portal del usuario</a></li>
