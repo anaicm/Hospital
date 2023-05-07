@@ -1,63 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Mis citas</title>
-  <meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="css/informes_clinicos.css">
-  <link rel="stylesheet" type="text/css" href="css/cabecera.css">
-  <link rel="stylesheet" type="text/css" href="css/barra_navegacion.css">
-  <!--JavaScript----------------------------------------------------------------------------------------->
-  <script src="js/area_perfil.js"></script>
-  
-</head>
-<body class="body-fondo">
-  <header class="main-header">
-    <div class="logo-container">
-     <a href="index.html"><img src="logos/logo_hospital4.png"></a>
+  <head>
+    <title>Mis citas</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/informes_clinicos.css" />
+    <link rel="stylesheet" type="text/css" href="css/cabecera.css" />
+    <link rel="stylesheet" type="text/css" href="css/barra_navegacion.css" />
+    <!--JavaScript----------------------------------------------------------------------------------------->
+    <script src="js/area_perfil.js"></script>
+  </head>
+  <body class="body-fondo">
+    <header class="main-header">
+      <div class="logo-container">
+        <a href="index.php"><img src="logos/logo_hospital4.png" /></a>
+      </div>
+      <div class="title-container">
+        <h1>CenSalud</h1>
+      </div>
+      <div class="button-container">
+        <a href="portal_usuario.html" class="c-button user-button"
+          ><img src="logos/logo_volver-1.png" class="logo-volver"
+        /></a>
+      </div>
+    </header>
+    <div class="main">
+      <nav>
+        <ul>
+          <li><a href="index.php">Inicio</a></li>
+          <li><a href="centros_hospitalarios.html">Hospitales</a></li>
+          <li><a href="acerca_de.html">Acerca de</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="especialistas.html">Especialistas</a></li>
+          <li><a href="portal_usuario.html">Portal del usuario</a></li>
+          <li><a href="informes_clinicos.html">Informes Clínicos</a></li>
+        </ul>
+      </nav>
+      <!--cuerpo---------------------------------------------------------------------------------------------------------------------------->
+      <!--Cabecera cuerpo------------------------------------------------------------------------------------------------------------------->
+      <div class="etiqueta_informes_columnas">
+        <!--Etiqueta nombre de la especialidad---------------------------------------------------------------------------------------------->
+        <div
+          class="etiqueta etiqueta1"
+          onclick="mostrar_formulario_datos ('contenido_informe')"
+        >
+          <!--Parte de arriba, mediante un bucle muestra todos los informes relacionados con el usuario en cuestión-->
+          <div id="cabecera_informe" class="etiqueta_informes_horizontal">
+            <div class="cabecera_etiqueta_informes">Especialidad</div>
+            <div class="cabecera_etiqueta_informes">Especialista</div>
+            <div class="cabecera_etiqueta_informes">Fecha</div>
+          </div>
+          <hr />
+          <!--parte de abajo-->
+          <div class="etiqueta_informes_horizontal">
+            <div class="cabecera_etiqueta_informes">Especialidad</div>
+            <!--búsqueda de la especialidad-->
+            <div class="cabecera_etiqueta_informes">Especialista</div>
+            <!--búsqueda de la especialista-->
+            <div class="cabecera_etiqueta_informes">Fecha</div>
+            <!--búsqueda de la fecha-->
+          </div>
+        </div>
+        <!--Etiqueta del informe, cuando el usuario accione el informe aparece en el contenedor--------------------------------------------->
+        <div id="contenido_informe" class="etiqueta etiqueta2 invisible">
+          Informe
+        </div>
+      </div>
     </div>
-    <div class="title-container">
-      <h1>CenSalud</h1>
-    </div>
-    <div class="button-container">
-        <a href="portal_usuario.html" class="c-button user-button"><img src="logos/logo_volver-1.png" class="logo-volver"></a>
-    </div>
-  </header>
-  <div class="main">
-  <nav>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="centros_hospitalarios.html">Hospitales</a></li>
-      <li><a href="acerca_de.html">Acerca de</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-      <li><a href="especialistas.html">Especialistas</a></li>
-      <li><a href="portal_usuario.html">Portal del usuario</a></li>
-      <li><a href="informes_clinicos.html">Informes Clínicos</a></li>
-    </ul>
-  </nav>  
-  <!--cuerpo---------------------------------------------------------------------------------------------------------------------------->
-  <!--Cabecera cuerpo------------------------------------------------------------------------------------------------------------------->
-  <div class="etiqueta_informes_columnas">
-    <!--Etiqueta nombre de la especialidad---------------------------------------------------------------------------------------------->
-   <div class="etiqueta etiqueta1" onclick="mostrar_formulario_datos ('contenido_informe')">
-     <!--Parte de arriba, mediante un bucle muestra todos los informes relacionados con el usuario en cuestión-->
-       <div id="cabecera_informe" class="etiqueta_informes_horizontal ">
-         <div class="cabecera_etiqueta_informes">Especialidad</div>
-         <div class="cabecera_etiqueta_informes">Especialista</div>
-         <div class="cabecera_etiqueta_informes">Fecha</div>
-       </div>
-       <hr>
-       <!--parte de abajo-->
-       <div class="etiqueta_informes_horizontal ">
-         <div class="cabecera_etiqueta_informes">Especialidad</div><!--búsqueda de la especialidad-->
-         <div class="cabecera_etiqueta_informes">Especialista</div><!--búsqueda de la especialista-->
-         <div class="cabecera_etiqueta_informes">Fecha</div><!--búsqueda de la fecha-->
-       </div>
-   </div>
-    <!--Etiqueta del informe, cuando el usuario accione el informe aparece en el contenedor--------------------------------------------->
-   <div id="contenido_informe" class="etiqueta etiqueta2 invisible">
-     Informe
-   </div>
- </div>
- </div>
-</body>
+  </body>
 </html>

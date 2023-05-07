@@ -1,67 +1,93 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Área Cliente</title>
-  <meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="css/portal_usuario.css">
-  <link rel="stylesheet" type="text/css" href="css/cabecera.css">
-  <link rel="stylesheet" type="text/css" href="css/barra_navegacion.css">
-</head>
-<!--Cabecera de la página---------------------------------------------------------------------------------------------->
-<body class="body-fondo">
-  <header class="main-header">
-    <div class="logo-container">
-     <a href="index.html"><img src="logos/logo_hospital4.png"></a>
+  <head>
+    <title>Área Cliente</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/portal_usuario.css" />
+    <link rel="stylesheet" type="text/css" href="css/cabecera.css" />
+    <link rel="stylesheet" type="text/css" href="css/barra_navegacion.css" />
+  </head>
+  <!--Cabecera de la página---------------------------------------------------------------------------------------------->
+  <body class="body-fondo">
+    <header class="main-header">
+      <div class="logo-container">
+        <a href="index.php"><img src="logos/logo_hospital4.png" /></a>
+      </div>
+      <div class="title-container">
+        <h1>CenSalud</h1>
+      </div>
+      <div class="button-container">
+        <a href="area_perfil.html" class="c-button logo-perfil">Mi perfil</a>
+        <a href="index.php" class="c-button logo-cerrar-sesion"
+          >Cerrar Sesión</a
+        >
+      </div>
+    </header>
+    <div class="main">
+      <!--Barra de navegación---------------------------------------------------------------------------------------------->
+      <nav>
+        <ul>
+          <li><a href="index.php">Inicio</a></li>
+          <li><a href="centros_hospitalarios.html">Hospitales</a></li>
+          <li><a href="acerca_de.html">Acerca de</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="especialistas.html">Especialistas</a></li>
+          <li><a href="contenido_salud/salud.php">Portal del usuario</a></li>
+        </ul>
+      </nav>
     </div>
-    <div class="title-container">
-      <h1>CenSalud</h1>
-    </div>
-    <div class="button-container">
-      <a href="area_perfil.html" class="c-button logo-perfil">Mi perfil</a>
-      <a href="index.html" class="c-button logo-cerrar-sesion">Cerrar Sesión</a>
-    </div>
-  </header>
-  <div class="main">
-  <!--Barra de navegación---------------------------------------------------------------------------------------------->
-  <nav>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="centros_hospitalarios.html">Hospitales</a></li>
-      <li><a href="acerca_de.html">Acerca de</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-      <li><a href="especialistas.html">Especialistas</a></li>
-      <li><a href="contenido_salud/salud.php">Portal del usuario</a></li>
-    </ul>
-  </nav>
-  </div>
     <div class="cuerpo">
-    <!--Tarjetas donde el usuario puede interactuar según quiera, cada tarjeta va a una página.-->
+      <!--Tarjetas donde el usuario puede interactuar según quiera, cada tarjeta va a una página.-->
       <div class="cabecera-cuerpo">
         <p>Bienvenido (Nombre) a tu portal de salud</p>
       </div>
-    </div> 
+    </div>
     <div class="menu-tarjetas">
       <div class="tarjeta">
-        Pedir cita  <br>
-        <a href="pedir_cita.php"><img src="imagenes/imagenes_portal_de_usuario/pedir_cita.png" class="imagenes-etiquetas"> </a>
-     
+        Pedir cita <br />
+        <a href="pedir_cita.php"
+          ><img
+            src="imagenes/imagenes_portal_de_usuario/pedir_cita.png"
+            class="imagenes-etiquetas"
+          />
+        </a>
       </div>
-    <div class="tarjeta">
-        Mis citas<br>
-        <a href="mis_citas.html"><img src="imagenes/imagenes_portal_de_usuario/mis_citas.png" class="imagenes-etiquetas"> </a>
+      <div class="tarjeta">
+        Mis citas<br />
+        <a href="mis_citas.html"
+          ><img
+            src="imagenes/imagenes_portal_de_usuario/mis_citas.png"
+            class="imagenes-etiquetas"
+          />
+        </a>
+      </div>
+      <div class="tarjeta">
+        Historial<br />
+        <a href="informes_clinicos.html"
+          ><img
+            src="imagenes/imagenes_portal_de_usuario/informes2.png"
+            class="imagenes-etiquetas"
+          />
+        </a>
+      </div>
+      <div class="tarjeta">
+        Familiares<br />
+        <a href="familiares.html"
+          ><img
+            src="imagenes/imagenes_portal_de_usuario/familiares.png"
+            class="imagenes-etiquetas"
+          />
+        </a>
+      </div>
+      <div class="tarjeta">
+        Salud<br />
+        <a href="contenido_salud/salud.php"
+          ><img
+            src="imagenes/imagenes_portal_de_usuario/salud.png"
+            class="imagenes-etiquetas"
+          />
+        </a>
+      </div>
     </div>
-    <div class="tarjeta">
-        Historial<br>
-      <a href="informes_clinicos.html"><img src="imagenes/imagenes_portal_de_usuario/informes2.png" class="imagenes-etiquetas"> </a>  
-    </div>
-    <div class="tarjeta">
-         Familiares<br>
-         <a href="familiares.html"><img src="imagenes/imagenes_portal_de_usuario/familiares.png" class="imagenes-etiquetas"> </a>   
-    </div>
-    <div class="tarjeta">
-         Salud<br>
-        <a href="contenido_salud/salud.php"><img src="imagenes/imagenes_portal_de_usuario/salud.png" class="imagenes-etiquetas"> </a>  
-    </div>
-  </div>
-</body>
+  </body>
 </html>

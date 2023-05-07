@@ -1,94 +1,161 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Familiares actualizar</title>
-  <meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="css/formulario_actualizar_anadir_farmiliares.css">
-  <link rel="stylesheet" type="text/css" href="css/cabecera.css">
-  <link rel="stylesheet" type="text/css" href="css/barra_navegacion.css">
-  
-</head>
-<body class="body-fondo">
-  <header class="main-header">
-    <div class="logo-container">
-     <a href="index.html"><img src="logos/logo_hospital4.png"></a>
+  <head>
+    <title>Familiares actualizar</title>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/formulario_actualizar_anadir_farmiliares.css"
+    />
+    <link rel="stylesheet" type="text/css" href="css/cabecera.css" />
+    <link rel="stylesheet" type="text/css" href="css/barra_navegacion.css" />
+  </head>
+  <body class="body-fondo">
+    <header class="main-header">
+      <div class="logo-container">
+        <a href="index.php"><img src="logos/logo_hospital4.png" /></a>
+      </div>
+      <div class="title-container">
+        <h1>CenSalud</h1>
+      </div>
+      <div class="button-container">
+        <a href="familiares.html" class="c-button user-button"
+          ><img src="logos/logo_volver-1.png" class="logo-volver"
+        /></a>
+      </div>
+    </header>
+    <div class="main">
+      <nav>
+        <ul>
+          <li><a href="index.php">Inicio</a></li>
+          <li><a href="#">Hospitales</a></li>
+          <li><a href="#">Especialistas</a></li>
+          <li><a href="acerca_de.html">Acerca de</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="portal_usuario.html">Portal del usuario</a></li>
+          <li><a href="familiares.html">Familiares</a></li>
+          <li>
+            <a href="formulario_actualizar_familiar.html">Actualizar datos</a>
+          </li>
+        </ul>
+      </nav>
+      <!--Formulario para crear un nuevo familiar adjunto al usuario-->
+      <div class="colocacion-formulario">
+        <form action="#" method="post" name="form-actualizar-familiar">
+          <table>
+            <tr>
+              <td>
+                <label for="nombre"><div class="texto">Nombre:</div></label
+                ><br />
+                <input
+                  type="text"
+                  name="nombre"
+                  id="nombre"
+                  value=""
+                  required
+                />
+                <hr />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="apellido"><div class="texto">Apellidos:</div></label
+                ><br />
+                <input
+                  type="text"
+                  name="apellido"
+                  id="apellido"
+                  value=""
+                  required
+                />
+                <hr />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="telefono"
+                  ><div class="texto">Teléfono de contacto:</div></label
+                ><br />
+                <input
+                  type="text"
+                  name="telefono"
+                  id="telefono"
+                  value=""
+                  required
+                />
+                <hr />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="direccion"
+                  ><div class="texto">Dirección:</div></label
+                ><br />
+                <input
+                  type="text"
+                  name="direccion"
+                  id="direccion"
+                  value=""
+                  required
+                />
+                <hr />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="parentesco"
+                  ><div class="texto">Vínculo familiar:</div></label
+                ><br />
+                <input
+                  type="text"
+                  name="parentesco"
+                  id="parentesco"
+                  value=""
+                  required
+                />
+                <hr />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="fech_nacimiento"
+                  ><div class="texto">Fecha de nacimiento:</div></label
+                ><br />
+                <input
+                  type="text"
+                  name="fech_nacimiento"
+                  id="fech_nacimiento"
+                  value=""
+                  required
+                />
+                <hr />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="dni"><div class="texto">nacional (DNI):</div></label
+                ><br />
+                <input type="text" name="dni" id="dni" value="" required />
+                <hr />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="boton">
+                  <input
+                    type="submit"
+                    name="actualizar"
+                    id="actualizar"
+                    value="Actualizar"
+                    class="boton-actualizar"
+                  />
+                </div>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
     </div>
-    <div class="title-container">
-      <h1>CenSalud</h1>
-    </div>
-    <div class="button-container">
-        <a href="familiares.html" class="c-button user-button"><img src="logos/logo_volver-1.png" class="logo-volver"></a>
-    </div>
-  </header>
-  <div class="main">
-  <nav>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="#">Hospitales</a></li>
-      <li><a href="#">Especialistas</a></li>
-      <li><a href="acerca_de.html">Acerca de</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-      <li><a href="portal_usuario.html">Portal del usuario</a></li>
-      <li><a href="familiares.html">Familiares</a></li>
-      <li><a href="formulario_actualizar_familiar.html">Actualizar datos</a></li>
-    </ul>
-  </nav>  
-  <!--Formulario para crear un nuevo familiar adjunto al usuario-->
-  <div class="colocacion-formulario">
-    <form action="#" method="post" name="form-actualizar-familiar">
-        <table>
-            <tr>
-                <td>
-                    <label for="nombre"><div class="texto">Nombre:</div></label><br>
-                    <input type="text" name="nombre" id="nombre" value="" required><hr>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="apellido"><div class="texto">Apellidos:</div></label><br>
-                    <input type="text" name="apellido" id="apellido" value="" required><hr>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="telefono"><div class="texto">Teléfono de contacto:</div></label><br>
-                    <input type="text" name="telefono" id="telefono" value="" required><hr>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="direccion"><div class="texto">Dirección:</div></label><br>
-                    <input type="text" name="direccion" id="direccion" value="" required><hr>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="parentesco"><div class="texto">Vínculo familiar:</div></label><br>
-                    <input type="text" name="parentesco" id="parentesco" value="" required><hr>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="fech_nacimiento"><div class="texto">Fecha de nacimiento:</div></label><br>
-                    <input type="text" name="fech_nacimiento" id="fech_nacimiento" value="" required><hr>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="dni"><div class="texto"> nacional (DNI):</div></label><br>
-                    <input type="text" name="dni" id="dni" value="" required><hr>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                   <div class="boton">
-                     <input type="submit" name="actualizar" id="actualizar" value="Actualizar" class="boton-actualizar">
-                   </div> 
-                </td>
-            </tr>
-        </table>
-    </form>
-  </div>
-</div>
-</body>
+  </body>
 </html>
