@@ -43,7 +43,7 @@
     function seleccionar(id) {
         debugger;
         var http = new XMLHttpRequest();
-        var url = '/Hospital2/controlador/controlador_usuario.php';
+        var url = '/Hospital/controlador/controlador_usuario.php';
         var params = 'action=seleccionar&id=' + id;
         http.open('POST', url, true);
 
