@@ -2,21 +2,25 @@
 require_once('../modelo/crud.php');
 $msg = '';
 if (isset($_POST['registrar'])) {
-	
-
-	$nombre = $_POST['nombre'];
+    //Trae los datos del formulario
+    $nombre = $_POST['nombre'];
 	$apellido = $_POST['apellidos'];
+    $dni = $_POST['dni'];
 	$telefono = $_POST['telefono'];
-	$fnacimiento = date('d-m-Y', strtotime(str_replace('-', '/', $_POST['fnacimiento'])));
+	$fnacimiento = date('Y-m-d', strtotime(str_replace('-', '/', $_POST['fnacimiento'])));
 	$email = $_POST['email'];
 	$contrasenia = $_POST['password'];
-    $dni = $_POST['dni'];
 
-    try {
-        crud_insert('Usuario', array('nombre' => $nombre, 'apellido' => $apellido, 'telefono' => $telefono,  'contrasenia' => $contrasenia, 'email' => $email, 'rol' => 'Usuario', 'dni' => $dni));
-        header("location: login.php");
-    }catch (PDOException $e) {
-        echo 'Error al insertar usuario: ' . $e->getMessage();
+    $valido = true;
+      if($valido){
+        try {//con la función insertar los inserto en la BD, por defecto el rol será usuario y lo redirige a la página del login
+            crud_insertar('Usuario', array('dni' => $dni, 'nombre' => $nombre, 'apellido' => $apellido, '
+            telefono' => $telefono, 'FechaNacimiento' => $fnacimiento,'contrasenia' => password_hash($contrasenia, PASSWORD_DEFAULT),
+            'email' => $email, 'rol' => 'Usuario'));
+            header("location: login.php");
+        } catch (PDOException $e) {
+            echo 'Error al insertar usuario: ' . $e->getMessage();
+        }
     }
 }
     
@@ -35,10 +39,10 @@ if (isset($_POST['registrar'])) {
 </head>
 
 <body class="body-fondo">
-    <!--Cabecera de la página------------------------------------------------------------------------------------------------>
+    <!--Cabecera---------------------------------------------------------------------------------------->
     <header class="main-header">
         <div class="logo-container">
-            <a href="index.html"><img src="logos/logo_hospital4.png"></a>
+            <a href="index.php"><img src="logos/logo_hospital4.png"></a>
         </div>
         <div class="title-container">
             <h1>CenSalud</h1>
@@ -47,27 +51,31 @@ if (isset($_POST['registrar'])) {
             <a href="login.php" class="c-button user-button"><img src="logos/logo_volver-1.png" class="logo-volver"></a>
         </div>
     </header>
+    <!--Cuerpo---------------------------------------------------------------------------------------->
     <div class="container_registro">
-        <!--Cuerpo de la página------------------------------------------------------------------------------------------------>
         <div class="login_box">
             <h2>Registro de usuario</h2>
+            <!--Mensaje de error-->
             <?php if (!empty($msg)): ?>
             <p><?php echo $msg; ?></p>
             <?php endif; ?>
+            <!--formulario---------------------------------------------------------------------------------------->
             <form method="post" class="form_login">
-                <input placeholder="Nombre" type="text" id="nombre" name="nombre" required><br>
 
-                <input placeholder="Apellidos" type="text" id="apellidos" name="apellidos" required><br>
+                <input type="text" id="nombre" name="nombre" required placeholder="Nombre"><br>
 
-                <input placeholder="Documento (DNI)" type="text" id="dni" name="dni" required><br>
+                <input type="text" id="apellidos" name="apellidos" required placeholder="Apellidos"><br>
 
-                <input placeholder="Año/mes/día" type="text" id="fnacimiento" name="fnacimiento" required><br>
+                <input type="text" id="dni" name="dni" required placeholder="Documento (DNI)"><br>
 
-                <input placeholder="Teléfono" type="tel" id="telefono" name="telefono" required><br>
+                <input type="text" type="datetime-local" id="fnacimiento" name="fnacimiento" required
+                    placeholder="Fecha de Nacimiento"><br>
 
-                <input placeholder="Email" type="email" id="email" name="email" required><br>
+                <input type="tel" id="telefono" name="telefono" required placeholder="Teléfono"><br>
 
-                <input placeholder="Contraseña" type="password" id="password" name="password" required><br>
+                <input type="email" id="email" name="email" required placeholder="Email"><br>
+
+                <input type="password" id="password" name="password" required placeholder="Contraseña"><br>
 
                 <input type="submit" id="registrar" name="registrar" value="Enviar">
             </form>
