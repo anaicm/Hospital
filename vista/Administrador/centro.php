@@ -19,7 +19,7 @@
 
     function seleccionar(id) {
         var http = new XMLHttpRequest();
-        var url = '/Hospital2/controlador/controlador_centro.php';
+        var url = '/Hospital/controlador/controlador_centro.php';
         var params = 'action=seleccionar&id=' + id;
         http.open('POST', url, true);
 
@@ -141,7 +141,7 @@ echo '<table class="table table-hover">';
             <td scope="row">' . $centro['Telefono'] . '</td> 
             <td>' . $ciudad['Nombre']  . '</td>            
             <td>' . ' <form action="" method="POST"><input type="hidden" name="idcentro" value="' . $centro['idCentro'] . '">
-            <button onclick="confirm(\'¿Estas seguro de borrar el registro?\');" class="btn btn-primary" type="submit" name="borrar" value="Borrar">Borrar</button>
+            <button onclick="if(!confirm(\'¿Estás seguro de borrar el registro?\')) event.preventDefault();" class="btn btn-primary" type="submit" name="borrar" value="Borrar">Borrar</button>
           </form>' . "</td>
             </tr>";
         }

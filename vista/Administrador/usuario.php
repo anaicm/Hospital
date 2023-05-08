@@ -19,7 +19,7 @@
         var dialog = confirm("Estas seguro?"); //muestra una caja para confirmar o cancelar
         if (dialog) { //si acepta
             var http = new XMLHttpRequest(); //se crea un objeto para realizar la solicitud asíncrona al servidor
-            var url = '/Hospital2/controlador/controlador_usuario.php';
+            var url = '/Hospital/controlador/controlador_usuario.php';
             var params = 'action=borrar&id=' + id; // indicador para eliminar cuando accione onclick en eliminar
             http.open('POST', url, true);
 

@@ -19,7 +19,7 @@
 
     function seleccionar(id) {
         var http = new XMLHttpRequest();
-        var url = '/Hospital2/controlador/controlador_ciudad.php';
+        var url = '/Hospital/controlador/controlador_ciudad.php';
         var params = 'action=seleccionar&id=' + id;
         http.open('POST', url, true);
 
