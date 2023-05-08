@@ -1,6 +1,6 @@
 <?php
-//select Centro.Direccion, Centro.Telefono from Centro,Ciudad where Ciudad.Nombre="Torremolinos";
-function obtener_centros_por_ciudad($condicion){//busca en dos tablas por condición
+//Busca la direccion y telefono de los centros por ciudad
+function obtener_centros_por_ciudad($condicion){
     try {
         // Conectar a la base de datos utilizando PDO
         $dsn = 'mysql:host=localhost;dbname=hospital';

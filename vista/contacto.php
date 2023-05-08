@@ -62,7 +62,7 @@
                                 name="buscar" value="Enviar">Buscar</button>
                             <!--Tabla para mostrar los datos -->
                             <?php
-                              require_once('../controlador/controlador_contacto.php');
+                              require_once('../modelo/modelo_contacto.php');
                               if (isset($_POST['buscar'])) {
                                 $ciudad = $_POST['nom_ciudad'];
                                 try{
