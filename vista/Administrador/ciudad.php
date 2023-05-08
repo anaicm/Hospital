@@ -111,7 +111,7 @@ echo '<table class="table table-hover">';
             <td scope="row">' . $ciudad['Nombre'] . '</td>            
             <td>' . $provincia['Nombre']  . '</td>            
             <td>' . ' <form action="" method="POST"><input type="hidden" name="idCiudad" value="' . $ciudad['idCiudad'] . '">
-            <button onclick="confirm(\'¿Estas seguro de borrar el registro?\');" class="btn btn-primary" type="submit" name="borrar" value="Borrar">Borrar</button>
+            <button onclick="if(!confirm(\'¿Estás seguro de borrar el registro?\')) event.preventDefault();" class="btn btn-primary" type="submit" name="borrar" value="Borrar">Borrar</button>
           </form>' . "</td>
             </tr>";
         }

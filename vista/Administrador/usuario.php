@@ -104,6 +104,7 @@ if (isset($_POST['registrar'])) {//
 	$fnacimiento = date('Y-m-d', strtotime(str_replace('-', '/', $_POST['FechaNacimiento'])));
 	$email = $_POST['email'];
 	$contrasenia = $_POST['password'];
+    $rol = $_POST['rol'];
     try {
     crud_insertar('Usuario', array('dni' => $dni, 'nombre' => $nombre, 'apellido' => $apellido, 'telefono' => $telefono, 'FechaNacimiento' => $fnacimiento,'contrasenia' => password_hash($contrasenia, PASSWORD_DEFAULT), 'email' => $email, 'rol' => $rol));
     } catch (PDOException $e) {
@@ -157,7 +158,9 @@ foreach ($usar_pagina as $usuario) {
         <td>" . $usuario['Email'] . "</td>
         <td>" . $usuario['Rol'] . "</td>
         <td>" . date('d-m-Y', strtotime(str_replace('-', '/', $usuario['FechaNacimiento']))) . "</td>
-        <td>" . '<button class="btn btn-primary" onclick="borrar(' . $usuario['idUsuario'] . ', \'usuario\');" id="borrar" name="borrar" value="Borrar">Borrar</button>' . "</td>
+        <td>" . ' <form action="" method="POST"><input type="hidden" name="idProvincia" value="' . $usuario['idUsuario'] . '">
+        <button onclick="if(!confirm(\'¿Estás seguro de borrar el registro?\')) event.preventDefault();" class="btn btn-primary" type="submit" name="borrar" value="Borrar">Borrar</button>
+      </form>' . "</td>
         </tr>";
     }
     echo "</table>";

@@ -131,7 +131,7 @@ foreach ($usar_pagina as $departamento) {
             <td scope="row">' . $departamento['Nombre'] . '</td>
             <td scope="row">' . $departamento['Descripcion'] . '</td>         
             <td>' . ' <form action="" method="POST"><input type="hidden" name="idDepartamento" value="' . $departamento['idDepartamento'] . '">
-            <button onclick="confirm(\'¿Estas seguro de borrar el registro?\');" class="btn btn-primary" type="submit" name="borrar" value="Borrar">Borrar</button>
+            <button onclick="if(!confirm(\'¿Estás seguro de borrar el registro?\')) event.preventDefault();" class="btn btn-primary" type="submit" name="borrar" value="Borrar">Borrar</button>
           </form>' . "</td>
             </tr>";
         }
