@@ -10,36 +10,6 @@
     <link rel="stylesheet" type="text/css" href="../css/usu_admin.css">
 
     <script>
-    /*
-    @function para eliminar por id, usando una solicitud HTTP asíncrona que realiza la llamada al servidor 
-    *sin recargar la página.
-    *
-    */
-    function borrar(id) {
-        var dialog = confirm("Estas seguro?"); //muestra una caja para confirmar o cancelar
-        if (dialog) { //si acepta
-            var http = new XMLHttpRequest(); //se crea un objeto para realizar la solicitud asíncrona al servidor
-            var url = '/Hospital/controlador/controlador_usuario.php';
-            var params = 'action=borrar&id=' + id; // indicador para eliminar cuando accione onclick en eliminar
-            http.open('POST', url, true);
-
-            //envía la información de encabezado junto con la solicitud
-            http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            //llama a la función para definir la respuesta al servidor cuando cambia de estado
-            http.onreadystatechange = function() {
-                if (http.readyState == 4 && http.status == 200) { //
-                    location.reload(); //Refresca la página
-                }
-            }
-            http.send(params); // envio del Ajax al servidor.
-
-        }
-    }
-    /*
-    @function para buscar por id, mediante una llamada asíncrona con Ajax al servidor
-    *
-    */
-
     function seleccionar(id) {
         debugger;
         var http = new XMLHttpRequest();
@@ -127,6 +97,16 @@ if (isset($_POST['modificar'])) {
         echo 'Error al insertar usuario: ' . $e->getMessage();
     }
 }
+
+if (isset($_POST['borrar'])) {
+    $id = $_POST['idUsuario'];
+    try {
+        crud_borrar('Usuario', $id);
+    } catch (PDOException $e) {
+        echo "No se ha podido eliminar el usuario";
+    }
+}
+
 //mostrar la tabla usuarios
 $usuarios=crud_get_all('usuario');//trae la tabla usuario
 $total = count($usuarios);/// empieza la paginación contando todos los usuarios
@@ -158,7 +138,7 @@ foreach ($usar_pagina as $usuario) {
         <td>" . $usuario['Email'] . "</td>
         <td>" . $usuario['Rol'] . "</td>
         <td>" . date('d-m-Y', strtotime(str_replace('-', '/', $usuario['FechaNacimiento']))) . "</td>
-        <td>" . ' <form action="" method="POST"><input type="hidden" name="idProvincia" value="' . $usuario['idUsuario'] . '">
+        <td>" . ' <form action="" method="POST"><input type="hidden" name="idUsuario" value="' . $usuario['idUsuario'] . '">
         <button onclick="if(!confirm(\'¿Estás seguro de borrar el registro?\')) event.preventDefault();" class="btn btn-primary" type="submit" name="borrar" value="Borrar">Borrar</button>
       </form>' . "</td>
         </tr>";
