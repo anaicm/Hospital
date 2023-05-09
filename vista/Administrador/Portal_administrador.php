@@ -79,7 +79,7 @@ if (!isset($_SESSION['usuario'])) {
                 <div onclick="document.getElementById('iframe').src ='cita.php'" class="celdas texto">
                     Citas
                 </div>
-                <div onclick="document.getElementById('iframe').src ='tipo_cita.php'" class="celdas texto">
+                <div onclick="document.getElementById('iframe').src ='tipocita.php'" class="celdas texto">
                     Tipo de citas
                 </div>
                 <div onclick="document.getElementById('iframe').src ='usuario.php'" class="celdas texto">
