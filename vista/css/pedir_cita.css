@@ -11,11 +11,3 @@
     border: 1px solid #ccc;
     border-radius: 10px;
 }
-
-.step {
-    display: none;
-}
-
-.step.active {
-    display: block;
-}

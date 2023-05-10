@@ -20,7 +20,7 @@
             <h1>CenSalud</h1>
         </div>
         <div class="button-container">
-            <a href="login.php" class="c-button user-button">Área Cliente</a>
+            <a href="portal_usuario.php" class="c-button user-button">Área Cliente</a>
             <a href="registro.php" class="c-button signup-button">Registrarse</a>
         </div>
     </header>

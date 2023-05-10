@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<?php
+require_once('../modelo/crud.php');
+?>
+<head>
+    <title>Mis citas</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/pedir_cita.css">
+    <link rel="stylesheet" type="text/css" href="css/cabecera.css">
+    <link rel="stylesheet" type="text/css" href="css/barra_navegacion.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <!-- Agrega los scripts de Bootstrap y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 50%;
+        width: 60%;
+        margin: auto;
+        margin-top: 5%;
+        padding: 30px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    }
+    </style>
+</head>
+
+<?php
+$fecha = '';
+$fecha = $_POST['fecha'];
+?>
+
+<body class="body-fondo">
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="index.php"><img src="logos/logo_hospital4.png"></a>
+        </div>
+        <div class="title-container">
+            <h1>CenSalud</h1>
+        </div>
+        <div class="button-container">
+            <a href="portal_usuario.php" class="c-button user-button"><img src="logos/logo_volver-1.png"
+                    class="logo-volver"></a>
+        </div>
+    </header>
+    <div class="main">
+        <nav>
+            <ul>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="centros_hospitalarios.html">Hospitales</a></li>
+                <li><a href="especialistas.html">Especialistas</a></li>
+                <li><a href="portal_usuario.php">Portal del usuario</a></li>
+                <li><a href="pedir_cita.php">Pedir Cita</a></li>
+            </ul>
+        </nav>
+        <!-- Botón que abre el Modal -->
+        <div class="container">
+            <h3 class="text-center mb-4">Seleccione los datos para elegir su cita:</h3>
+            <div class="step" id="step-2">
+                <label for="especialidad" class="form-label">Paso 2: Selecciona una especialidad hospitalaria</label>    
+                <form action="pedir_cita_p3.php" method="post" name="mostrar-datos-usuario">   
+                <?php
+                echo '<input type="hidden" name="fecha" value="' . $fecha . '">';       
+                ?>       
+                <select class="form-select mb-3" name="departamento" id="departamento" required>
+                <?php               
+                    $departamentos=crud_get_all('departamento');
+                    foreach ($departamentos as $departamento) { //Recorre las ciudades
+                        echo '<option selected value=' . $departamento['idDepartamento'] . '>' . $departamento['Nombre'] . '</option>'; //Imprime una opcion por cada ciudad
+                    }
+                ?>
+                </select>
+                <button type="submit" id="anteriorp1" name="anteriorp1"
+                    value="anterior1" class="btn btn-secondary">Anterior</button>
+                <button type="submit" id="siguientep2" name="siguientep2"
+                    value="siguientep2"  class="btn btn-primary ms-3">Siguiente</button>
+                </form>
+            </div>
+        </div>
+</body>
+<!--cuerpo-->

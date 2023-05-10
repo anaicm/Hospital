@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
-
+<?php
+require_once('../modelo/crud.php');
+?>
 <head>
     <title>Mis citas</title>
     <meta charset="UTF-8">
@@ -111,15 +113,61 @@
         document.getElementById('resumen-especialidad').innerHTML = $("#especialidad option:selected").text();
         document.getElementById('resumen-localidad').innerHTML = $("#localidad option:selected").text();
         document.getElementById('resumen-centro').innerHTML = $("#centro option:selected").text();
+        document.getElementById('idCentro').value = $("#centro option:selected").val();
+        document.getElementById('idDepartamento').value = $("#especialidad option:selected").val();
+        document.getElementById('fechaseleccionada').value = document.getElementById('fecha').value;
     }
 
-    function submitForm() {
-        alert('Buscando huecos para su cita...');
-    }
     </script>
+    <style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 50%;
+        width: 60%;
+        margin: auto;
+        margin-top: 5%;
+        padding: 30px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    }
 
+    .step {
+        display: none;
+    }
+
+    .step.active {
+        display: block;
+    }
+    </style>
 </head>
-<!-- Script para la navegación de pasos -->
+
+<?php
+if (isset($_POST['buscar_cita'])) {//
+  $idCentro = $_POST['idCentro'];
+  $idDepartamento = $_POST['idDepartamento'];
+  $fecha = $_POST['fechaseleccionada'];
+
+  $departamento_personales=crud_get_all('Departamento_Personal');//trae la tabla centro_departamento
+    foreach ($departamento_personales as $departamento_personal) {
+        if($departamento_personal["idDepartamento"] == $idDepartamento){   
+            try {
+            crud_borrar('cita', array('hora' => $fecha, 'idPersonal' => $idPersonal, 'idUsuario' => $_SESSION['idUsuario'], 'idTipoCita' => $idTipoCita));
+            } catch (PDOException $e) {
+                echo 'Error al insertar la cita: ' . $e->getMessage();
+            }
+        }
+    }
+    
+
+  $personalDepartamento = 
+  $personal = crud_select('Personal', 'idPersonal',$_POST['id'] );
+
+  
+}
+?>
 
 <body class="body-fondo">
     <header class="main-header">
@@ -130,7 +178,7 @@
             <h1>CenSalud</h1>
         </div>
         <div class="button-container">
-            <a href="portal_usuario.html" class="c-button user-button"><img src="logos/logo_volver-1.png"
+            <a href="portal_usuario.php" class="c-button user-button"><img src="logos/logo_volver-1.png"
                     class="logo-volver"></a>
         </div>
     </header>
@@ -139,11 +187,9 @@
             <ul>
                 <li><a href="index.php">Inicio</a></li>
                 <li><a href="centros_hospitalarios.html">Hospitales</a></li>
-                <li><a href="acerca_de.html">Acerca de</a></li>
-                <li><a href="contacto.php">Contacto</a></li>
                 <li><a href="especialistas.html">Especialistas</a></li>
-                <li><a href="portal_usuario.html">Portal del usuario</a></li>
-                <li><a href="pedir_cita.html">Pedir Cita</a></li>
+                <li><a href="portal_usuario.php">Portal del usuario</a></li>
+                <li><a href="pedir_cita.php">Pedir Cita</a></li>
             </ul>
         </nav>
         <!-- Botón que abre el Modal -->
@@ -152,73 +198,18 @@
 
             <div class="step active" id="step-1">
                 <label for="fecha" class="form-label">Paso 1: Selecciona una fecha</label>
+                <form action="pedir_cita_p2.php" method="post" name="mostrar-datos-usuario">
                 <div class="input-group mb-3">
-                    <input type="date" class="form-control" id="fecha" aria-describedby="fecha-ayuda" required>
-                    <button type="button" class="btn btn-primary" onclick="setToday(); nextStep()">Lo antes
+                    <input type="datetime-local" class="form-control" id="fecha" name="fecha" aria-describedby="fecha-ayuda">
+                    <button type="submit" class="btn btn-primary">Lo antes
                         posible</button>
 
                 </div>
                 <small id="fecha-ayuda" class="form-text text-muted">Selecciona una fecha disponible.</small>
-                <button class="btn btn-primary mt-3" onclick="nextStep()">Siguiente</button>
-            </div>
-
-            <div class="step" id="step-2">
-                <label for="especialidad" class="form-label">Paso 2: Selecciona una especialidad hospitalaria</label>
-                <select class="form-select mb-3" id="especialidad" required>
-                    <!--bucle para mostrar las especialidades-->
-                    <option value="">Selecciona una especialidad...</option>
-                    <option value="1">Cardiología</option>
-                    <option value="2">Dermatología</option>
-                    <option value="3">Endocrinología</option>
-                    <option value="4">Ginecología</option>
-                    <option value="5">Oncología</option>
-                    <option value="6">Pediatría</option>
-                    <option value="7">Psiquiatría</option>
-                </select>
-                <button class="btn btn-secondary" onclick="prevStep()">Anterior</button>
-                <button class="btn btn-primary ms-3" onclick="nextStep()">Siguiente</button>
-            </div>
-
-            <div class="step" id="step-3">
-                <label for="localidad" class="form-label">Paso 3: Selecciona una localidad y centro</label>
-                <div class="row">
-                    <div class="col-md-6">
-                        <select class="form-select mb-3" id="localidad" required>
-                            <option value="">Selecciona una localidad...</option>
-                            <option value="1">Madrid</option>
-                            <option value="2">Barcelona</option>
-                            <option value="3">Valencia</option>
-                            <option value="4">Sevilla</option>
-                        </select>
-                    </div>
-                    <div class="col-md-6">
-                        <select class="form-select mb-3" id="centro" required>
-                            <option value="">Selecciona un centro...</option>
-                            <option value="1">Hospital Universitario La Paz</option>
-                            <option value="2">Hospital Clínic de Barcelona</option>
-                            <option value="3">Hospital Universitario y Politécnico La Fe</option>
-                            <option value="4">Hospital Universitario Virgen del Rocío</option>
-                        </select>
-                    </div>
-                </div>
-                <button class="btn btn-secondary" onclick="prevStep()">Anterior</button>
-                <button class="btn btn-primary ms-3" onclick="nextStep()">Siguiente</button>
-            </div>
-
-            <div class="step" id="step-4">
-                <h4 class="mb-3">Buscar cita</h4>
-                <div class="row">
-                    <div class="col-md-6">
-                        <p><strong>Fecha:</strong> <span id="resumen-fecha"></span></p>
-                        <p><strong>Especialidad:</strong> <span id="resumen-especialidad"></span></p>
-                    </div>
-                    <div class="col-md-6">
-                        <p><strong>Localidad:</strong> <span id="resumen-localidad"></span></p>
-                        <p><strong>Centro:</strong> <span id="resumen-centro"></span></p>
-                    </div>
-                </div>
-                <button class="btn btn-secondary" onclick="prevStep()">Anterior</button>
-                <button class="btn btn-primary ms-3" onclick="submitForm()">Buscar cita</button>
+                <button type="submit" id="siguientep1" name="siguientep1"
+                    value="siguientep1" class="btn btn-primary">Siguiente</button>
+                </form>
             </div>
         </div>
 </body>
+<!--cuerpo-->
