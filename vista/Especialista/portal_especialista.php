@@ -50,7 +50,7 @@ if (!isset($_SESSION['usuario'])) {
                     <li><a href="../acerca_de.html">Acerca de</a></li>
                     <li><a href="../contacto.php">Contacto</a></li>
                     <li><a href="../especialistas.html">Especialistas</a></li>
-                    <li><a href="../portal_usuario.html">Portal del usuario</a></li>
+                    <li><a href="../portal_usuario.php">Portal del usuario</a></li>
                     <li><a><?php echo "Hola" . " " . $_SESSION['usuario']; ?></a></li>
                     <li><a href="../cerrar_session.php">Cerrar sesión</a></li>
                 </ul>

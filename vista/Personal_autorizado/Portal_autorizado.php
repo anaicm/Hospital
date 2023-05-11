@@ -20,7 +20,7 @@
     </head>
 
     <?php
-    
+    require('../../modelo/consulta_autorizado_familiar.php');
 session_start();//para poder leer y escribir en las variables de sesión 
 if (!isset($_SESSION['usuario'])) {
     header('location: ../login.php');
@@ -75,7 +75,6 @@ if (!isset($_SESSION['usuario'])) {
                         </button><br>
                         <!--Datos del paciente-->
                         <?php 
-                        require('../../modelo/consulta_autorizado_familiar.php');
                         if (isset($_POST['btn_informacion'])) {
                             try{
                                 $busqueda=obtener_centros_por_provincia($dni);

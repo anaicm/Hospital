@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Mis citas</title>
+    <title>Historial</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/informes_clinicos.css">
     <link rel="stylesheet" type="text/css" href="css/cabecera.css">
