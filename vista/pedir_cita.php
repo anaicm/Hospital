@@ -3,6 +3,7 @@
 <?php
 require_once('../modelo/crud.php');
 ?>
+
 <head>
     <title>Mis citas</title>
     <meta charset="UTF-8">
@@ -117,7 +118,6 @@ require_once('../modelo/crud.php');
         document.getElementById('idDepartamento').value = $("#especialidad option:selected").val();
         document.getElementById('fechaseleccionada').value = document.getElementById('fecha').value;
     }
-
     </script>
     <style>
     .container {
@@ -130,7 +130,7 @@ require_once('../modelo/crud.php');
         margin: auto;
         margin-top: 5%;
         padding: 30px;
-        border: 1px solid #ccc;
+        border: 2px solid #1F736A;
         border-radius: 10px;
     }
 
@@ -199,15 +199,16 @@ if (isset($_POST['buscar_cita'])) {//
             <div class="step active" id="step-1">
                 <label for="fecha" class="form-label">Paso 1: Selecciona una fecha</label>
                 <form action="pedir_cita_p2.php" method="post" name="mostrar-datos-usuario">
-                <div class="input-group mb-3">
-                    <input type="datetime-local" class="form-control" id="fecha" name="fecha" aria-describedby="fecha-ayuda">
-                    <button type="submit" class="btn btn-primary">Lo antes
-                        posible</button>
+                    <div class="input-group mb-3">
+                        <input type="datetime-local" class="form-control" id="fecha" name="fecha"
+                            aria-describedby="fecha-ayuda">
+                        <button type="submit" class="btn btn-primary">Lo antes
+                            posible</button>
 
-                </div>
-                <small id="fecha-ayuda" class="form-text text-muted">Selecciona una fecha disponible.</small>
-                <button type="submit" id="siguientep1" name="siguientep1"
-                    value="siguientep1" class="btn btn-primary">Siguiente</button>
+                    </div>
+                    <small id="fecha-ayuda" class="form-text text-muted">Selecciona una fecha disponible.</small>
+                    <button type="submit" id="siguientep1" name="siguientep1" value="siguientep1"
+                        class="btn btn-primary">Siguiente</button>
                 </form>
             </div>
         </div>

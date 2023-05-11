@@ -3,6 +3,7 @@
 <?php
 require_once('../modelo/crud.php');
 ?>
+
 <head>
     <title>Mis citas</title>
     <meta charset="UTF-8">
@@ -14,7 +15,7 @@ require_once('../modelo/crud.php');
     <!-- Agrega los scripts de Bootstrap y jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <style>
     .container {
         display: flex;
@@ -26,7 +27,7 @@ require_once('../modelo/crud.php');
         margin: auto;
         margin-top: 5%;
         padding: 30px;
-        border: 1px solid #ccc;
+        border: 2px solid #1F736A;
         border-radius: 10px;
     }
     </style>
@@ -74,26 +75,26 @@ if (isset($_POST['siguientep4'])) {//
             <div class="step" id="step-3">
                 <label for="localidad" class="form-label">Paso 5: Selecciona el tipo de cita</label>
                 <form action="confirmar_cita.php" method="post" name="mostrar-datos-usuario">
-                <?php
+                    <?php
                 echo '<input type="hidden" name="fecha" value="' . $fecha . '">';       
                 echo '<input type="hidden" name="centro" value="' . $centro . '">'; 
                 echo '<input type="hidden" name="ciudad" value="' . $ciudad . '">';
                 echo '<input type="hidden" name="departamento" value="' . $departamento . '">'; 
-                ?>   
-                <div class="row">
-                    <select class="form-select mb-3" id="tipo_cita" name="tipo_cita" required>
-                        <option value="">Selecciona un tipo de cita...</option>
-                        <?php
+                ?>
+                    <div class="row">
+                        <select class="form-select mb-3" id="tipo_cita" name="tipo_cita" required>
+                            <option value="">Selecciona un tipo de cita...</option>
+                            <?php
                             $tipos_citas=crud_get_all('tipoCita');//trae la tabla ciudad
                             foreach ($tipos_citas as $tipo_cita) { //Recorre las ciudades
                                 echo '<option selected value=' . $tipo_cita['idTipoCita'] . '>' . $tipo_cita['Nombre'] .'</option>'; //Imprime una opcion por cada ciudad
                             }    
                         ?>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-secondary">Anterior</button>
-                <button type="submit" id="confirmar" name="confirmar"
-                    value="confirmar" class="btn btn-primary ms-3">Confirmar</button>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Anterior</button>
+                    <button type="submit" id="confirmar" name="confirmar" value="confirmar"
+                        class="btn btn-primary ms-3">Confirmar</button>
                 </form>
             </div>
         </div>

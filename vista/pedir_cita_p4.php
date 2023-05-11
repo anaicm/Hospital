@@ -3,6 +3,7 @@
 <?php
 require_once('../modelo/crud.php');
 ?>
+
 <head>
     <title>Mis citas</title>
     <meta charset="UTF-8">
@@ -26,7 +27,7 @@ require_once('../modelo/crud.php');
         margin: auto;
         margin-top: 5%;
         padding: 30px;
-        border: 1px solid #ccc;
+        border: 2px solid #1F736A;
         border-radius: 10px;
     }
     </style>
@@ -71,26 +72,26 @@ if (isset($_POST['siguientep3'])) {//
             <h3 class="text-center mb-4">Seleccione los datos para elegir su cita:</h3>
             <div class="step" id="step-3">
                 <label for="localidad" class="form-label">Paso 4: Selecciona un centro</label>
-                <form action="pedir_cita_p5.php" method="post" name="mostrar-datos-usuario">       
-                <?php
+                <form action="pedir_cita_p5.php" method="post" name="mostrar-datos-usuario">
+                    <?php
                 echo '<input type="hidden" name="fecha" value="' . $fecha . '">';       
                 echo '<input type="hidden" name="ciudad" value="' . $ciudad . '">'; 
                 echo '<input type="hidden" name="departamento" value="' . $departamento . '">'; 
-                ?>    
-                <div class="row">
-                    <select class="form-select mb-3" id="centro" name="centro" required>
-                        <option value="">Selecciona un centro...</option>
-                        <?php
+                ?>
+                    <div class="row">
+                        <select class="form-select mb-3" id="centro" name="centro" required>
+                            <option value="">Selecciona un centro...</option>
+                            <?php
                             $centros=crud_get_all('centro');
                             foreach ($centros as $centro) { //Recorre las ciudades
                                 echo '<option selected value=' . $centro['idCiudad'] . '>' . $centro['Nombre'] . '</option>'; //Imprime una opcion por cada ciudad
                             }
                         ?>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-secondary">Anterior</button>
-                <button type="submit" id="siguientep4" name="siguientep4"
-                    value="siguientep4" class="btn btn-primary ms-3">Siguiente</button>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Anterior</button>
+                    <button type="submit" id="siguientep4" name="siguientep4" value="siguientep4"
+                        class="btn btn-primary ms-3">Siguiente</button>
                 </form>
             </div>
         </div>

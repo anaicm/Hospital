@@ -3,6 +3,7 @@
 <?php
 require_once('../modelo/crud.php');
 ?>
+
 <head>
     <title>Mis citas</title>
     <meta charset="UTF-8">
@@ -26,7 +27,7 @@ require_once('../modelo/crud.php');
         margin: auto;
         margin-top: 5%;
         padding: 30px;
-        border: 1px solid #ccc;
+        border: 2px solid #1F736A;
         border-radius: 10px;
     }
     </style>
@@ -38,6 +39,7 @@ $fecha = $_POST['fecha'];
 ?>
 
 <body class="body-fondo">
+    <!--Cabecera--------------------------------------------------------------------------------------------------->
     <header class="main-header">
         <div class="logo-container">
             <a href="index.php"><img src="logos/logo_hospital4.png"></a>
@@ -51,6 +53,7 @@ $fecha = $_POST['fecha'];
         </div>
     </header>
     <div class="main">
+        <!--Barra de navegación--------------------------------------------------------------------------------------------------->
         <nav>
             <ul>
                 <li><a href="index.php">Inicio</a></li>
@@ -60,29 +63,28 @@ $fecha = $_POST['fecha'];
                 <li><a href="pedir_cita.php">Pedir Cita</a></li>
             </ul>
         </nav>
-        <!-- Botón que abre el Modal -->
+        <!--cuerpo---------------------------------------------------------------------------------------------------->
         <div class="container">
             <h3 class="text-center mb-4">Seleccione los datos para elegir su cita:</h3>
             <div class="step" id="step-2">
-                <label for="especialidad" class="form-label">Paso 2: Selecciona una especialidad hospitalaria</label>    
-                <form action="pedir_cita_p3.php" method="post" name="mostrar-datos-usuario">   
-                <?php
+                <label for="especialidad" class="form-label">Paso 2: Selecciona una especialidad hospitalaria</label>
+                <form action="pedir_cita_p3.php" method="post" name="mostrar-datos-usuario">
+                    <?php
                 echo '<input type="hidden" name="fecha" value="' . $fecha . '">';       
-                ?>       
-                <select class="form-select mb-3" name="departamento" id="departamento" required>
-                <?php               
+                ?>
+                    <select class="form-select mb-3" name="departamento" id="departamento" required>
+                        <?php               
                     $departamentos=crud_get_all('departamento');
-                    foreach ($departamentos as $departamento) { //Recorre las ciudades
+                    foreach ($departamentos as $departamento) { 
                         echo '<option selected value=' . $departamento['idDepartamento'] . '>' . $departamento['Nombre'] . '</option>'; //Imprime una opcion por cada ciudad
                     }
                 ?>
-                </select>
-                <button type="submit" id="anteriorp1" name="anteriorp1"
-                    value="anterior1" class="btn btn-secondary">Anterior</button>
-                <button type="submit" id="siguientep2" name="siguientep2"
-                    value="siguientep2"  class="btn btn-primary ms-3">Siguiente</button>
+                    </select>
+                    <button type="submit" id="anteriorp1" name="anteriorp1" value="anterior1"
+                        class="btn btn-secondary">Anterior</button>
+                    <button type="submit" id="siguientep2" name="siguientep2" value="siguientep2"
+                        class="btn btn-primary ms-3">Siguiente</button>
                 </form>
             </div>
         </div>
 </body>
-<!--cuerpo-->
