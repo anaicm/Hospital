@@ -34,11 +34,13 @@ require_once('../modelo/crud.php');
 </head>
 
 <?php
+if (isset($_POST['siguientep2'])) {//
+//se obtienen los datos del paso anterior
 $fecha = '';
-$centro = -1;
 $departamento = -1;
 $fecha = $_POST['fecha'];
 $departamento = $_POST['departamento'];
+}
 ?>
 
 <body class="body-fondo">
@@ -71,6 +73,8 @@ $departamento = $_POST['departamento'];
                 <label for="localidad" class="form-label">Paso 3: Selecciona una localidad</label>
                 <form action="pedir_cita_p4.php" method="post" name="mostrar-datos-usuario">
                     <?php
+					//se ponen los datos del paso anterior en hiddens para pasarlos al paso siguiente al pulsar siguiente
+
                 echo '<input type="hidden" name="fecha" value="' . $fecha . '">';       
                 echo '<input type="hidden" name="departamento" value="' . $departamento . '">'; 
                 ?>
@@ -78,6 +82,7 @@ $departamento = $_POST['departamento'];
                         <select class="form-select mb-3" name="ciudad" id="ciudad" required>
                             <option value="">Selecciona una localidad...</option>
                             <?php
+							// se pintan todos los departamentos
                             $ciudades=crud_get_all('ciudad');
                             foreach ($ciudades as $ciudad) { //Recorre las ciudades
                                 echo '<option selected value=' . $ciudad['idCiudad'] . '>' . $ciudad['Nombre'] . '</option>'; //Imprime una opcion por cada ciudad

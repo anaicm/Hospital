@@ -14,11 +14,15 @@
 <?php
 require_once('../modelo/crud.php');
 session_start();
+//obtener las citas del usuario por idusuario guardado en el login
 $citas = crud_select('cita', 'idUsuario', $_SESSION['idUsuario'] );
 
+// si se ha pulsado en borrar cita
 if (isset($_GET['borrar'])) {
+	//se obtiene el id de la cita que viene del hidden
   $id = $_GET['idCita'];
   try {
+	  //se borra la cita
       crud_borrar('cita', $id);
   } catch (PDOException $e) {
       echo "No se ha podido eliminar ya que el familiar está asiganda a un usuario";
@@ -53,6 +57,7 @@ if (isset($_GET['borrar'])) {
         <div class="cuerpo-citas">
             <div class="cabecera-cuerpo-citas">
                 <?php
+				//si hay citas en la consulta anterior
     if($citas)
       echo '<p>Tienes una cita programada</p>';
     else
@@ -60,9 +65,12 @@ if (isset($_GET['borrar'])) {
     ?>
             </div>
             <?php
+			//por cada cita
     foreach ($citas as $cita) { 
+	//obtener el tipo de cita y el personal por id
       $tipo_cita = crud_select('TipoCita', 'idTipoCita',$cita['idTipoCita'] );
       $personal = crud_select('Personal', 'idPersonal',$cita['idPersonal'] );
+	  //para cada cita se pinta un bloque de cita
     echo '<div class="tarjeta-citas">
       Próxima cita<br>      
         Tu proxima cita es ' . $tipo_cita[0]['Nombre']. ' con el especialista ' . $personal[0]['Nombre'] . ' ' . $personal[0]['Apellido'] . ' el ' . $cita['Hora'] . '<br>

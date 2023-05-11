@@ -16,6 +16,7 @@
 <?php
 require_once('../modelo/crud.php');
 session_start();
+//se obtienen las citas por id usuario guardado en el login
 $citas = crud_select('cita', 'idUsuario', $_SESSION['idUsuario'] );
 
 
@@ -49,9 +50,12 @@ $citas = crud_select('cita', 'idUsuario', $_SESSION['idUsuario'] );
         <!--cuerpo------------------------------------------------------------------------------------------------------------------------------>
         <div id="accordion">
             <?php
+			//para cada cita obtenida en la consulta anterior
       foreach ($citas as $cita) { 
+	  //se obtiene el tipo de cita y el personal de la cita
         $tipo_cita = crud_select('TipoCita', 'idTipoCita',$cita['idTipoCita'] );
         $personal = crud_select('Personal', 'idPersonal',$cita['idPersonal'] );
+		//para cada cida se pinta una tarjeta con la informacion de la cita, nombre, hora, informe. Se ha intentado usar un carrusel de bootstrap pero no funciona
         echo '<div class="card">
         <div class="card-header" id="headingOne">
           <h5 class="mb-0">

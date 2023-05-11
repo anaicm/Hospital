@@ -35,7 +35,7 @@ require_once('../modelo/crud.php');
 
 <?php
 if (isset($_POST['siguientep4'])) {//
-
+//se obtienen los datos del paso anterior
     $fecha = '';
     $centro = -1;
     $departamento = -1;
@@ -76,6 +76,8 @@ if (isset($_POST['siguientep4'])) {//
                 <label for="localidad" class="form-label">Paso 5: Selecciona el tipo de cita</label>
                 <form action="confirmar_cita.php" method="post" name="mostrar-datos-usuario">
                     <?php
+				//se ponen los datos del paso anterior en hiddens para pasarlos al paso siguiente al pulsar siguiente
+
                 echo '<input type="hidden" name="fecha" value="' . $fecha . '">';       
                 echo '<input type="hidden" name="centro" value="' . $centro . '">'; 
                 echo '<input type="hidden" name="ciudad" value="' . $ciudad . '">';
@@ -85,9 +87,10 @@ if (isset($_POST['siguientep4'])) {//
                         <select class="form-select mb-3" id="tipo_cita" name="tipo_cita" required>
                             <option value="">Selecciona un tipo de cita...</option>
                             <?php
-                            $tipos_citas=crud_get_all('tipoCita');//trae la tabla ciudad
-                            foreach ($tipos_citas as $tipo_cita) { //Recorre las ciudades
-                                echo '<option selected value=' . $tipo_cita['idTipoCita'] . '>' . $tipo_cita['Nombre'] .'</option>'; //Imprime una opcion por cada ciudad
+							// se pintan todos los tipos de cita (faltaria buscarlos por departamento)
+                            $tipos_citas=crud_get_all('tipoCita');
+                            foreach ($tipos_citas as $tipo_cita) { //Recorre los tipos de cita
+                                echo '<option selected value=' . $tipo_cita['idTipoCita'] . '>' . $tipo_cita['Nombre'] .'</option>'; //Imprime una opcion por cada tipo de cita
                             }    
                         ?>
                         </select>

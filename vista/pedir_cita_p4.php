@@ -35,7 +35,7 @@ require_once('../modelo/crud.php');
 
 <?php
 if (isset($_POST['siguientep3'])) {//
-
+//se obtienen los datos del paso anterior
     $fecha = '';
     $departamento = -1;
     $ciudad = -1;
@@ -74,6 +74,8 @@ if (isset($_POST['siguientep3'])) {//
                 <label for="localidad" class="form-label">Paso 4: Selecciona un centro</label>
                 <form action="pedir_cita_p5.php" method="post" name="mostrar-datos-usuario">
                     <?php
+					//se ponen los datos del paso anterior en hiddens para pasarlos al paso siguiente al pulsar siguiente
+
                 echo '<input type="hidden" name="fecha" value="' . $fecha . '">';       
                 echo '<input type="hidden" name="ciudad" value="' . $ciudad . '">'; 
                 echo '<input type="hidden" name="departamento" value="' . $departamento . '">'; 
@@ -82,9 +84,10 @@ if (isset($_POST['siguientep3'])) {//
                         <select class="form-select mb-3" id="centro" name="centro" required>
                             <option value="">Selecciona un centro...</option>
                             <?php
+							// se pintan todos los centros (faltaria buscarlos solo por la ciudad seleccionada en el paso anterior)
                             $centros=crud_get_all('centro');
-                            foreach ($centros as $centro) { //Recorre las ciudades
-                                echo '<option selected value=' . $centro['idCiudad'] . '>' . $centro['Nombre'] . '</option>'; //Imprime una opcion por cada ciudad
+                            foreach ($centros as $centro) { //Recorre las centros
+                                echo '<option selected value=' . $centro['idCiudad'] . '>' . $centro['Nombre'] . '</option>'; //Imprime una opcion por cada centro
                             }
                         ?>
                         </select>
