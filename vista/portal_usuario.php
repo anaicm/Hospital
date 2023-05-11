@@ -72,7 +72,8 @@ if (!isset($_SESSION['usuario'])) {
         </div>
         <div class="tarjeta">
             Salud<br>
-            <a href="/contenidosalud.html"><img src="imagenes/imagenes_portal_de_usuario/salud.png" class="imagenes-etiquetas">
+            <a href="contenido_salud/salud.php"><img src="imagenes/imagenes_portal_de_usuario/salud.png"
+                    class="imagenes-etiquetas">
             </a>
         </div>
     </div>

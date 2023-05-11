@@ -23,7 +23,7 @@
             <h1>CenSalud</h1>
         </div>
         <div class="button-container">
-            <a href="../portal_usuario.html" class="c-button user-button"><img src="../logos/logo_volver-1.png"
+            <a href="../portal_usuario.php" class="c-button user-button"><img src="../logos/logo_volver-1.png"
                     class="logo-volver"></a>
         </div>
     </header>
@@ -36,7 +36,7 @@
                 <li><a href="../acerca_de.html">Acerca de</a></li>
                 <li><a href="../contacto.php">Contacto</a></li>
                 <li><a href="../especialistas.html">Especialistas</a></li>
-                <li><a href="../portal_usuario.html">Portal del usuario</a></li>
+                <li><a href="../portal_usuario.php">Portal del usuario</a></li>
                 <li><a href="salud.php">Salud</a></li>
             </ul>
         </nav>
