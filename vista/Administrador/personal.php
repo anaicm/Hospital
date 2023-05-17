@@ -33,6 +33,7 @@
                 document.getElementById('nombre').value = personal[0].Nombre; //dato mapeados
                 document.getElementById('apellido').value = personal[0].Apellido; //dato mapeados
                 document.getElementById('telefono').value = personal[0].Telefono; //dato mapeados
+                document.getElementById('dni').value = personal[0].Dni; //dato mapeados
                 document.getElementById('registrar').style.display = 'none'; //cambia la visibilidad de los botones
                 document.getElementById('modificar').style.display = 'block';
 
@@ -52,6 +53,7 @@
         document.getElementById('nombre').value = "";
         document.getElementById('apellido').value = "";
         document.getElementById('telefono').value = "";
+        document.getElementById('dni').value = "";
         document.getElementById('registrar').style.display = "block";
         document.getElementById('modificar').style.display = "none";
         document.getElementById('Anadir').style.display = "none";
@@ -59,15 +61,24 @@
     </script>
 </head>
 
-<body><?php
+<body>
+    <h1 Style="text-align: center;">Personal</h1>
+    <hr>
+    <?php
 require_once('../../modelo/crud.php');
 
 if (isset($_POST['registrar'])) {
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
     $telefono = $_POST['telefono'];
+    $dni = $_POST['dni'];
+	$fnacimiento = date('Y-m-d', strtotime(str_replace('-', '/', $_POST['FechaNacimiento'])));
+	$email = $_POST['email'];
+	$contrasenia = $_POST['password'];
+    $rol = $_POST['rol'];
     try {
-    crud_insertar('personal', array('nombre' => $nombre, 'apellido' => $apellido, 'telefono' => $telefono));
+    crud_insertar('personal', array('nombre' => $nombre, 'apellido' => $apellido, 'telefono' => $telefono, 'dni' => $dni));
+    crud_insertar('Usuario', array('dni' => $dni, 'nombre' => $nombre, 'apellido' => $apellido, 'telefono' => $telefono, 'FechaNacimiento' => $fnacimiento,'contrasenia' => password_hash($contrasenia, PASSWORD_DEFAULT), 'email' => $email, 'rol' => $rol));
     } catch (PDOException $e) {
         echo 'Error al insertar el personal: ' . $e->getMessage();
     }
@@ -79,7 +90,7 @@ if (isset($_POST['modificar'])) {
     $telefono = $_POST['telefono'];
     $id = $_POST['idPersonal'];
     try {//actualiza los datos por el id de provincia que se ha guardado en el hidden
-        crud_actualizar('personal', array('nombre' => $nombre,'apellido' => $apellido, 'telefono' => $telefono), "idPersonal = $id");
+        crud_actualizar('personal', array('nombre' => $nombre,'apellido' => $apellido, 'telefono' => $telefono, 'dni' => $dni), "idPersonal = $id");
     } catch (PDOException $e) {
         echo 'Error al insertar el personal: ' . $e->getMessage();
     }
@@ -146,15 +157,42 @@ echo '<table class="table table-hover">';
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon3">Telefono: </span>
                 </div>
-                <input required type="text" class="form-control" id="telefono" name="telefono"
-                    aria-describedby="basic-addon3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon3">Usuario: </span>
+                <input type="text" class="form-control" id="telefono" name="telefono" aria-describedby="basic-addon3">
+                <div class="input-group mb-1 d-inline-flex p-1 bd-highlight">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">Fecha de nacimiento: </span>
+                    </div>
+                    <input type="date" class="form-control" id="FechaNacimiento" name="FechaNacimiento"
+                        aria-describedby="basic-addon3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">Email: </span>
+                    </div>
+
+                    <input type="email" class="form-control" id="email" name="email" aria-describedby="basic-addon3">
                 </div>
-                <button class="btn btn-primary" type="submit" id="registrar" name="registrar"
-                    value="Enviar">Registrar</button>
-                <button class="btn btn-primary" type="submit" id="modificar" name="modificar" value="Modificar"
-                    style="display: none;">Modificar</button>
+                <div class="input-group mb-1 d-inline-flex p-1 bd-highlight">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">Contraseña: </span>
+                    </div>
+                    <input type="password" class="form-control" id="password" name="password"
+                        aria-describedby="basic-addon3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">DNI: </span>
+                    </div>
+                    <input required type="tel" pattern="[0-9]{8}[A-Z]{1}" class="form-control" id="dni" name="dni"
+                        aria-describedby="basic-addon3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">Usuario: </span>
+                    </div>
+                    <select id='rol' name='rol' class="form-select" aria-label="Default select example">
+                        <option value="Especialista">Especialista</option>
+                        <option value="Usuario_autorizado">Usuario Autorizado</option>
+                    </select>
+                    <button class="btn btn-primary" type="submit" id="registrar" name="registrar"
+                        value="Enviar">Registrar</button>
+                    <button class="btn btn-primary" type="submit" id="modificar" name="modificar" value="Modificar"
+                        style="display: none;">Modificar</button>
+                </div>
             </div>
         </form>
     </div>

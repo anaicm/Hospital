@@ -45,4 +45,19 @@ iframe{/*Tamaño para iframe*/
     display: flex;
     flex-wrap: wrap;
 }
+.cont_iframe{/*Contenedor para colocar el iframe en dos columnas*/
+    display: flex;
+    flex-direction: column;
+}
+/*Hace la página responsive*/
+.cont_iframe > div {
+    flex: 1 1 50%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+@media screen and (max-width: 768px) {
+    .cont_iframe > div {
+        flex: 1 1 100%;
+    }
+}
 

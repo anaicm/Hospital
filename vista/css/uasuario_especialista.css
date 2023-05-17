@@ -11,6 +11,7 @@ textarea{/*Tamaño de la etiqueta textarea para que el especialista escriba el i
     display: flex;
     flex-direction: row;
 }
+
 .cont_darCita{/*Contenedor donde el especialista da cita*/
     margin:10px 0px 10px 30px;
     padding: 10px 0px 10px 10px ;  
@@ -21,6 +22,17 @@ textarea{/*Tamaño de la etiqueta textarea para que el especialista escriba el i
 }
 button{/*Margen izquierdo para separar los botones*/
     margin:10px;
+}
+/*Hace la página responsive*/
+.cont_iframe > div {
+    flex: 1 1 50%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+@media screen and (max-width: 768px) {
+    .cont_iframe > div {
+        flex: 1 1 100%;
+    }
 }
 
 

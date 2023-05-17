@@ -61,7 +61,7 @@ if (!isset($_SESSION['usuario'])) {
         </div>
         <!--cuerpo de la página------------------------------------------------------------------------------------------->
 
-        <div class="contedor_izquierdo">
+        <div class="contedor_izquierdo cont_iframe">
             <div class="float-left cont_especialista">
                 <!--Personal maneja paciente-->
                 <h1>Paciente</h1>
@@ -107,20 +107,22 @@ if (!isset($_SESSION['usuario'])) {
                     </div>
                 </form>
             </div>
-            <div class="float-right cont_especialista ">
-                <!--Personal consulta la especialidad, agenda y especialista-->
-                <h1>Especialista</h1>
+            <!---------->
+            <div class="">
+                <div class="float-right cont_especialista ">
+                    <!--Personal consulta la especialidad, agenda y especialista-->
+                    <h1>Especialista</h1>
 
-                <div class="texto_titulo">
-                    <!--muestra los especialistas según el centro-->
-                    <form action="" method="post">
-                        <input type="text" class="form-control" id="nom_provincia" name="nom_provincia"
-                            aria-describedby="basic-addon3" placeholder="Provincia" />
-                        <button class="btn btn-primary" style="margin-top:10px" type="submit" id="buscar" name="buscar"
-                            value="Enviar">Buscar</button>
-                        <hr>
-                        <!--consulta nombre del centro y dirección por provincia-->
-                        <?php
+                    <div class="texto_titulo">
+                        <!--muestra los especialistas según el centro-->
+                        <form action="" method="post">
+                            <input type="text" class="form-control" id="nom_provincia" name="nom_provincia"
+                                aria-describedby="basic-addon3" placeholder="Provincia" />
+                            <button class="btn btn-primary" style="margin-top:10px" type="submit" id="buscar"
+                                name="buscar" value="Enviar">Buscar</button>
+                            <hr>
+                            <!--consulta nombre del centro y dirección por provincia-->
+                            <?php
                         require_once('../../modelo/autorizado_centros.php');
                             if (isset($_POST['buscar'])) {
                                 $centro = $_POST['nom_provincia'];
@@ -142,7 +144,8 @@ if (!isset($_SESSION['usuario'])) {
                                 echo "</tbody>";
                                 echo "</table>";
                             }?>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
             <!--En este div mostrará la información seleccionada por el personal del paciente-->
@@ -152,7 +155,7 @@ if (!isset($_SESSION['usuario'])) {
                 <div class="texto_titulo">
                     <!--muestra los especialistas según el centro-->
                     <form method="post">
-                        <span class="input-group-text" id="basic-addon3" onclick="location.href='agenda.php'">AGENDA
+                        <span class="input-group-text" id="basic-addon3">Centro
                         </span>
                         <input type="text" class="form-control" id="nom_centro" name="nom_centro"
                             aria-describedby="basic-addon3" placeholder="Centro" />

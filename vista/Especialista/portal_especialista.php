@@ -18,14 +18,22 @@
     </head>
 
     <?php
-session_start();//para poder leer y escribir en las variables de sesión 
-if (!isset($_SESSION['usuario'])) {
+    require_once('../../modelo/crud.php');
+    
+    session_start();//para poder leer y escribir en las variables de sesión 
+    if (!isset($_SESSION['usuario'])) {
     header('location: ../login.php');
     exit();
-}
-
-
-?>
+    }
+    //se obtienen el especialista por id usuario guardado en el login y se coje el DNI
+    $usuario = crud_select('usuario', 'idUsuario', $_SESSION['idUsuario'] );
+    $_SESSION['dni'] = $usuario[0]['Dni'];
+    
+    // se obtiene el id del personal mediante el Dni 
+  
+    
+    
+    ?>
 
     <body class="body-fondo">
         <!--Cabecera-------------------------------------------------------------------------------------------------->
@@ -58,17 +66,19 @@ if (!isset($_SESSION['usuario'])) {
         </div>
         <!--cuerpo de la página------------------------------------------------------------------------------------------->
 
-        <div class="contedor_izquierdo">
-            <div class="col-md-4 float-left cont_especialista">
+        <div class="contenedor_personal_autorizado_paciente">
+            <div>
                 <!--div para elegir día y que el especialista vea los pacientes de el día en concreto-->
-
-                <div class="texto_titulo">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon3">AGENDA </span>
+                <form method='post' action='#'>
+                    <div class="texto_titulo">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon3">AGENDA </span>
+                        </div>
+                        <input type="date" class="form-control" id="fecha" name="fecha" aria-describedby="fecha-ayuda">
+                        <button class="btn btn-primary" style="margin-top:10px" type="submit" id="buscar_agenda"
+                            name="buscar_agenda">Buscar</button>
                     </div>
-                    <input required type="date" class="form-control" id="agenda" name="agenda"
-                        aria-describedby="basic-addon3">
-                </div>
+                </form>
                 <div class="con_tabala_agenda">
                     <!--Bucle para mostrar todos los usuarios que tengan cita el día seleccionado------------------------>
                     <table class="tab_especialista texto">
@@ -98,31 +108,35 @@ if (!isset($_SESSION['usuario'])) {
                             <th>Dni</th>
                             <th>Hora</th>
                         </tr>
-                        <tr class="celdas">
-                            <td>Alberto</td>
-                            <td>Perez</td>
-                            <td>77845236M</td>
-                            <td>09:30</td>
-                        </tr>
+                        <?php
+                        require('../../modelo/epecialista_agenda.php');
+                        $personal=id_Personal($_SESSION['dni'] = $usuario[0]['Dni']);
+                        foreach($personal as $campo){
+                            $idPersonal=$campo['idPersonal'];
+                        }
+                      if(isset($_POST['fecha'])){
+                        $fecha = $_POST['fecha'];
+                        if (isset($_POST['buscar_agenda'])) {
+                            try{
+                                //$arreglo_fecha = date('Y-m-d', strtotime($fecha));
+                                $busqueda=obtener_cita_por_fecha($fecha,$idPersonal);
+                                foreach ($busqueda as $resultado) {
+                                    echo ' <tr class="celdas">';
+                                    echo "<td>" . $resultado['nombre'] ."</td>";
+                                    echo "<td>" . $resultado['apellido'] ."</td>";
+                                    echo "<td>" . $resultado['dni'] ."</td>";
+                                    echo "<td>" . $resultado['fecha'] ."</td>";
+                                }
+                            }catch(PDOException $e) {
+                                echo 'Error en la búsqueda de la ciudad: ' . $e->getMessage();
+                            } 
+                        }
+                    }
+                        ?>
                     </table>
                 </div>
             </div>
-            <div class="col-md-8 float-right ">
-                <!--Iframe que muestra la página usuario_especialista.php para el paciente-->
-                <div class="tam_derecho">
-
-                    <div>
-                        <iframe title='especialista' id='iframe' src="usuario_especialista.php">
-
-                    </div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
         </div>
-
-
-
-
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
         </script>
