@@ -14,8 +14,7 @@ if (isset($_POST['registrar'])) {
     $valido = true;
       if($valido){
         try {//con la función insertar los inserto en la BD, por defecto el rol será usuario y lo redirige a la página del login
-            crud_insertar('Usuario', array('dni' => $dni, 'nombre' => $nombre, 'apellido' => $apellido, '
-            telefono' => $telefono, 'FechaNacimiento' => $fnacimiento,'contrasenia' => password_hash($contrasenia, PASSWORD_DEFAULT),
+            crud_insertar('Usuario', array('dni' => $dni, 'nombre' => $nombre, 'apellido' => $apellido, 'telefono' => $telefono, 'FechaNacimiento' => $fnacimiento,'contrasenia' => password_hash($contrasenia, PASSWORD_DEFAULT),
             'email' => $email, 'rol' => 'Usuario'));
             header("location: login.php");
         } catch (PDOException $e) {
