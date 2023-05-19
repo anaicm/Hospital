@@ -3,6 +3,12 @@
 <?php
 require_once('../modelo/crud.php');
 session_start();
+if (!isset($_SESSION['usuario'])) {
+    header('location: ../login.php');
+exit();
+}
+$usuario = crud_select('usuario', 'idUsuario', $_SESSION['idUsuario'] );
+$rol = $_SESSION['rol'] = $usuario[0]['Rol'];
 ?>
 
 <head>
@@ -37,8 +43,9 @@ session_start();
 <?php
 if(isset($_POST['confirmar'])){
     
-    if(isset($_POST['fecha'])){
+    if(isset($_POST['fecha']) && isset($_POST['dni'])){
         $fecha = $_POST['fecha'];
+        $dni = $_POST['dni'];
     }
     
     $departamento = $_POST['departamento'];
@@ -55,9 +62,15 @@ if(isset($_POST['confirmar'])){
     }
 
     $departamento_personales=crud_select('Departamento_Personal', 'idDepartamento', $departamento);
+    $consulta=crud_select('usuario', 'Dni', $dni);
     try {
+        $idUsuario= $consulta[0]['idUsuario'];
         $personal = $departamento_personales[0]['idPersonal'];
-        crud_insertar('cita', array('hora' => date('Y-m-d', strtotime(str_replace('-', '/', $fecha))), 'idPersonal' => $departamento_personales[0]['idPersonal'], 'idUsuario' => $_SESSION['idUsuario'], 'idTipoCita' => $tipo_cita));
+        if($rol =='Usuario'){
+            crud_insertar('cita', array('hora' => date('Y-m-d', strtotime(str_replace('-', '/', $fecha))), 'idPersonal' => $departamento_personales[0]['idPersonal'], 'idUsuario' => $_SESSION['idUsuario'], 'idTipoCita' => $tipo_cita));
+        }if($rol !='Usuario'){
+            crud_insertar('cita', array('hora' => date('Y-m-d', strtotime(str_replace('-', '/', $fecha))), 'idPersonal' => $departamento_personales[0]['idPersonal'], 'idUsuario' => $idUsuario, 'idTipoCita' => $tipo_cita));
+        }
     } catch (PDOException $e) {
         echo 'Error al insertar la cita: ' . $e->getMessage();
     }
@@ -73,8 +86,20 @@ if(isset($_POST['confirmar'])){
             <h1>CenSalud</h1>
         </div>
         <div class="button-container">
-            <a href="portal_usuario.php" class="c-button user-button"><img src="logos/logo_volver-1.png"
-                    class="logo-volver"></a>
+            <?php if($rol =='Usuario'){//si el usuario su rol es usuario le lleva al portal del usuario
+                    echo  '<a href="login.php" class="c-button user-button"><img src="logos/logo_volver-1.png"
+                    class="logo-volver"></a>';
+                }
+                if($rol =='Usuario_autorizado'){//si el usuario su rol es usuario_autorizado le lleva al portal del personal autorizado
+                    echo  '<a href="Personal_autorizado/portal_usuario_autorizado.php" class="c-button user-button"><img src="logos/logo_volver-1.png"
+                    class="logo-volver"></a>';
+                }
+                if($rol =='Especialista'){//si el usuario su rol es especialista le lleva al portal del especialista
+                    echo  '<a href="Especialista/portal_especialista.php" class="c-button user-button"><img src="logos/logo_volver-1.png"
+                    class="logo-volver"></a>';
+                }
+                
+                ?>
         </div>
     </header>
     <div class="main">
@@ -100,11 +125,27 @@ if(isset($_POST['confirmar'])){
                 //echo 'Se ha confirmado su cita en ' . $centroCita[0]['Nombre'] . ' el día ' . $fecha . ' para la especialidad ' . $departamentoCita[0]['Nombre'] . ' con el especialista ' . $personalCita[0]['Nombre'] . $departamentoCita[0]['Nombre'] . ' con el especialista ' . ' ' . $personalCita[0]['Apellido'];
                 ?>
                 </div>
-
-                <form action="mis_citas.php" method="post" name="mostrar-datos-usuario">
+                <?php if($rol =='Usuario'){//según el rol le lleva a su portal
+                echo '<form action="mis_citas.php" method="post" name="mostrar-datos-usuario">
+                    <button type="submit" id="confirmar" name="confirmar" value="confirmar"
+                        class="btn btn-primary ms-3">Mis Citas</button></form>';
+                } if($rol =='Usuario_autorizado'){
+                echo'<a href="Personal_autorizado/portal_usuario_autorizado.php">
                     <button type="submit" id="confirmar" name="confirmar" value="confirmar"
                         class="btn btn-primary ms-3">Mis Citas</button>
-                </form>
+                </a>';
+                }
+                if($rol =='Especialista'){
+                    echo'<a href="Especialista/portal_especialista.php">
+                    <button type="submit" id="confirmar" name="confirmar" value="confirmar"
+                        class="btn btn-primary ms-3">Mis Citas</button>
+                </a>';
+
+                }
+                ?>
+
+
+
             </div>
         </div>
 </body>

@@ -37,6 +37,8 @@ require_once('../modelo/crud.php');
 if (isset($_POST['siguientep3'])) {//
 //se obtienen los datos del paso anterior
     $fecha = '';
+    $dni = '';
+    $dni = $_POST['dni'];
     $departamento = -1;
     $ciudad = -1;
     $fecha = $_POST['fecha'];
@@ -76,7 +78,8 @@ if (isset($_POST['siguientep3'])) {//
                     <?php
 					//se ponen los datos del paso anterior en hiddens para pasarlos al paso siguiente al pulsar siguiente
 
-                echo '<input type="hidden" name="fecha" value="' . $fecha . '">';       
+                echo '<input type="hidden" name="fecha" value="' . $fecha . '">';   
+                echo '<input type="hidden" name="dni" value="' . $dni . '">';      
                 echo '<input type="hidden" name="ciudad" value="' . $ciudad . '">'; 
                 echo '<input type="hidden" name="departamento" value="' . $departamento . '">'; 
                 ?>

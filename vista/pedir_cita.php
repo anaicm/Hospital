@@ -2,6 +2,13 @@
 <html>
 <?php
 require_once('../modelo/crud.php');
+session_start();//para poder leer y escribir en las variables de sesión 
+if (!isset($_SESSION['usuario'])) {
+    header('location: ../login.php');
+exit();
+}
+$usuario = crud_select('usuario', 'idUsuario', $_SESSION['idUsuario'] );
+$rol = $_SESSION['rol'] = $usuario[0]['Rol'];
 ?>
 
 <head>
@@ -50,8 +57,21 @@ require_once('../modelo/crud.php');
             <h1>CenSalud</h1>
         </div>
         <div class="button-container">
-            <a href="portal_usuario.php" class="c-button user-button"><img src="logos/logo_volver-1.png"
-                    class="logo-volver"></a>
+            <?php if($rol =='Usuario'){//si el usuario su rol es usuario le lleva al portal del usuario
+                    echo  '<a href="portal_usuario.php" class="c-button user-button"><img src="logos/logo_volver-1.png"
+                    class="logo-volver"></a>';
+                }
+                if($rol =='Usuario_autorizado'){//si el usuario su rol es usuario_autorizado le lleva al portal del personal autorizado
+                    echo  '<a href="Personal_autorizado/portal_usuario_autorizado.php" class="c-button user-button"><img src="logos/logo_volver-1.png"
+                    class="logo-volver"></a>';
+                }
+                if($rol =='Especialista'){//si el usuario su rol es especialista le lleva al portal del especialista
+                    echo  '<a href="Especialista/portal_especialista.php" class="c-button user-button"><img src="logos/logo_volver-1.png"
+                    class="logo-volver"></a>';
+                }
+                
+                ?>
+
         </div>
     </header>
     <div class="main">
@@ -72,6 +92,10 @@ require_once('../modelo/crud.php');
                 <label for="fecha" class="form-label">Paso 1: Selecciona una fecha</label>
                 <form action="pedir_cita_p2.php" method="post" name="mostrar-datos-usuario">
                     <div class="input-group mb-3">
+                        <?php if($rol !='Usuario'){
+                             echo '<input type="text" class="form-control" id="dni" name="dni"
+                             aria-describedby="fecha-ayuda" placeholder="DNI">';
+                        }?>
                         <input type="datetime-local" class="form-control" id="fecha" name="fecha"
                             aria-describedby="fecha-ayuda">
                         <button type="submit" class="btn btn-primary">Lo antes
