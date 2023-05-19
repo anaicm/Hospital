@@ -97,7 +97,7 @@ if(isset($_POST['confirmar'])){
                 $centroCita = crud_select('Centro', 'idCentro', $centro );
                 $departamentoCita = crud_select('Departamento', 'idDepartamento',$departamento );
                 $personalCita = crud_select('personal', 'idpersonal',$personal );
-                echo 'Se ha confirmado su cita en ' . $centroCita[0]['Nombre'] . ' el día ' . $fecha . ' para la especialidad ' . $departamentoCita[0]['Nombre'] . ' con el especialista ' . $personalCita[0]['Nombre'] . $departamentoCita[0]['Nombre'] . ' con el especialista ' . ' ' . $personalCita[0]['Apellido'];
+                //echo 'Se ha confirmado su cita en ' . $centroCita[0]['Nombre'] . ' el día ' . $fecha . ' para la especialidad ' . $departamentoCita[0]['Nombre'] . ' con el especialista ' . $personalCita[0]['Nombre'] . $departamentoCita[0]['Nombre'] . ' con el especialista ' . ' ' . $personalCita[0]['Apellido'];
                 ?>
                 </div>
 
