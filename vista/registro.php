@@ -1,5 +1,13 @@
 <?php
 require_once('../modelo/crud.php');
+session_start();//para poder leer y escribir en las variables de sesión 
+if (!isset($_SESSION['usuario'])) {
+    header('location: ../login.php');
+exit();
+}
+$usuario = crud_select('usuario', 'idUsuario', $_SESSION['idUsuario'] );
+$rol = $_SESSION['rol'] = $usuario[0]['Rol'];
+
 $msg = '';
 if (isset($_POST['registrar'])) {
     //Trae los datos del formulario
@@ -47,7 +55,20 @@ if (isset($_POST['registrar'])) {
             <h1>CenSalud</h1>
         </div>
         <div class="button-container">
-            <a href="login.php" class="c-button user-button"><img src="logos/logo_volver-1.png" class="logo-volver"></a>
+            <?php if($rol =='Usuario'){//si el usuario su rol es usuario le lleva al portal del usuario
+                    echo  '<a href="login.php" class="c-button user-button"><img src="logos/logo_volver-1.png"
+                    class="logo-volver"></a>';
+                }
+                if($rol =='Usuario_autorizado'){//si el usuario su rol es usuario_autorizado le lleva al portal del personal autorizado
+                    echo  '<a href="Personal_autorizado/portal_usuario_autorizado.php" class="c-button user-button"><img src="logos/logo_volver-1.png"
+                    class="logo-volver"></a>';
+                }
+                if($rol =='Especialista'){//si el usuario su rol es especialista le lleva al portal del especialista
+                    echo  '<a href="Especialista/portal_especialista.php" class="c-button user-button"><img src="logos/logo_volver-1.png"
+                    class="logo-volver"></a>';
+                }
+                
+                ?>
         </div>
     </header>
     <!--Cuerpo---------------------------------------------------------------------------------------->
