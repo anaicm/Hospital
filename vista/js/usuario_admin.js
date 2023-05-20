@@ -6,7 +6,7 @@ include("../../controlador/controlador_usuario.php");
     */
 
 function seleccionar(id) {
-  debugger;
+
   var http = new XMLHttpRequest();
   var url = "/Hospital/controlador/controlador_usuario.php";
   var params = "action=seleccionar&id=" + id;
@@ -18,7 +18,6 @@ function seleccionar(id) {
   http.onreadystatechange = function () {
     //respuesta ajax correcta
     if (http.readyState == 4 && http.status == 200) {
-      debugger;
       var usuario = JSON.parse(http.response);
       document.getElementById("nombre").value = usuario[0].Nombre; //datos mapeados
       document.getElementById("apellidos").value = usuario[0].Apellido;

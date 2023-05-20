@@ -4,7 +4,7 @@
 /*En el div donde se hace click y aparece se llama al evento onclick=funcion("div_invisible")*/
 //funcion para la página portal Usuario autorizado
 function mostrar_datos (div){
- debugger;
+
   var continformación_paciente = document.getElementById('información_paciente');
   if (!continformación_paciente.classList.contains('oculta')) {
     continformación_paciente.classList.toggle('oculta');

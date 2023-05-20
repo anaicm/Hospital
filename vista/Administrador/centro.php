@@ -30,7 +30,7 @@
             //respuesta ajax correcta
             if (http.readyState == 4 && http.status == 200) {
                 var centro = JSON.parse(http.response);
-                debugger;
+
                 document.getElementById('nombre').value = centro[0].Nombre; //dato mapeados
                 document.getElementById('direccion').value = centro[0].Direccion; //dato mapeados
                 document.getElementById('telefono').value = centro[0].Telefono; //dato mapeados
