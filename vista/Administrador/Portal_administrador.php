@@ -16,10 +16,18 @@
 /**
  * inicia sesión para poder leer y escribir en las variables de sesión
  */
+require_once('../../modelo/crud.php');
 session_start();
 if (!isset($_SESSION['usuario'])) {
     header('location: ../login.php');
     exit();
+}
+//se obtienen el rol del usuario para que si entra en otro portal distinto le pida acreditación y no pueda entrar 
+//en los que no le corresponde 
+$usuario = crud_select('usuario', 'idUsuario', $_SESSION['idUsuario'] );
+$rol = $_SESSION['rol'] = $usuario[0]['Rol'];
+if($rol !='Administrador'){
+    header('location: ../login.php');
 }
 ?>
 
