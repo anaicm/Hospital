@@ -174,7 +174,7 @@ if (isset($_POST['modificar_datos'])) {//
               </div>';
               ?></p>
                         <?php endif; ?>
-                        <div id="datos" class="menu etiqueta-datos" onclick="mostrar_formulario_datos('form_datos')">
+                        <div id="datos" class="menu etiqueta-datos" onclick="mostrar_datos2('form_datos')">
                             Restablecer datos
                             <hr>
                         </div>
@@ -241,7 +241,7 @@ if (isset($_POST['modificar_datos'])) {//
                     </div>
                     <!--menú modificar contraseña------------------------------>
                     <div class="contenedor-perfil">
-                        <div id="contra" class="menu etiqueta-datos" onclick="mostrar_formulario_datos('form_contra')">
+                        <div id="contra" class="menu etiqueta-datos" onclick="mostrar_datos2('form_contra')">
                             Restablecer contraseña
                             <hr>
                         </div>
