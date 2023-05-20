@@ -38,6 +38,8 @@ if (isset($_POST['siguientep1'])) {//
 //se obtiene la fecha del paso anterior (primero se inicializa y luego se obtiene el valor del post) así nos aseguramos que fecha tiene un valor
 $fecha = '';
 $fecha = $_POST['fecha'];
+$dni = '';
+$dni = $_POST['dni'];
 }
 ?>
 
@@ -74,7 +76,8 @@ $fecha = $_POST['fecha'];
                 <form action="pedir_cita_p3.php" method="post" name="mostrar-datos-usuario">
                     <?php
 					//se ponen los datos del paso anterior en hiddens para pasarlos al paso siguiente al pulsar siguiente
-                echo '<input type="hidden" name="fecha" value="' . $fecha . '">';       
+                echo '<input type="hidden" name="fecha" value="' . $fecha . '">';
+                echo '<input type="hidden" name="dni" value="' . $dni . '">';         
                 ?>
                     <select class="form-select mb-3" name="departamento" id="departamento" required>
                         <?php         
