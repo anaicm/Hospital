@@ -37,7 +37,6 @@
             header('location: ../login.php');
         }
 
-
     ?>
 
 <body class="body-fondo">
@@ -71,20 +70,20 @@
     </div>
     <!--cuerpo de la página------------------------------------------------------------------------------------------->
     <div class="menu-tarjetas">
-        <div class="tarjeta" onclick="mostrar_datos('información_paciente')">
+        <div class="tarjeta" onclick="mostrar_datos ('información_paciente')">
             Paciente <br>
             <img src="../imagenes/imagenes_personal_autorizado/Informacion_paciente.png"
                 class="imagenes-etiquetas-autorizado">
         </div>
-        <div class="tarjeta" onclick="mostrar_datos('Especialistas_centros')">
+        <div class="tarjeta" onclick="mostrar_datos ('Especialistas_centros')">
             Especialistas
             <img src="../imagenes/imagenes_personal_autorizado/citas.png" class="imagenes-etiquetas-autorizado">
         </div>
-        <div class="tarjeta" onclick="mostrar_datos('informacion_centros')">
+        <div class="tarjeta" onclick="mostrar_datos ('informacion_centros')">
             centros
             <img src="../imagenes/imagenes_personal_autorizado/centros.png" class="imagenes-etiquetas-autorizado">
         </div>
-        <div class="tarjeta" onclick="mostrar_datos('agenda_especialista')">
+        <div class="tarjeta" onclick="mostrar_datos ('agenda_especialista')">
             Agenda
             <img src="../imagenes/imagenes_personal_autorizado/agenda_especialista.png"
                 class="imagenes-etiquetas-autorizado">
@@ -101,10 +100,14 @@
     </div>
     <hr>
     <!----------------------------------------->
+    <div class="" id="resultado">
 
 
+    </div>
     <!----------------------------------------->
-    <div class="contenedor_personal_autorizado oculta" id='información_paciente'>
+    <div class="contenedor_personal_autorizado <?php if (isset($_POST['btn_informacion'])) { echo ''; } else { echo 'oculta'; } ?>"
+        id='información_paciente'>
+        <h1>Paciente</h1>
         <form method='post' action='#'>
             <div class="texto_titulo">
                 <input placeholder="NIF paciente" required type="text" class="form-control" id="dni_usuario"
@@ -113,12 +116,21 @@
                     Información
                 </button>
                 <hr>
-                <!--Datos del paciente-->
-                <?php 
+                <div>
+                    <!--Datos del paciente-->
+                    <?php 
                         require_once('../../modelo/personal_autorizado/consulta_autorizado_paciente.php');//citas e informes de paciente
                         
                         if(isset($_POST['dni_usuario'])){
                             $dni=$_POST['dni_usuario'];
+                            //busca el nombre del usuario según del dni para mostarlo en la cabecera de la búsqueda
+                            $usu=crud_select('Usuario', 'Dni', $dni);
+                            foreach($usu as $campo){
+                                $nom_usu=$campo['Nombre'];
+                                $apel_usu=$campo['Apellido'];
+                            }
+                            echo " $nom_usu" ." " . "$apel_usu ";
+                            
                             if (isset($_POST['btn_informacion'])) {
                                 try{
                                     $busqueda=obtener_citas_por_dni('cita',$dni);
@@ -127,17 +139,17 @@
                                 }catch(PDOException $e) {
                                     echo 'Error en la búsqueda de las citas: ' . $e->getMessage();
                                 } 
-                                echo "<table class='table table-hover' style='border:1px solid black'>";
-                                echo "<thead><tr><th>Cita</th><th>Informe Clínico</th><th></tr></thead>";
+                                echo "<table class='table table-hover tab_especialista texto'>";
+                                echo "<thead><tr><th>Cita</th><th>Informe Clínico</th></tr></thead>";
                                 echo "<tbody>";
                                 foreach ($busqueda as $resultado) {
-                                    echo "<tr><td>" . $resultado['Hora'] . "</td>";
+                                    echo "<tr class='celdas'><td>" . $resultado['Hora'] . "</td>";
                                     echo "<td>" . $resultado['Informe'] . "</td></tr>";
                                 }
                                 echo "<tr><th>Familiares</th><th></th></tr>";
-                                echo "<tr><th>Nombre</th><th>Apellidos</th><th></tr>";
+                                echo "<tr><th>Nombre</th><th>Apellidos</th></tr>";
                                 foreach($busqueda2 as $resultado){
-                                    echo "<tr><td>" . $resultado['Nombre'] . "</td>";
+                                    echo "<tr class='celdas'><td>" . $resultado['Nombre'] . "</td>";
                                     echo "<td>" . $resultado['Apellido'] . "</td></tr>";
 
                                 } 
@@ -147,14 +159,18 @@
                             }
                         }
                 ?>
+                </div>
             </div>
         </form>
     </div>
     <!-------------------Información del paciente---------------------->
-    <div class="contenedor_personal_autorizado oculta" id='Especialistas_centros'>
+
+    <div class="contenedor_personal_autorizado <?php if (isset($_POST['buscar_especialista'])) { echo ''; } else { echo 'oculta'; } ?>"
+        id='Especialistas_centros'>
+
         <h1>Especialistas</h1>
         <!--muestra los especialistas según el centro-->
-        <form method="post">
+        <form method='post' action='#'>
             <input type="text" class="form-control" id="nom_centro" name="nom_centro" aria-describedby="basic-addon3"
                 placeholder="Centro" />
             <button class="btn btn-primary" style="margin-top:10px" type="submit" id="buscar_especialista"
@@ -171,11 +187,11 @@
                       }catch(PDOException $e) {
                           echo 'Error en la búsqueda de la ciudad: ' . $e->getMessage();
                       }
-                      echo "<table class='table table-hover'>";
+                      echo "<table class='table table-hover tab_especialista texto'>";
                       echo "<thead><tr><th>Especialista</th><th>Especialidad</th><th>Centro</th></tr></thead>";
                       echo "<tbody>";
                       foreach ($busqueda as $resultado) {
-                          echo '<tr>';
+                          echo '<tr class="celdas">';
                           echo '<td>' . $resultado['NombrePersonal'] . '</td>';
                           echo '<td>' . $resultado['NombreDepartamento'] . '</td>';
                           echo '<td>' . $resultado['NombreCentro'] . '</td>';
@@ -189,7 +205,8 @@
     </div>
 
     <!------------------obtiene las citas del especialista mediante el nombre y apellido----------------------->
-    <div class="contenedor_personal_autorizado oculta" id='agenda_especialista'>
+    <div class="contenedor_personal_autorizado <?php if (isset($_POST['buscar_agendea_esp'])) { echo ''; } else { echo 'oculta'; } ?>"
+        id='agenda_especialista'>
         <!--El personal da información sobre los centros que hay-->
         <h1>Especialista</h1>
         <div class="texto_titulo">
@@ -201,27 +218,27 @@
                     placeholder="Apellido" />
                 <input type="date" class="form-control" id="fecha" name="fecha" aria-describedby="fecha-ayuda">
                 <button class="btn btn-primary" style="margin-top:10px" type="submit" id="buscar_agendea_esp"
-                    name="buscar_especialista" value="Enviar">Buscar</button>
+                    name="buscar_agendea_esp" value="Enviar">Buscar</button>
                 <hr>
                 <?php
                      require('../../modelo/epecialista_agenda.php');
-                        if(isset($_POST['fecha']) && isset( $_POST['nom_esp']) && isset( $_POST['nom_esp'])){
+                        if(isset($_POST['fecha'])){
+                            
                                 $fecha = $_POST['fecha'];
                                 $nombre=$_POST['nom_esp'];
                                 $apellido=$_POST['apel_esp'];
+                                
                                 if (isset($_POST['buscar_agendea_esp'])) {
-                                    $especialista=obtener_dni_usuario($nombre,$apellido);//obtengo el dni del especialista mediante su nombre y apellidos
-                                    foreach($especialista as $campos){
-                                       $dni=$campos['Dni'];
-                                    }
-                                    $personal=id_Personal($dni);//con el dni obtengo el campo idPersonal
-                                    foreach($personal as $campo){
-                                        $idPersonal=$campo['idPersonal'];
-                                    }
+                                    $idPersonal=obtenerIdPersonalPorNombre($nombre,$apellido);//obtengo el dni del especialista mediante su nombre y apellidos
+                                    
+                                    // $personal=id_Personal($dni);//con el dni obtengo el campo idPersonal
+                                    // foreach($personal as $campo){
+                                    //     $idPersonal=$campo['idPersonal'];
+                                    // }
                                     try{
                                         //$arreglo_fecha = date('Y-m-d', strtotime($fecha));
-                                        $busqueda=obtener_cita_por_fecha($fecha,$idPersonal);
-                                        echo "<table class='table table-hover'>";
+                                        $busqueda=obtener_cita_por_fecha($fecha,$idPersonal[0]['idPersonal']);
+                                        echo "<table class='table table-hover tab_especialista texto'>";
                                         echo "<thead><tr><th>Paciente</th><th></th><th>Fecha</th></tr></thead>";
                                         echo "<tbody>";
                                         foreach ($busqueda as $resultado) {
@@ -243,7 +260,8 @@
         </div>
     </div>
     <!-------------------obtiene los centros por provincia---------------------->
-    <div class="contenedor_personal_autorizado oculta" id='informacion_centros'>
+    <div class="contenedor_personal_autorizado <?php if (isset($_POST['buscar'])) { echo ''; } else { echo 'oculta'; } ?>"
+        id='informacion_centros'>
         <!--Personal consulta la especialidad, agenda y especialista-->
         <h1>Centros</h1>
 
@@ -265,14 +283,15 @@
                             }catch(PDOException $e) {
                                 echo 'Error en la búsqueda de la ciudad: ' . $e->getMessage();
                             }
-                                echo "<table class='table table-hover'>";
-                                echo "<thead><tr><th>Ciudad</th><th>Dirección</th><th>Teléfono</th></tr></thead>";
+                                echo "<table class='table table-hover tab_especialista texto'>";
+                                echo "<thead><tr><th>Ciudad</th><th>Dirección</th><th>Teléfono</th><th></th></tr></thead>";
                                 echo "<tbody>";
                             foreach ($busqueda as $resultado) {
-                                echo '<tr>';
+                                echo '<tr class="celdas">';
                                 echo '<td>' . $resultado['Nombre'] . '</td>';
                                 echo '<td>' . $resultado['direccion'] . '</td>';
                                 echo '<td>' . $resultado['telefono'] . '</td>';
+                                echo '<td></td>';
                                 echo '</tr>';
                             }
                                 echo "</tbody>";

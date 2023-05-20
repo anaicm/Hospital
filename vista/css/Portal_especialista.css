@@ -12,6 +12,19 @@
     border-radius: 10px;
     width: 35%;
 }
+.contenedor_personal_autorizado{/*Da forma, tamaño de los div ocultos en el portal del usuario autorizado*/
+    width: 100%;
+    max-width: 800px; /* Establece un ancho máximo para evitar que el contenido se extienda demasiado en pantallas grandes */
+    margin: 0 auto; /* Centra el div horizontalmente */
+    padding: 20px; /* Se agrega un espacio alrededor del contenido */
+    border: 3px solid #1F736A ;
+    border-radius: 10px;
+
+}
+.oculta{
+    display:none;
+}
+.visible{display:block}/*Hace visible los div ocultos */
 .con_tabala_agenda{/*paddind derecho para la tabla que muestra las citas del día seleccionado*/
    
     padding-right: 22px;
@@ -32,6 +45,13 @@
   @media (max-width: 768px) {/*Cambia el diseño cuando el ancho de la pantalla es <=768px*/
     .container {
       flex-direction: row;
+    }
+}
+  
+   @media (max-width: 480px) { /* Estilos para pantallas más pequeñas portal usuario autorizado */
+    .contenedor_personal_autorizado {
+        width: 100%; 
+        padding: 10px; 
     }
 }
     

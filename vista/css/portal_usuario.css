@@ -46,3 +46,8 @@
   width: 200px;
   height: 150px;
 }
+.imagenes-etiquetas-autorizado{/*Estilo para dar tamaño a las imagenes de cada tarjeta del portal personal autorizado*/
+  width: 200px;
+  height: 125px;
+
+}
