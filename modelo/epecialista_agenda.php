@@ -16,7 +16,7 @@ function obtener_cita_por_fecha($fecha,$idPersonal){
         $pdo = new PDO($dsn, $username, $password);
        //realiza la consulta
        
-       $sql = "SELECT usuario.Nombre AS nombre, usuario.Apellido AS apellido, usuario.Dni AS dni, cita.Hora AS fecha 
+       $sql = "SELECT usuario.Nombre AS nombre, usuario.Apellido AS apellido, usuario.Dni AS dni, cita.Hora AS fecha, cita.idCita
         FROM usuario
         INNER JOIN cita ON cita.idUsuario=usuario.idUsuario 
         WHERE cita.idPersonal='$idPersonal' AND DATE(cita.Hora) = '$fecha'";

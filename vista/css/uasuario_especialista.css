@@ -1,6 +1,6 @@
 textarea{/*Tamaño de la etiqueta textarea para que el especialista escriba el informe*/
     width: 700px;
-    height: 300px;
+    height: 200px;
     margin:10px 10px 10px 10px;
     padding: 10px 10px 10px 10px ; 
     text-align: left;
@@ -34,5 +34,48 @@ button{/*Margen izquierdo para separar los botones*/
         flex: 1 1 100%;
     }
 }
+.cuerpo_columnas {/*pone los dive en columnas*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px;
+}
+@media (max-width: 768px) {/*realiza que la página sea responsive*/
+    .contenedor-columnas {
+        grid-template-columns: 100%;
+    }
+}
+
+.columna_1 {/*tamaño de la columna 1*/
+    flex-basis: 45%;
+    margin-bottom: 20px;
+}
+
+.columna_2 {/*tamaño de la columna 2*/
+    flex-basis: 35%;
+    margin-bottom: 20px;
+}
+.tamaño_dar_cita{
+    /*Estilos de texto, fondo, anchura y altura, borde y cursor pointer para las tarjetas con las que interactua el usuario*/
+        border: 1px solid rgb(153, 160, 174);
+        border-radius: 10%;
+        width: 150px;
+        height: 100px;
+        text-align: center;
+        padding: 12px;
+        margin: 12px;
+        background-color:white;
+        color: #482b97;
+        font-size: 15px;
+        cursor: pointer;
+      
+ 
+}
+
+  .imagenes-etiquetas-especialista{/*Estilo para dar tamaño a las imagenes de cada tarjeta del portal personal autorizado*/
+    width: 100px;
+    height: 50px;
+  
+  }
 
 

@@ -15,7 +15,17 @@
     <link rel="stylesheet" type="text/css" href="../css/Portal_administrador.css">
     <link rel="stylesheet" type="text/css" href="../css/cabecera.css">
     <link rel="stylesheet" type="text/css" href="../css/barra_navegacion.css">
+    <link rel="stylesheet" type="text/css" href="../css/uasuario_especialista.css">
+
     </head>
+    <script>
+    function seleccionar(idCita, nombre, apellido) {
+        document.getElementById('nombre').value = nombre;
+        document.getElementById('apellido').value = apellido;
+        document.getElementById('idCita').value = idCita;
+
+    }
+    </script>
 
     <?php
     require_once('../../modelo/crud.php');
@@ -28,10 +38,24 @@
     //se obtienen el especialista por id usuario guardado en el login y se coje el DNI
     $usuario = crud_select('usuario', 'idUsuario', $_SESSION['idUsuario'] );
     $_SESSION['dni'] = $usuario[0]['Dni'];
+    $rol = $_SESSION['rol'] = $usuario[0]['Rol'];
+
+    if($rol !='Especialista'){
+        header('location: ../login.php');
+    }
     
     // se obtiene el id del personal mediante el Dni 
   
-    
+    if (isset($_POST['registrar'])) {
+        $idCita = $_POST['idCita'];
+        $informe = $_POST['informe'];
+
+        try {//actualiza los datos por el id de provincia que se ha guardado en el hidden
+            crud_actualizar('cita', array('informe' => $informe), "idCita = $idCita");
+        } catch (PDOException $e) {
+            echo 'Error al editar la cita: ' . $e->getMessage();
+        }
+    }
     
     ?>
 
@@ -65,50 +89,49 @@
             </nav>
         </div>
         <!--cuerpo de la página------------------------------------------------------------------------------------------->
-
-        <div class="contenedor_personal_autorizado_paciente">
-            <div>
-                <!--div para elegir día y que el especialista vea los pacientes de el día en concreto-->
-                <form method='post' action='#'>
-                    <div class="texto_titulo">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon3">AGENDA </span>
+        <div class="cuerpo_columnas">
+            <div class="contenedor_personal_autorizado_paciente columna_1  ">
+                <div>
+                    <!--div para elegir día y que el especialista vea los pacientes de el día en concreto-->
+                    <form method='post' action='#'>
+                        <div class="texto_titulo">
+                            <h1>Agenda</h1>
+                            <input type="date" class="form-control" id="fecha" name="fecha"
+                                aria-describedby="fecha-ayuda">
+                            <button class="btn btn-primary" style="margin-top:10px" type="submit" id="buscar_agenda"
+                                name="buscar_agenda">Buscar</button>
                         </div>
-                        <input type="date" class="form-control" id="fecha" name="fecha" aria-describedby="fecha-ayuda">
-                        <button class="btn btn-primary" style="margin-top:10px" type="submit" id="buscar_agenda"
-                            name="buscar_agenda">Buscar</button>
-                    </div>
-                </form>
-                <div class="con_tabala_agenda">
-                    <!--Bucle para mostrar todos los usuarios que tengan cita el día seleccionado------------------------>
-                    <table class="tab_especialista texto">
-                        <tr>
-                            <th></th>
-                            <th>Pacientes</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        <tr>
-                            <th>
-                                <hr />
-                            </th>
-                            <th>
-                                <hr />
-                            </th>
-                            <th>
-                                <hr />
-                            </th>
-                            <th>
-                                <hr />
-                            </th>
-                        </tr>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Apellidos</th>
-                            <th>Dni</th>
-                            <th>Hora</th>
-                        </tr>
-                        <?php
+                    </form>
+                    <div class="con_tabala_agenda">
+                        <!--Bucle para mostrar todos los usuarios que tengan cita el día seleccionado------------------------>
+                        <table class="tab_especialista texto">
+                            <tr>
+                                <th></th>
+                                <th>Pacientes</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <hr />
+                                </th>
+                                <th>
+                                    <hr />
+                                </th>
+                                <th>
+                                    <hr />
+                                </th>
+                                <th>
+                                    <hr />
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Apellidos</th>
+                                <th>Dni</th>
+                                <th>Hora</th>
+                            </tr>
+                            <?php
                         require('../../modelo/epecialista_agenda.php');
                         $personal=id_Personal($_SESSION['dni'] = $usuario[0]['Dni']);
                         foreach($personal as $campo){
@@ -121,7 +144,8 @@
                                 //$arreglo_fecha = date('Y-m-d', strtotime($fecha));
                                 $busqueda=obtener_cita_por_fecha($fecha,$idPersonal);
                                 foreach ($busqueda as $resultado) {
-                                    echo ' <tr class="celdas">';
+                                    //al hacer onclick muestra el nombre y el apellido del usuario seleccionado
+                                    echo ' <tr onclick="seleccionar(' . $resultado['idCita'] . ',\' ' . $resultado['nombre'] . '\',\' ' . $resultado['apellido'] . '\');" class="celdas">';
                                     echo "<td>" . $resultado['nombre'] ."</td>";
                                     echo "<td>" . $resultado['apellido'] ."</td>";
                                     echo "<td>" . $resultado['dni'] ."</td>";
@@ -133,10 +157,80 @@
                         }
                     }
                         ?>
-                    </table>
+                        </table>
+                    </div>
                 </div>
             </div>
+            <!-----------------------------------Informe del paciente------------------------------------------------------->
+            <div class="columna_2 contenedor_personal_autorizado_paciente">
+                <h1>Informe del paciente</h1>
+                <hr />
+                <div class="cont_iframe">
+                    <div id='panel-modificar' class='d-flex'>
+                        <!--Formulario para el informe del paciente-->
+                        <?php 
+                        if (isset($_POST['registrar'])) {
+                            echo '<div class="alert alert-primary" role="alert">
+                            Se ha guardado el informe correctamente
+                          </div>';
+                        }
+                        ?>
+                        <form method="post" action="#">
+                            <input type="hidden" name="idCita" id="idCita" value="">
+                            <div class="input-group mb-1 d-inline-flex p-1 bd-highlight">
+                                <div class="cuerpo_columnas">
+                                    <div class="columna_1">
+                                        <table>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Apellido</th>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" class="form-control" id="nombre" name="nombre"
+                                                        aria-describedby="fecha-ayuda" placeholder="Nombre paciente">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="apellido"
+                                                        name="apellido" aria-describedby="fecha-ayuda"
+                                                        placeholder="Apellido paciente">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="columna_2">
+                                        <div class="tamaño_dar_cita" onclick="location.href = '../pedir_cita.php'">
+                                            Dar cita
+                                            <img src="../imagenes/imagenes_personal_autorizado/pedir_cita.png"
+                                                class="imagenes-etiquetas-especialista">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div>
+                                <textarea class="input-group-text" id="informe" placeholder="Informe del paciente: "
+                                    name="informe">
+                                </textarea>
+                                <button class="btn btn-primary" type="submit" id="registrar" name="registrar"
+                                    value="Enviar">Registrar
+                                    informe</button>
+                                <?php
+                                //registra el informe segun el idUsuario en la tabla cita buscado por el dni
+                                
+                                
+                                ?>
+
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-----------------------------------Dar cita------------------------------------------------------->
+
         </div>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
         </script>
