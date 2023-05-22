@@ -7,8 +7,10 @@ nav {/*Estilos de fondo, color de texto, anchura y altura, alineación y padding
     padding-bottom: 12px;
     justify-content: space-between;
     align-items: center;
-    width: auto;
+    width: 100vw;
     padding-top: 25px;
+    padding-left: 10px;
+    font-size: 18px;
 }
 nav ul {/*Estilos para el margen y el padding, quitar el estilo de lista y alineacion de la etiqueta <ul> de la barra de navegación*/
     list-style: none;
@@ -26,4 +28,37 @@ nav ul li a {/*Estilo para el color de texto y quitar la decoración de las etiq
 .main {/*Estilos de margen y ancho de la barra de navegación en todas las páginas de la aplicación*/
     margin-top: 80px;
     width: 99vw;
+}
+
+/* Estilos responsive para diferentes tamaños de pantalla */
+
+@media (max-width: 367px) {/* Móvil*/
+    nav {
+        flex-direction: column;
+        padding-bottom: 8px;
+        padding-top: 20px;
+        font-size: 16px;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .main {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 720px) {/* tablet*/
+    nav {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 900px) {/* pc*/
+    nav ul li {
+        margin-right: 10px;
+    }
 }
