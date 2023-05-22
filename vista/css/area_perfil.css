@@ -64,3 +64,53 @@
 .visible{/*Hace visible el submenu*/
     display: block;
 }
+/* Estilos responsive para diferentes tamaños de pantalla */
+@media (max-width: 367px) {/*Móvil*/
+    .contenedor-datos,
+    .contenedor-datos-modificar {
+      margin: 5px;
+    }
+  
+    .etiqueta-datos,
+    .datos {
+      font-size: 18px;
+    }
+  
+    input {
+      width: 100%;
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 720px) {/*tablet*/
+    .contenedor-datos,
+    .contenedor-datos-modificar {
+      width: 100%;
+      margin: 10px;
+    }
+  
+    .etiqueta-datos,
+    .datos {
+      font-size: 20px;
+    }
+  
+    input {
+      width: 100%;
+    }
+  }
+
+@media (max-width: 900px) {/*pc*/
+    .contenedor-perfil {
+      flex-direction: column;
+    }
+  
+    .contenedor-datos,
+    .contenedor-datos-modificar {
+      width: 100%;
+      margin: 10px;
+    }
+  }
+  
+ 
+  
+  
+  

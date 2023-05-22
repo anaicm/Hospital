@@ -164,7 +164,7 @@ if (isset($_POST['modificar_datos'])) {//
             <!--contenedor derecho----------------------------------------------------------------------------------------------->
             <div class="contenedor-datos-modificar">
                 <div class="contenedor-cambiar-imagen">
-                    <!--menú modificar datos--------------------------------->
+                    <!--menú modificar datos----------------------------------->
                     <div class="contenedor-cambiar-imagen">
                         <!--error de las validaciones de servidor-->
                         <?php if (!empty($msg)): ?>
@@ -285,7 +285,6 @@ if (isset($_POST['modificar_datos'])) {//
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </body>
 
