@@ -66,11 +66,13 @@ if (!isset($_SESSION['usuario'])) {
             <a href="informes_clinicos.php"><img src="imagenes/imagenes_portal_de_usuario/informes2.png"
                     class="imagenes-etiquetas"> </a>
         </div>
+        <!--
         <div class="tarjeta">
             Familiares<br>
-            <a href="familiares.html"><img src="imagenes/imagenes_portal_de_usuario/familiares.png"
+            <a href="familiares.php"><img src="imagenes/imagenes_portal_de_usuario/familiares.png"
                     class="imagenes-etiquetas"> </a>
         </div>
+-->
         <div class="tarjeta">
             Salud<br>
             <a href="contenido_salud/salud.php"><img src="imagenes/imagenes_portal_de_usuario/salud.png"
