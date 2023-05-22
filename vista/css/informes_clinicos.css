@@ -33,3 +33,34 @@
 .invisible{/*Estilos para hacer invisible el div que muestra el informe*/
     display: none;
 }
+/* Estilos responsive para diferentes tamaños de pantalla */
+@media (max-width: 367px) {/*Móvil*/
+    .etiqueta_informes_columnas,
+    .etiqueta_informes_horizontal {
+      flex-direction: column;
+    }
+  
+    .cabecera_etiqueta_informes {
+      margin: 10px;
+    }
+  }
+  @media (max-width: 720px) {/*tablet*/
+    .etiqueta_informes_columnas {
+      flex-direction: row;
+    }
+  
+    .etiqueta1,
+    .etiqueta2 {
+      height: auto;
+    }
+  
+    .cabecera_etiqueta_informes {
+      width: auto;
+      margin: 10px 20px;
+    }
+  }
+  @media (max-width: 900px) {/*Pc*/
+    .etiqueta {
+      margin: 10px;
+    }
+  }
