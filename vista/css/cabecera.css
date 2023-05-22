@@ -1,5 +1,6 @@
 .body-fondo{/*Fondo para toda la aplicación*/
     background: -webkit-linear-gradient(left,#EDEDE9, #90C3C8);
+    overflow: hidden; /* Evita el scroll en la página */
     font-family: 'Montserrat', sans-serif;
     margin: 0px;
     width: auto;
@@ -11,7 +12,7 @@
 	  position: fixed;
 	  top: 0;
 	  left: 0;
-	  width: 99vw;
+	  width: 100vw;
     height: 70px;
     background-color: #b0d6e2;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -43,7 +44,6 @@
     color: #ffffff;
     font-family: lexend, Arial, Helvetica, sans-serif;
   }
-  
   .button-container {
     display: flex;
     align-items: center;
@@ -84,4 +84,26 @@
 .logo-volver{/*Tamaño del logo para volver hacia atras*/
 	height: 25px;
 	width: 30px;
+}
+/* Estilos responsive para diferentes tamaños de pantalla */
+@media (max-width: 367px) {/* Móvil*/
+  .title-container h1 {
+    font-size: 20px;
+  }
+  .main-header {
+    height: 100vw;
+  }
+}
+@media (max-width: 720px) {/* tablet*/
+  .title-container h1 {
+    font-size: 32px;
+  }
+}
+@media (max-width: 900px) {  /* pc*/
+  .title-container h1 {
+    font-size: 40px;
+  }
+  .main-header {
+    width: 100vw;
+  }
 }
