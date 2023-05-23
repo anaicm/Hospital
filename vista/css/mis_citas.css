@@ -5,7 +5,7 @@
     color: #281da2;
     font-family: lexend, Arial, Helvetica, sans-serif;
     height: 200px;
-    width: 75%;
+    width: 86%;
     border-radius: 10px;
     background-image: url("../imagenes/imagenes_portal_de_usuario/MisCitas_Portal_usuario.png");  
   }  
@@ -23,7 +23,7 @@
   .tarjeta-citas {/*Estilos para las tarjetas que muestra las citas, borde, fondo, color, tamaño de la etiqueta y de letra, cursor pointer*/
     border: 1px solid rgb(153, 160, 174);
     width: 50%;
-    height: 150px;
+    height: 170px;
     padding: 12px;
     margin: 12px;
     background-color:white;
@@ -32,9 +32,99 @@
     cursor: pointer;   
     font-size: 24px;
     display: flex;/*para hacer filas o columnas*/
+    position: relative;
     flex-direction: column;/*si lo quieres row filas (por defecto) colum por columnas*/
   }
   .tarjeta-citas:hover{/*Estilos para cuando pasa el ratón por encima, cambia el fondo y el color de la letra*/
     background-color: rgb(153, 160, 174);
     color: white;
   }
+  .tarjeta-citas form {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+  }
+/* Estilos responsive para diferentes tamaños de pantalla */
+@media (max-width: 367px) {/* Móvil */
+  .cabecera-cuerpo,
+  .cabecera-cuerpo p,
+  .tarjeta,
+  .imagenes-etiquetas,
+  .imagenes-etiquetas-autorizado,
+  .cabecera-cuerpo-citas,
+  .cabecera-cuerpo-citas p,
+  .tarjeta-citas {
+    font-size: 16px;
+  }
+
+  .cabecera-cuerpo {
+    height: 150px;
+    width: 95%;
+  }
+
+  .cabecera-cuerpo p {
+    padding-top: 50px;
+    padding-right: 30px;
+    font-size: 18px;
+  }
+
+  .tarjeta {
+    width: 100%;
+    height: 150px;
+    font-size: 20px;
+  }
+
+  .tarjeta-citas {
+    width: 100%;
+    height: 250px;
+    font-size: 18px;
+  }
+}
+@media (max-width: 720px) {/*tablet*/
+  .cabecera-cuerpo {
+    height: 250px;
+    width: 80%;
+  }
+
+  .cabecera-cuerpo p {
+    padding-top: 80px;
+    padding-right: 60px;
+    font-size: 22px;
+  }
+
+  .tarjeta {
+    width: 45%;
+    height: 200px;
+    font-size: 24px;
+  }
+
+  .tarjeta-citas {
+    width: 80%;
+    height: 200px;
+    font-size: 22px;
+  }
+}
+@media (max-width: 900px) {/*pc*/
+  .cabecera-cuerpo {
+    height: 250px;
+    width: 60%;
+  }
+
+  .cabecera-cuerpo p {
+    padding-top: 100px;
+    padding-right: 80px;
+    font-size: 26px;
+  }
+
+  .tarjeta {
+    width: 30%;
+    height: 200px;
+    font-size: 26px;
+  }
+
+  .tarjeta-citas {
+    width: 45%;
+    height: 200px;
+    font-size: 24px;
+  }
+}
