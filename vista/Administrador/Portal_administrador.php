@@ -93,9 +93,10 @@ if($rol !='Administrador'){
                 <div onclick="document.getElementById('iframe').src ='usuario.php'" class="celdas texto">
                     usuarios
                 </div>
+                <!--
                 <div onclick="document.getElementById('iframe').src ='familiar.php'" class="celdas texto">
                     Familiares
-                </div>
+                </div>-->
             </div>
             <div class="col-md-8 float-right ">
                 <!--es el que primero se abre por defecto-->
