@@ -73,7 +73,9 @@ if(isset($_POST['confirmar'])){
         }if($rol !='Usuario'){
             $consulta=crud_select('usuario', 'Dni', $dni);
             $idUsuario= $consulta[0]['idUsuario'];
-            crud_insertar('cita', array('Hora' => date('Y-m-d', strtotime(str_replace('-', '/', $fecha))), 'idPersonal' => $departamento_personales[0]['idPersonal'], 'idUsuario' => $idUsuario, 'idTipoCita' => $tipo_cita));
+            crud_insertar('cita', array('Hora' => $fecha, 'idPersonal' => $personal, 'idUsuario' => $idUsuario, 'idTipoCita' => $tipo_cita));
+
+            //crud_insertar('cita', array('Hora' => date('Y-m-d', strtotime(str_replace('-', '/', $fecha))), 'idPersonal' => $departamento_personales[0]['idPersonal'], 'idUsuario' => $idUsuario, 'idTipoCita' => $tipo_cita));
         }
     } catch (PDOException $e) {
         echo 'Error al insertar la cita: ' . $e->getMessage();
