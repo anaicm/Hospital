@@ -10,11 +10,14 @@
 </head>
 
 <?php
+require_once('../modelo/crud.php');
 session_start();//para poder leer y escribir en las variables de sesión 
 if (!isset($_SESSION['usuario'])) {
     header('location: ./login.php');
     exit();
 }
+$usuario = crud_select('usuario', 'idUsuario', $_SESSION['idUsuario'] );
+$rol = $_SESSION['rol'] = $usuario[0]['Rol'];
 
 ?>
 
@@ -39,7 +42,20 @@ if (!isset($_SESSION['usuario'])) {
                 <li><a href="index.php">Inicio</a></li>
                 <li><a href="centros_hospitalarios.html">Hospitales</a></li>
                 <li><a href="especialistas.html">Especialistas</a></li>
-                <li><a href="portal_usuario.php">Portal del usuario</a></li>
+                <?php
+                if($rol =='Usuario'){
+                   echo" <li><a href='portal_usuario.php'>Portal del usuario</a></li>";
+                }
+                if($rol =='Especialista'){
+                    echo" <li><a href='Especialista/portal_especialista.php'>Portal especialista</a></li>";
+                 }
+                 if($rol =='Usuario_autorizado'){
+                    echo" <li><a href='Personal_autorizado/portal_usuario_autorizado.php'>Portal usuario autorizado</a></li>";
+                 }
+                 if($rol =='Administrador'){
+                    echo" <li><a href='Administrador/Portal_administrador.php'>Portal Administrador</a></li>";
+                 }
+                ?>
             </ul>
         </nav>
     </div>

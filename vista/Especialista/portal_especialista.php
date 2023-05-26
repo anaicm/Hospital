@@ -79,7 +79,7 @@
         <div class="main">
             <nav>
                 <ul>
-                    <li><a href="../portal_administrador.php">Inicio</a></li>
+                    <li><a href="../index.php">Inicio</a></li>
                     <li><a href="../centros_hospitalarios.html">Hospitales</a></li>
                     <li><a href="../acerca_de.html">Acerca de</a></li>
                     <li><a href="../contacto.php">Contacto</a></li>

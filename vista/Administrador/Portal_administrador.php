@@ -17,6 +17,11 @@
  * inicia sesión para poder leer y escribir en las variables de sesión
  */
 require_once('../../modelo/crud.php');
+session_start();//para poder leer y escribir en las variables de sesión 
+if (!isset($_SESSION['usuario'])) {
+    header('location: ./login.php');
+    exit();
+}
 
 ?>
 
