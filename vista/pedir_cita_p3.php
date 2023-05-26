@@ -92,7 +92,6 @@ $departamento = $_POST['departamento'];
                         ?>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-secondary">Anterior</button>
                     <button type="submit" id="siguientep3" name="siguientep3" value="siguientep3"
                         class="btn btn-primary ms-3">Siguiente</button>
                 </form>

@@ -97,7 +97,6 @@ if (isset($_POST['siguientep4'])) {//
                         ?>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-secondary">Anterior</button>
                     <button type="submit" id="confirmar" name="confirmar" value="confirmar"
                         class="btn btn-primary ms-3">Confirmar</button>
                 </form>

@@ -138,13 +138,13 @@ if(isset($_POST['confirmar'])){
                 } if($rol =='Usuario_autorizado'){
                 echo'<a href="Personal_autorizado/portal_usuario_autorizado.php">
                     <button type="submit" id="confirmar" name="confirmar" value="confirmar"
-                        class="btn btn-primary ms-3">Mis Citas</button>
+                        class="btn btn-primary ms-3">Aceptar</button>
                 </a>';
                 }
                 if($rol =='Especialista'){
                     echo'<a href="Especialista/portal_especialista.php">
                     <button type="submit" id="confirmar" name="confirmar" value="confirmar"
-                        class="btn btn-primary ms-3">Mis Citas</button>
+                        class="btn btn-primary ms-3">Aceptar</button>
                 </a>';
 
                 }

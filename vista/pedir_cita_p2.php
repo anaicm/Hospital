@@ -98,8 +98,6 @@ $fecha = date('Y-m-d H:i:s', strtotime($_POST['fecha']));
                     }
                 ?>
                     </select>
-                    <button type="submit" id="anteriorp1" name="anteriorp1" value="anterior1"
-                        class="btn btn-secondary">Anterior</button>
                     <button type="submit" id="siguientep2" name="siguientep2" value="siguientep2"
                         class="btn btn-primary ms-3">Siguiente</button>
                 </form>
