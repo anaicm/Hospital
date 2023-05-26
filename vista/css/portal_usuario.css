@@ -52,3 +52,16 @@
   height: 125px;
 
 }
+.tarjetas_centros_y_especialistas {/*CSS para las tarjetas de la página especialistas y hospitales*/
+  flex-basis: 23%; /* Establece el ancho de cada tarjeta en un 25% para mostrar cuatro tarjetas por fila */
+  padding: 10px; /* Agrega un margen interno de 10px a cada tarjeta */
+  box-sizing: border-box; /* Incluye el padding en el ancho total de la tarjeta */
+  margin: 10px; /* Agrega un margen externo de 10px a cada tarjeta */
+}
+
+/* Establece un ancho máximo para cada fila */
+.row {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+

@@ -98,9 +98,6 @@ $rol = $_SESSION['rol'] = $usuario[0]['Rol'];
                         }?>
                         <input type="datetime-local" class="form-control" id="fecha" name="fecha"
                             aria-describedby="fecha-ayuda">
-                        <button type="submit" class="btn btn-primary">Lo antes
-                            posible</button>
-
                     </div>
                     <small id="fecha-ayuda" class="form-text text-muted">Selecciona una fecha disponible.</small>
                     <button type="submit" id="siguientep1" name="siguientep1" value="siguientep1"

@@ -33,7 +33,7 @@
                 <li><a href="contacto.php">Contacto</a></li>
                 <li><a href="centros_hospitalarios.html">Hospitales</a></li>
                 <li><a href="especialistas.html">Especialistas</a></li>
-                <li><a href="administrador/Portal_administrador.php">Portal admin</a></li>
+
             </ul>
             <!--Icono y input para la búsqueda rápida
             <div class="search-icon">

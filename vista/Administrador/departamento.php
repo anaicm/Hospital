@@ -57,7 +57,10 @@
     </script>
 </head>
 
-<body><?php
+<body>
+    <h1 Style="text-align: center;">Departamentos</h1>
+    <hr>
+    <?php
 require_once('../../modelo/crud.php');
 
 if (isset($_POST['registrar'])) {
@@ -165,6 +168,9 @@ foreach ($usar_pagina as $departamento) {
             </div>
         </form>
     </div>
+    <hr>
+    <h5 Style="text-align: center;">Departamento_Personal</h5>
+    <hr>
     <?php
     $departamento_personales=crud_get_all('Departamento_Personal');//trae la tabla centro_departamento
 

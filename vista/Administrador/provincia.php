@@ -54,7 +54,10 @@
     </script>
 </head>
 
-<body><?php
+<body>
+    <h1 Style="text-align: center;">Provincias</h1>
+    <hr>
+    <?php
 require_once('../../modelo/crud.php');
 
 if (isset($_POST['registrar'])) {//acción añadir

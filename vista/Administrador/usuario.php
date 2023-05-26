@@ -61,7 +61,10 @@
     </script>
 </head>
 
-<body><?php
+<body>
+
+    <h1 Style="text-align: center;">Usuarios</h1>
+    <hr><?php
 require_once('../../modelo/crud.php');
 
 if (isset($_POST['registrar'])) {//
@@ -75,11 +78,12 @@ if (isset($_POST['registrar'])) {//
     $rol = $_POST['rol'];
     try {
     // si el rol que me viene es especialista o usuario autorizado crea un registro en la tabla personal
-    if($rol = 'Especialista' && $rol = 'Usuario_autorizado'){
+    if($rol == 'Especialista' || $rol == 'Usuario_autorizado'){
         crud_insertar('personal', array('nombre' => $nombre, 'apellido' => $apellido, 'telefono' => $telefono,'dni' => $dni ));
-    }
-    crud_insertar('Usuario', array('dni' => $dni, 'nombre' => $nombre, 'apellido' => $apellido, 'telefono' => $telefono, 'FechaNacimiento' => $fnacimiento,'contrasenia' => password_hash($contrasenia, PASSWORD_DEFAULT), 'email' => $email, 'rol' => $rol));
-   
+        crud_insertar('Usuario', array('dni' => $dni, 'nombre' => $nombre, 'apellido' => $apellido, 'telefono' => $telefono, 'FechaNacimiento' => $fnacimiento,'contrasenia' => password_hash($contrasenia, PASSWORD_DEFAULT), 'email' => $email, 'rol' => $rol));
+        }else{
+            crud_insertar('Usuario', array('dni' => $dni, 'nombre' => $nombre, 'apellido' => $apellido, 'telefono' => $telefono, 'FechaNacimiento' => $fnacimiento,'contrasenia' => password_hash($contrasenia, PASSWORD_DEFAULT), 'email' => $email, 'rol' => $rol));
+        }
     } catch (PDOException $e) {
         echo 'Error al insertar usuario: ' . $e->getMessage();
     }

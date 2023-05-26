@@ -34,11 +34,18 @@ button{/*Margen izquierdo para separar los botones*/
         flex: 1 1 100%;
     }
 }
-.cuerpo_columnas {/*pone los dive en columnas*/
+
+.cuerpo_columnas {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
-    margin: 20px;
+}
+
+.columna_1 {
+    flex-basis: 45%;
+}
+
+.columna_2 {
+    flex-basis: 45%;
 }
 @media (max-width: 768px) {/*realiza que la página sea responsive*/
     .contenedor-columnas {

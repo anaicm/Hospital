@@ -2,6 +2,14 @@
 <html>
 <?php
 require_once('../modelo/crud.php');
+session_start();//para poder leer y escribir en las variables de sesión 
+if (!isset($_SESSION['usuario'])) {
+    header('location: ../login.php');
+exit();
+}
+$usuario = crud_select('usuario', 'idUsuario', $_SESSION['idUsuario'] );
+$rol = $_SESSION['rol'] = $usuario[0]['Rol'];
+$dni = $_SESSION['dni'] = $usuario[0]['Dni'];
 ?>
 
 <head>
@@ -36,15 +44,17 @@ require_once('../modelo/crud.php');
 <?php
 if (isset($_POST['siguientep1'])) {//
 //se obtiene la fecha del paso anterior (primero se inicializa y luego se obtiene el valor del post) así nos aseguramos que fecha tiene un valor
-$fecha = '';
-$fecha = $_POST['fecha'];
-$dni = '';
-$dni = $_POST['dni'];
+$fecha = date('Y-m-d H:i:s', strtotime($_POST['fecha']));
+    if($rol !='Usuario'){
+       $dni = $_POST['dni'];
+    }else{
+        $dni = $_SESSION['dni'] = $usuario[0]['Dni'];
+    }
 }
 ?>
 
 <body class="body-fondo">
-    <!--Cabecera--------------------------------------------------------------------------------------------------->
+    <!--Cabecera---------------------------------------------------------------------------------------------------->
     <header class="main-header">
         <div class="logo-container">
             <a href="index.php"><img src="logos/logo_hospital4.png"></a>

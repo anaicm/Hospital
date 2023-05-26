@@ -36,8 +36,6 @@ require_once('../modelo/crud.php');
 <?php
 if (isset($_POST['siguientep2'])) {//
 //se obtienen los datos del paso anterior
-$fecha = '';
-$dni = '';
 $dni = $_POST['dni'];
 $departamento = -1;
 $fecha = $_POST['fecha'];
@@ -46,6 +44,7 @@ $departamento = $_POST['departamento'];
 ?>
 
 <body class="body-fondo">
+    <!---->
     <header class="main-header">
         <div class="logo-container">
             <a href="index.php"><img src="logos/logo_hospital4.png"></a>

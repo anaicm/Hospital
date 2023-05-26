@@ -1,6 +1,5 @@
 .body-fondo{/*Fondo para toda la aplicación*/
     background: -webkit-linear-gradient(left,#EDEDE9, #90C3C8);
-    overflow: hidden; /* Evita el scroll en la página */
     font-family: 'Montserrat', sans-serif;
     margin: 0px;
     width: auto;

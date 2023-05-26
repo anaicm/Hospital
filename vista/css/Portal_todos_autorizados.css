@@ -1,0 +1,213 @@
+.tab_especialista{/*CSS para la tabla que muestra los pacientes */
+    background-color:#1F736A;
+    border-radius: 10px;
+    width: 100%;
+    margin: 10px 20px 10px 10px;
+    padding: 10px 10px 10px 10px ;
+}
+.cont_especialista{/*Borde para la tabla que muestra los usuarios*/
+    margin: 10px 30px 10px 10px;
+    padding: 10px 35px 10px 10px;
+    border: 3px solid #1F736A ;
+    border-radius: 10px;
+    width: 35%;
+}
+.contenedor_personal_autorizado{/*Da forma, tamaño de los div ocultos en el portal del usuario autorizado*/
+    width: 100%;
+    max-width: 800px; /* Establece un ancho máximo para evitar que el contenido se extienda demasiado en pantallas grandes */
+    margin: 0 auto; /* Centra el div horizontalmente */
+    padding: 20px; /* Se agrega un espacio alrededor del contenido */
+    border: 3px solid #1F736A ;
+    border-radius: 10px;
+
+}
+.contenedor{
+    display: flex;
+    flex-direction: column;
+}
+.oculta{
+    display:none;
+}
+.visible{display:block}/*Hace visible los div ocultos */
+.con_tabala_agenda{/*paddind derecho para la tabla que muestra las citas del día seleccionado*/
+   
+    padding-right: 22px;
+}
+.texto_titulo{/*Estilo para el texto del título de la agenda*/
+    color: black;
+    font-size: 26px;
+    text-align: center;
+}
+.contenedor_personal_autorizado_paciente{/*Elementos para el tamaño de los div*/
+    width: 100rem;
+    margin: 20px 20px 20px 20px;
+    padding: 10px 10px 10px 10px;
+    border:  2px solid #1F736A;
+    border-radius: 10px;
+    }
+/*--------------------*/
+  @media (max-width: 768px) {/*Cambia el diseño cuando el ancho de la pantalla es <=768px*/
+    .container {
+      flex-direction: row;
+    }
+}
+  
+   @media (max-width: 480px) { /* Estilos para pantallas más pequeñas portal usuario autorizado */
+    .contenedor_personal_autorizado {
+        width: 100%; 
+        padding: 10px; 
+    }
+}
+    
+
+textarea{/*Tamaño de la etiqueta textarea para que el especialista escriba el informe*/
+    width: 700px;
+    height: 200px;
+    margin:10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px ; 
+    text-align: left;
+    font-size: 23px;
+    font-family: lexend, Arial, Helvetica, sans-serif;  
+}
+.cont_iframe{/*Contenedor para colocar el iframe en dos columnas*/
+    display: flex;
+    flex-direction: row;
+}
+
+.cont_darCita{/*Contenedor donde el especialista da cita*/
+    margin:10px 0px 10px 30px;
+    padding: 10px 0px 10px 10px ;  
+    border:  2px solid #1F736A;
+    border-radius: 10px;
+    width: 300px;
+    height: 200px;
+}
+button{/*Margen izquierdo para separar los botones*/
+    margin:10px;
+}
+/*Hace la página responsive*/
+.cont_iframe > div {
+    flex: 1 1 50%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+@media screen and (max-width: 768px) {
+    .cont_iframe > div {
+        flex: 1 1 100%;
+    }
+}
+
+.cuerpo_columnas {
+    display: flex;
+    justify-content: space-between;
+}
+
+.columna_1 {
+    flex-basis: 45%;
+}
+
+.columna_2 {
+    flex-basis: 45%;
+}
+@media (max-width: 768px) {/*realiza que la página sea responsive*/
+    .contenedor-columnas {
+        grid-template-columns: 100%;
+    }
+}
+
+.columna_1 {/*tamaño de la columna 1*/
+    flex-basis: 45%;
+    margin-bottom: 20px;
+}
+
+.columna_2 {/*tamaño de la columna 2*/
+    flex-basis: 35%;
+    margin-bottom: 20px;
+}
+.tamaño_dar_cita{
+    /*Estilos de texto, fondo, anchura y altura, borde y cursor pointer para las tarjetas con las que interactua el usuario*/
+        border: 1px solid rgb(153, 160, 174);
+        border-radius: 10%;
+        width: 150px;
+        height: 100px;
+        text-align: center;
+        padding: 12px;
+        margin: 12px;
+        background-color:white;
+        color: #482b97;
+        font-size: 15px;
+        cursor: pointer;
+      
+ 
+}
+
+  .imagenes-etiquetas-especialista{/*Estilo para dar tamaño a las imagenes de cada tarjeta del portal personal autorizado*/
+    width: 100px;
+    height: 50px;
+  
+  }
+
+
+/*
+*Estilos para el portal del administrador, portal del especialista y del personal autorizado
+*/
+
+.tab_administrador{/*Estilo para el contenedor que muestra las tablas que contiene la BD*/
+    padding-right: 10px;
+    background-color:#1F736A;
+    margin: 10px 10px 10px 10px;
+    width: 75%;  
+    
+}
+.texto{/*Estilo para el texto*/
+    color: beige;
+    font-size: 30px;
+    text-align: center;
+    font-family: lexend, Arial, Helvetica, sans-serif;  
+}
+.celdas{/*Estilo para las filas que muestra cada tabla de la BD*/
+    background-color:#6ED8A5;
+    width: 75%;
+    cursor: pointer;
+    border: 2px solid #1F736A ;
+    margin: 10px 8px 0px 10px;
+}
+.celdas:hover{/*Al pasar el ratón por encima cambia el color del fondo y de la letra*/
+    background-color: #B9B8D3;
+    color: black;
+}
+input{/*Margen superior para lo input*/
+    margin-top: 10px;
+}
+iframe{/*Tamaño para iframe*/
+    width: 100%;
+    height: 750px;
+}
+.tam_derecho{/*Contenedor derecho de la página*/
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: 100%;
+    padding-top: 10px;
+    margin: 10px 10px 10px 10px;
+}
+.filas{/*Estilo para centrar las filas*/
+    display: flex;
+    flex-wrap: wrap;
+}
+.cont_iframe{/*Contenedor para colocar el iframe en dos columnas*/
+    display: flex;
+    flex-direction: column;
+}
+/*Hace la página responsive*/
+.cont_iframe > div {
+    flex: 1 1 50%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+@media screen and (max-width: 768px) {
+    .cont_iframe > div {
+        flex: 1 1 100%;
+    }
+}
+

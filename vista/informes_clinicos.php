@@ -66,7 +66,7 @@ $citas = crud_select('cita', 'idUsuario', $_SESSION['idUsuario'] );
         </div>
         <div id="'. $tipo_cita[0]['Nombre'] .'" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
           <div class="card-body"> -
-          '. $cita['Informe'] .'
+          '. $cita['informe'] .'
           </div>
         </div>
       </div>';

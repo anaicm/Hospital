@@ -54,22 +54,26 @@ if(isset($_POST['confirmar'])){
     $tipo_cita = $_POST['tipo_cita'];
     $fecha =  $_POST['fecha'];
     $personal = null;
+    /*
     if ($fecha == ''){
         // Lo antes posible es mañana a las 8 de la mañana
         $fecha = new DateTime(); 
         $fecha->modify('+1 day'); 
         $fecha->setTime(8, 0, 0);
-    }
+    }*/
 
     $departamento_personales=crud_select('Departamento_Personal', 'idDepartamento', $departamento);
-    $consulta=crud_select('usuario', 'Dni', $dni);
+    
     try {
-        $idUsuario= $consulta[0]['idUsuario'];
         $personal = $departamento_personales[0]['idPersonal'];
         if($rol =='Usuario'){
-            crud_insertar('cita', array('hora' => date('Y-m-d', strtotime(str_replace('-', '/', $fecha))), 'idPersonal' => $departamento_personales[0]['idPersonal'], 'idUsuario' => $_SESSION['idUsuario'], 'idTipoCita' => $tipo_cita));
+            crud_insertar('cita', array('Hora' => $fecha, 'idPersonal' => $personal, 'idUsuario' => $_SESSION['idUsuario'], 'idTipoCita' => $tipo_cita));
+
+            //crud_insertar('cita', array('hora' => date('Y-m-d', strtotime(str_replace('-', '/', $fecha))), 'idPersonal' => $departamento_personales[0]['idPersonal'], 'idUsuario' => $_SESSION['idUsuario'], 'idTipoCita' => $tipo_cita));
         }if($rol !='Usuario'){
-            crud_insertar('cita', array('hora' => date('Y-m-d', strtotime(str_replace('-', '/', $fecha))), 'idPersonal' => $departamento_personales[0]['idPersonal'], 'idUsuario' => $idUsuario, 'idTipoCita' => $tipo_cita));
+            $consulta=crud_select('usuario', 'Dni', $dni);
+            $idUsuario= $consulta[0]['idUsuario'];
+            crud_insertar('cita', array('Hora' => date('Y-m-d', strtotime(str_replace('-', '/', $fecha))), 'idPersonal' => $departamento_personales[0]['idPersonal'], 'idUsuario' => $idUsuario, 'idTipoCita' => $tipo_cita));
         }
     } catch (PDOException $e) {
         echo 'Error al insertar la cita: ' . $e->getMessage();
@@ -122,7 +126,7 @@ if(isset($_POST['confirmar'])){
                 $centroCita = crud_select('Centro', 'idCentro', $centro );
                 $departamentoCita = crud_select('Departamento', 'idDepartamento',$departamento );
                 $personalCita = crud_select('personal', 'idpersonal',$personal );
-                //echo 'Se ha confirmado su cita en ' . $centroCita[0]['Nombre'] . ' el día ' . $fecha . ' para la especialidad ' . $departamentoCita[0]['Nombre'] . ' con el especialista ' . $personalCita[0]['Nombre'] . $departamentoCita[0]['Nombre'] . ' con el especialista ' . ' ' . $personalCita[0]['Apellido'];
+                echo 'Se ha confirmado su cita en ' . $centroCita[0]['Nombre'] . ' el día ' . $fecha . ' para la especialidad ' . $departamentoCita[0]['Nombre'] . ' con el especialista ' . $personalCita[0]['Nombre'] . $departamentoCita[0]['Nombre'] . ' con el especialista ' . ' ' . $personalCita[0]['Apellido'];
                 ?>
                 </div>
                 <?php if($rol =='Usuario'){//según el rol le lleva a su portal
@@ -149,4 +153,3 @@ if(isset($_POST['confirmar'])){
             </div>
         </div>
 </body>
-<!--cuerpo-->

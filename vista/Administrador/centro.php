@@ -60,7 +60,9 @@
     </script>
 </head>
 
-<body><?php
+<body>
+    <h1 Style="text-align: center;">Centros</h1>
+    <hr><?php
 require_once('../../modelo/crud.php');
 
 if (isset($_POST['registrar'])) {
@@ -194,6 +196,10 @@ echo '<table class="table table-hover">';
             </div>
         </form>
     </div>
+
+    <hr>
+    <h5 Style="text-align: center;">Centro_Departamento</h5>
+    <hr>
     <?php
 
 // tabla M:M

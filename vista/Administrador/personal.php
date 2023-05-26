@@ -67,6 +67,7 @@
     <?php
 require_once('../../modelo/crud.php');
 
+
 if (isset($_POST['registrar'])) {
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
@@ -77,6 +78,7 @@ if (isset($_POST['registrar'])) {
 	$contrasenia = $_POST['password'];
     $rol = $_POST['rol'];
     try {
+        
     crud_insertar('personal', array('nombre' => $nombre, 'apellido' => $apellido, 'telefono' => $telefono, 'dni' => $dni));
     crud_insertar('Usuario', array('dni' => $dni, 'nombre' => $nombre, 'apellido' => $apellido, 'telefono' => $telefono, 'FechaNacimiento' => $fnacimiento,'contrasenia' => password_hash($contrasenia, PASSWORD_DEFAULT), 'email' => $email, 'rol' => $rol));
     } catch (PDOException $e) {

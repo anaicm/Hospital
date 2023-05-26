@@ -36,8 +36,7 @@ require_once('../modelo/crud.php');
 <?php
 if (isset($_POST['siguientep3'])) {//
 //se obtienen los datos del paso anterior
-    $fecha = '';
-    $dni = '';
+
     $dni = $_POST['dni'];
     $departamento = -1;
     $ciudad = -1;

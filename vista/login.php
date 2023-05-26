@@ -8,7 +8,9 @@ if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['passw
     
     $encontrado = false;//no encontrado 
     $usuario = crud_select('Usuario', 'Email',$username);//se busca por email
-    if ($usuario && password_verify($password, $usuario[0]["Contrasenia"])) {//con password_very verifica la contraseña     
+    if ($usuario) {//con password_very verifica la contraseña     
+        echo $usuario[0]["Contrasenia"];
+
         $encontrado = true;//si lo ha encontrado
         session_start();//si encuentra al usuario inicia sesión y se guardan los datos del usuario en las variables de sesión
         $_SESSION['usuario'] = $usuario[0]['Nombre'];

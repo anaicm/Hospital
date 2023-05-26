@@ -11,11 +11,13 @@
 <body>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../css/Portal_especialista.css">
-    <link rel="stylesheet" type="text/css" href="../css/Portal_administrador.css">
+    Portal_todos_autorizados
+    <link rel="stylesheet" type="text/css" href="../css/Portal_todos_autorizados.css">
+    <!--<link rel="stylesheet" type="text/css" href="../css/Portal_especialista.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="../css/Portal_administrador.css">-->
     <link rel="stylesheet" type="text/css" href="../css/cabecera.css">
     <link rel="stylesheet" type="text/css" href="../css/barra_navegacion.css">
-    <link rel="stylesheet" type="text/css" href="../css/uasuario_especialista.css">
+    <!--<link rel="stylesheet" type="text/css" href="../css/uasuario_especialista.css">-->
 
     </head>
     <script>
@@ -69,8 +71,8 @@
                 <h1>CenSalud</h1>
             </div>
             <div class="button-container">
-                <a href="../Administrador/portal_administrador.php" class="c-button user-button"><img
-                        src="../logos/logo_volver-1.png" class="logo-volver"></a>
+                <a href="portal_especialista.php" class="c-button user-button"><img src="../logos/logo_volver-1.png"
+                        class="logo-volver"></a>
             </div>
         </header>
         <!--Barra de navegación------------------------------------------------------------------------------------------>
@@ -227,8 +229,6 @@
                     </div>
                 </div>
             </div>
-            <!-----------------------------------Dar cita------------------------------------------------------->
-
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"

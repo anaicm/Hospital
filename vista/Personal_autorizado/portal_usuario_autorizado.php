@@ -12,6 +12,7 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
 <link rel="stylesheet" type="text/css" href="../css/Portal_especialista.css">
 <link rel="stylesheet" type="text/css" href="../css/Portal_administrador.css">
 <link rel="stylesheet" type="text/css" href="../css/cabecera.css">
@@ -49,8 +50,8 @@
             <h1>CenSalud</h1>
         </div>
         <div class="button-container">
-            <a href="../Administrador/portal_administrador.php" class="c-button user-button"><img
-                    src="../logos/logo_volver-1.png" class="logo-volver"></a>
+            <a href="portal_usuario_autorizado.php" class="c-button user-button"><img src="../logos/logo_volver-1.png"
+                    class="logo-volver"></a>
         </div>
     </header>
     <!--Barra de navegación------------------------------------------------------------------------------------------>
@@ -144,15 +145,15 @@
                                 echo "<tbody>";
                                 foreach ($busqueda as $resultado) {
                                     echo "<tr class='celdas'><td>" . $resultado['Hora'] . "</td>";
-                                    echo "<td>" . $resultado['Informe'] . "</td></tr>";
-                                }
+                                    echo "<td>" . $resultado['informe'] . "</td></tr>";
+                                }/*
                                 echo "<tr><th>Familiares</th><th></th></tr>";
                                 echo "<tr><th>Nombre</th><th>Apellidos</th></tr>";
                                 foreach($busqueda2 as $resultado){
                                     echo "<tr class='celdas'><td>" . $resultado['Nombre'] . "</td>";
                                     echo "<td>" . $resultado['Apellido'] . "</td></tr>";
 
-                                } 
+                                } */
                                 echo "</tbody>";
                                 echo "</table>"; 
                                 

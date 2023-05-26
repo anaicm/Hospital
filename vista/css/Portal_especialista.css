@@ -21,6 +21,10 @@
     border-radius: 10px;
 
 }
+.contenedor{
+    display: flex;
+    flex-direction: column;
+}
 .oculta{
     display:none;
 }
@@ -35,7 +39,7 @@
     text-align: center;
 }
 .contenedor_personal_autorizado_paciente{/*Elementos para el tamaño de los div*/
-    width: auto;
+    width: 100rem;
     margin: 20px 20px 20px 20px;
     padding: 10px 10px 10px 10px;
     border:  2px solid #1F736A;
