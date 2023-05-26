@@ -13,7 +13,7 @@ $dni = $_SESSION['dni'] = $usuario[0]['Dni'];
 ?>
 
 <head>
-    <title>Mis citas</title>
+    <title>Pedir cita</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/pedir_cita.css">
     <link rel="stylesheet" type="text/css" href="css/cabecera.css">
